@@ -89,15 +89,18 @@
             android:elevation="10dp"
             android:orientation="vertical">
 
+
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="200dp"
                 android:src="@drawable/editoria_logo"></ImageView>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="asdasdasd"
-        ></TextView>
+                android:text="asdasdasd"></TextView>
+
+
         </LinearLayout>
 
 
@@ -122,6 +125,9 @@
             tools:layout_editor_absoluteY="260dp" />
 
     </RelativeLayout>
+
+
+
 
 
 
