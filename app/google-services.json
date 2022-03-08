@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "493695069515",
+    "project_id": "editoria-16df8",
+    "storage_bucket": "editoria-16df8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:493695069515:android:b3a9d30f8bc3caf5e84cce",
+        "android_client_info": {
+          "package_name": "com.example.pruebafirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "493695069515-5m153g0ivcpfob58hm2hl7v2mpadgpvl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJwTWsZYIPJ9iUhViK2oDN59ueYpHLGVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "493695069515-5m153g0ivcpfob58hm2hl7v2mpadgpvl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
