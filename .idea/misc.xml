@@ -3,13 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/login.xml" value="0.264" />
-        <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/register.xml" value="0.1793478260869565" />
-        <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/registercliente.xml" value="0.264" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/drawable/borde.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/drawable/cuadrado.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/drawable/cuadradosustituirporprueba.xml" value="0.10416666666666667" />
+        <entry key="app/src/main/res/drawable/fondonegro.xml" value="0.30104166666666665" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/drawable/prueba.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/separator.xml" value="0.35520833333333335" />
@@ -18,6 +16,7 @@
         <entry key="app/src/main/res/layout/borde.xml" value="0.271286231884058" />
         <entry key="app/src/main/res/layout/home.xml" value="0.2" />
         <entry key="app/src/main/res/layout/login.xml" value="0.296195652173913" />
+        <entry key="app/src/main/res/layout/paginafiltro.xml" value="0.28489583333333335" />
         <entry key="app/src/main/res/layout/recuperarcontrasenya.xml" value="0.25" />
         <entry key="app/src/main/res/layout/recuperarcontraseña.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/register.xml" value="0.29030797101449274" />

@@ -53,6 +53,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="33dp"
+        android:onClick="ss"
         android:text="Filtrar"
         android:textSize="11dp"
         app:layout_constraintBottom_toTopOf="@+id/view2"
