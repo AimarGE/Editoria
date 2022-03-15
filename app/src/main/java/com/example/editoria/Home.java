@@ -1,47 +1,35 @@
 package com.example.editoria;
 
-import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Home extends AppCompatActivity {
 
-    private Dialog dialog;
-    private Button cancelar, bFiltro;
-
+    Button bFiltro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
-        bFiltro = findViewById(R.id.button6);
+        getSupportActionBar().hide();
 
+        Log.i("PROBANDO", "AE");
 
-        /*
-        bFiltro = findViewById(R.id.bfiltro);
-        dialog = new Dialog(this);
-
-        bFiltro.setOnClickListener(new View.OnClickListener(){
-
+        bFiltro = (Button) findViewById(R.id.filtro);
+        bFiltro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("PRUEBA", "asdasd");
-                dialog.setContentView(R.layout.paginafiltro);
-
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                Log.i("PROBANDO", "asdasd");
+                Intent i = new Intent(getApplicationContext(), PopFiltro.class);
+                startActivity(i);
             }
-        });*/
-
-    }
-
-    public void ss(View view){
-        Log.i("ejemplo", "rara arara ");
+        });
     }
 
 

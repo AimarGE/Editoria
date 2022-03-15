@@ -8,7 +8,7 @@
             <!-- set the shadow color here -->
             <stroke
                 android:width="5dp"
-                android:color="#7000" />
+                android:color="@color/black" />
 
             <!-- setting the thickness of shadow (positive value will give shadow on that side) -->
 
@@ -22,12 +22,12 @@
         </shape>
     </item>
 
-    <!-- Background -->
+    <!-- Background
 
     <item>
         <shape>
-            <solid android:color="#fff" />
+            <solid android:color="@color/black" />
             <corners android:radius="3dp" />
         </shape>
-    </item>
+    </item>-->
 </layer-list>
