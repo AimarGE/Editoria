@@ -8,348 +8,355 @@
     tools:context=".PopFiltro">
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="Filtros"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="108dp"
-        android:text="Precio"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/italiano"
         android:layout_width="0dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="62dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="94dp"
         android:background="@drawable/bordefiltro"
         android:paddingLeft="10dp"
         android:paddingTop="2dp"
         android:text="Italiano"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/ruso"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ruso"
-        app:layout_constraintTop_toTopOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/ingles"
-        android:layout_width="0dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="31dp"
-        android:background="@drawable/bordefiltro"
-        android:paddingLeft="10dp"
-        android:paddingTop="2dp"
-        android:text="Inglés"
-        app:layout_constraintEnd_toStartOf="@+id/frances"
-        app:layout_constraintStart_toEndOf="@+id/espanyol"
-        app:layout_constraintTop_toTopOf="@+id/textView9" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup10"
-        android:layout_width="301dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="240dp"
-        android:layout_marginEnd="24dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="150dp"
-            android:layout_height="36dp"
-            android:text="Profesional" />
-
-        <RadioButton
-            android:id="@+id/radioButton4"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="Amateur" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/r1_100"
-        android:layout_width="0dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="26dp"
-        android:background="@drawable/bordefiltro"
-        android:paddingLeft="18dp"
-        android:paddingTop="4dp"
-        android:text="1 - 100"
-        app:layout_constraintEnd_toStartOf="@+id/r100_500"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView10" />
-
-    <TextView
-        android:id="@+id/r1000_50000"
-        android:layout_width="120dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="72dp"
-        android:background="@drawable/bordefiltro"
-        android:paddingLeft="19dp"
-        android:paddingTop="4dp"
-        android:text="1000 - 50000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/r1000_10000"
-        app:layout_constraintTop_toTopOf="@+id/r100_500" />
+        app:layout_constraintTop_toTopOf="@+id/ruso" />
 
     <TextView
         android:id="@+id/espanyol"
         android:layout_width="0dp"
         android:layout_height="25dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="86dp"
         android:layout_marginEnd="37dp"
+        android:layout_marginBottom="87dp"
         android:background="@drawable/bordefiltro"
         android:paddingLeft="10dp"
         android:paddingTop="2dp"
         android:text="Español"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/textView10"
         app:layout_constraintEnd_toStartOf="@+id/ingles"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="100€"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar2"
-        app:layout_constraintEnd_toEndOf="@+id/seekBar2" />
+        app:layout_constraintTop_toTopOf="@+id/radioGroup10" />
 
     <TextView
         android:id="@+id/catalan"
         android:layout_width="0dp"
         android:layout_height="25dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="43dp"
         android:layout_marginEnd="37dp"
+        android:layout_marginBottom="45dp"
         android:background="@drawable/bordefiltro"
         android:paddingLeft="10dp"
         android:paddingTop="2dp"
         android:text="Catalán"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/textView10"
         app:layout_constraintEnd_toStartOf="@+id/ruso"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/espanyol" />
-
-    <TextView
-        android:id="@+id/r500_1000"
-        android:layout_width="80dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="53dp"
-        android:background="@drawable/bordefiltro"
-        android:paddingLeft="11dp"
-        android:paddingTop="4dp"
-        android:text="500-1000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/r100_500"
-        app:layout_constraintTop_toTopOf="@+id/textView10" />
+        app:layout_constraintTop_toTopOf="@+id/ingles" />
 
     <TextView
         android:id="@+id/ruso"
         android:layout_width="0dp"
         android:layout_height="25dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="31dp"
+        android:layout_marginBottom="44dp"
         android:background="@drawable/bordefiltro"
         android:paddingLeft="10dp"
         android:paddingTop="2dp"
         android:text="Ruso"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/textView10"
         app:layout_constraintEnd_toStartOf="@+id/italiano"
         app:layout_constraintStart_toEndOf="@+id/catalan"
-        app:layout_constraintTop_toTopOf="@+id/textView9" />
+        app:layout_constraintTop_toTopOf="@+id/ingles" />
 
     <TextView
         android:id="@+id/frances"
         android:layout_width="0dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="63dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="95dp"
         android:background="@drawable/bordefiltro"
         android:paddingLeft="10dp"
         android:paddingTop="2dp"
         android:text="Francés"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/ingles"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ingles"
-        app:layout_constraintTop_toTopOf="@+id/textView9" />
+        app:layout_constraintTop_toTopOf="@+id/ingles" />
 
     <TextView
-        android:id="@+id/r1000_10000"
+        android:id="@+id/ingles"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/bordefiltro"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
+        android:text="Inglés"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/espanyol"
+        app:layout_constraintEnd_toStartOf="@+id/frances"
+        app:layout_constraintStart_toEndOf="@+id/espanyol"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="11dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/textView9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar2">
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="150dp"
+            android:layout_height="36dp"
+            android:text="Profesional"
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Amateur"
+            android:textColor="@color/black" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/r1000_50000"
         android:layout_width="120dp"
         android:layout_height="29dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="11dp"
         android:background="@drawable/bordefiltro"
-        android:paddingLeft="18dp"
+        android:paddingLeft="19dp"
         android:paddingTop="4dp"
-        android:text="1000 - 10000"
-        app:layout_constraintEnd_toStartOf="@+id/r1000_50000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/r1_100" />
+        android:text="1000 - 50000"
+        android:textColor="@color/black"
+        app:layout_constraintBaseline_toBaselineOf="@+id/r1000_10000"
+        app:layout_constraintEnd_toStartOf="@+id/r500_1000"
+        app:layout_constraintStart_toStartOf="@+id/r500_1000" />
 
     <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="216dp"
-        android:text="Disponibilidad"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/r1000_10000" />
-
-    <TextView
-        android:id="@+id/todo_dia"
-        android:layout_width="100dp"
+        android:id="@+id/r100_500"
+        android:layout_width="0dp"
         android:layout_height="29dp"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="51dp"
-        android:layout_marginEnd="147dp"
-        android:layout_marginBottom="69dp"
+        android:layout_marginEnd="28dp"
         android:background="@drawable/bordefiltro"
-        android:paddingLeft="15dp"
+        android:paddingLeft="10dp"
         android:paddingTop="4dp"
-        android:text="Todo el día"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tarde" />
-
-    <TextView
-        android:id="@+id/manyana"
-        android:layout_width="90dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="120dp"
-        android:background="@drawable/bordefiltro"
-        android:paddingLeft="20dp"
-        android:paddingTop="4dp"
-        android:text="Mañana"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tarde"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
-
-    <TextView
-        android:id="@+id/tarde"
-        android:layout_width="90dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/bordefiltro"
-        android:paddingLeft="26dp"
-        android:paddingTop="4dp"
-        android:text="Tarde"
-        app:layout_constraintEnd_toStartOf="@+id/noche"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
-
-    <TextView
-        android:id="@+id/noche"
-        android:layout_width="90dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginBottom="120dp"
-        android:background="@drawable/bordefiltro"
-        android:paddingLeft="20dp"
-        android:paddingTop="4dp"
-        android:text="Noche"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
-
+        android:text="100 - 500"
+        android:textColor="@color/black"
+        app:layout_constraintBaseline_toBaselineOf="@+id/r1_100"
+        app:layout_constraintEnd_toStartOf="@+id/r500_1000"
+        app:layout_constraintStart_toEndOf="@+id/r1_100" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginBottom="14dp"
         android:text="Ranking"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/r1_100"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/r1_100"
+        android:layout_width="0dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginEnd="26dp"
+        android:background="@drawable/bordefiltro"
+        android:paddingLeft="18dp"
+        android:paddingTop="4dp"
+        android:text="1 - 100"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/r100_500"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/r1000_10000"
+        android:layout_width="120dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="69dp"
+        android:background="@drawable/bordefiltro"
+        android:paddingLeft="18dp"
+        android:paddingTop="4dp"
+        android:text="1000 - 10000"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/manyana"
+        app:layout_constraintEnd_toEndOf="@+id/todo_dia"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/r500_1000"
+        android:layout_width="0dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/bordefiltro"
+        android:paddingLeft="11dp"
+        android:paddingTop="4dp"
+        android:text="500-1000"
+        android:textColor="@color/black"
+        app:layout_constraintBaseline_toBaselineOf="@+id/r100_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/r100_500" />
+
+    <TextView
+        android:id="@+id/todo_dia"
+        android:layout_width="100dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="71dp"
+        android:background="@drawable/bordefiltro"
+        android:paddingLeft="15dp"
+        android:paddingTop="4dp"
+        android:text="Todo el día"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="72dp"
+        android:text="Disponibilidad"
+        android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/catalan" />
+        app:layout_constraintTop_toBottomOf="@+id/r1_100" />
+
+    <TextView
+        android:id="@+id/tarde"
+        android:layout_width="0dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bordefiltro"
+        android:paddingLeft="26dp"
+        android:paddingTop="4dp"
+        android:text="Tarde"
+        android:textColor="@color/black"
+        app:layout_constraintBaseline_toBaselineOf="@+id/noche"
+        app:layout_constraintEnd_toStartOf="@+id/noche"
+        app:layout_constraintStart_toEndOf="@+id/manyana" />
+
+    <TextView
+        android:id="@+id/noche"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="36dp"
+        android:background="@drawable/bordefiltro"
+        android:paddingLeft="20dp"
+        android:paddingTop="4dp"
+        android:text="Noche"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/manyana"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tarde"
+        app:layout_constraintTop_toTopOf="@+id/manyana" />
+
+    <TextView
+        android:id="@+id/manyana"
+        android:layout_width="0dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/bordefiltro"
+        android:paddingLeft="20dp"
+        android:paddingTop="4dp"
+        android:text="Mañana"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/todo_dia"
+        app:layout_constraintEnd_toStartOf="@+id/tarde"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+
+    <SeekBar
+        android:id="@+id/seekBar2"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="60dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="5dp"
         android:text="0€"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/seekBar2"
         app:layout_constraintStart_toStartOf="@+id/seekBar2" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:text="Precio"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="5dp"
+        android:text="100€"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar2"
+        app:layout_constraintEnd_toEndOf="@+id/seekBar2" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="290dp"
-        android:layout_marginBottom="504dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="47dp"
         android:text="Idiomas"
+        android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/r100_500"
-        android:layout_width="0dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="161dp"
-        android:background="@drawable/bordefiltro"
-        android:paddingLeft="10dp"
-        android:paddingTop="4dp"
-        android:text="100 - 500"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/r1_100"
-        app:layout_constraintTop_toTopOf="@+id/textView10" />
-
-    <SeekBar
-        android:id="@+id/seekBar2"
-        android:layout_width="0dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="61dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="61dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

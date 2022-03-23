@@ -12,21 +12,10 @@ import android.widget.Button;
 
 public class PopFiltro extends Activity {
 
-    Button bCancelar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pop_filtro);
-
-        /*bCancelar = (Button) findViewById(R.id.cancelar);
-
-        bCancelar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });*/
 
 
         DisplayMetrics dm = new DisplayMetrics();
