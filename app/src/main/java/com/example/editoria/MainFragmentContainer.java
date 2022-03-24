@@ -1,11 +1,6 @@
 package com.example.editoria;
 
-import android.app.Notification;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +8,7 @@ import androidx.fragment.app.Fragment;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
-public class Home extends AppCompatActivity {
+public class MainFragmentContainer extends AppCompatActivity {
 
     //Button bFiltro;
     MeowBottomNavigation bottomNavigation;
@@ -21,7 +16,7 @@ public class Home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
+        setContentView(R.layout.main_fragment_container);
 
         getSupportActionBar().hide();
 
@@ -29,7 +24,8 @@ public class Home extends AppCompatActivity {
 
         bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_home));
         bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_chat));
-        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_profile));
+        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_proyectos));
+        bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.ic_profile));
         loadFragment(new HomeFragment());
 
 
@@ -57,6 +53,9 @@ public class Home extends AppCompatActivity {
                         fragment = new ChatFragment();
                         break;
                     case 3:
+                        fragment = new ProyectosFragment();
+                        break;
+                    case 4:
                         fragment = new ProfileFragment();
                         break;
                 }

@@ -14,7 +14,7 @@
             android:theme="@style/AppTheme.PopMe"
             android:exported="true" />
         <activity
-            android:name=".Home"
+            android:name=".MainFragmentContainer"
             android:exported="true" />
         <activity
             android:name=".Login"
