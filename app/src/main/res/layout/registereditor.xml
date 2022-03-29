@@ -10,11 +10,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textViewTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="54dp"
@@ -24,14 +24,14 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/userTextView2"
+            android:id="@+id/userTextViewUsuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
             android:text="Usuario"
             android:textColor="#000000"
             android:textSize="20dp"
-            android:layout_marginTop="40dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/usuario"
@@ -42,7 +42,7 @@
             android:inputType="textPersonName" />
 
         <TextView
-            android:id="@+id/userTextView4"
+            android:id="@+id/userTextViewContra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
@@ -50,6 +50,7 @@
             android:textColor="#000000"
             android:textSize="20dp"
             android:textStyle="bold" />
+
         <EditText
             android:id="@+id/password"
             android:layout_width="wrap_content"
@@ -58,7 +59,7 @@
             android:inputType="textPersonName" />
 
         <TextView
-            android:id="@+id/userTextView5"
+            android:id="@+id/userTextViewConfirmarContra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
@@ -75,7 +76,7 @@
             android:inputType="textPersonName" />
 
         <TextView
-            android:id="@+id/userTextView6"
+            android:id="@+id/userTextViewCorreo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
@@ -83,8 +84,9 @@
             android:textColor="#000000"
             android:textSize="20dp"
             android:textStyle="bold" />
+
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/correo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -92,7 +94,7 @@
 
 
         <TextView
-            android:id="@+id/userTextView7"
+            android:id="@+id/userTextViewTelefono"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
@@ -109,7 +111,7 @@
             android:inputType="textPersonName" />
 
         <TextView
-            android:id="@+id/userTextView8"
+            android:id="@+id/userTextViewFechaNacimiento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -117,8 +119,9 @@
             android:textColor="#000000"
             android:textSize="20dp"
             android:textStyle="bold" />
+
         <EditText
-            android:id="@+id/FechaNacimiento"
+            android:id="@+id/fechaNacimiento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -131,8 +134,7 @@
             android:layout_marginTop="21dp"
             android:layout_marginBottom="41dp"
             android:gravity="center"
-            android:weightSum="1"
-            >
+            android:weightSum="1">
 
 
             <RadioGroup
@@ -143,14 +145,14 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/profesional"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:text="Profesional" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/amateur"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="43dp"
@@ -161,7 +163,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/registro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="49dp"

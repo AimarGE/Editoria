@@ -24,8 +24,10 @@ public class MainFragmentContainer extends AppCompatActivity {
 
         bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_home));
         bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_chat));
-        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_proyectos));
-        bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.ic_profile));
+        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_evento));
+        bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.ic_proyectos));
+        bottomNavigation.add(new MeowBottomNavigation.Model(5, R.drawable.ic_profile));
+
         loadFragment(new HomeFragment());
 
 
@@ -36,7 +38,6 @@ public class MainFragmentContainer extends AppCompatActivity {
         });
 
         bottomNavigation.setCount(2, "10");
-
         bottomNavigation.show(1, true);
 
         bottomNavigation.setOnClickMenuListener(new MeowBottomNavigation.ClickListener() {
@@ -53,10 +54,13 @@ public class MainFragmentContainer extends AppCompatActivity {
                         fragment = new ChatFragment();
                         break;
                     case 3:
-                        fragment = new ProyectosFragment();
+                        fragment = new EventoFragment();
                         break;
                     case 4:
-                        fragment = new ProfileFragment();
+                        fragment = new ProyectosFragment();
+                        break;
+                    case 5:
+                        fragment = new PerfilFragment();
                         break;
                 }
                 loadFragment(fragment);
@@ -65,8 +69,30 @@ public class MainFragmentContainer extends AppCompatActivity {
 
         bottomNavigation.setOnReselectListener(new MeowBottomNavigation.ReselectListener() {
             @Override
-            public void onReselectItem(MeowBottomNavigation.Model item) {
-                Toast.makeText(getApplicationContext(), "Has reseleccionado"+ item.getId(), Toast.LENGTH_SHORT).show();
+            public void onReselectItem(MeowBottomNavigation.Model item) {//PROBLEMAS AL RECARGAR?
+
+                Fragment fragment = null;
+
+                switch (item.getId()){
+                    case 1:
+                        fragment = new HomeFragment();
+                        break;
+                    case 2:
+                        fragment = new ChatFragment();
+                        break;
+                    case 3:
+                        fragment = new EventoFragment();
+                        break;
+                    case 4:
+                        fragment = new ProyectosFragment();
+                        break;
+                    case 5:
+                        fragment = new PerfilFragment();
+                        break;
+                }
+                loadFragment(fragment);
+
+                //Toast.makeText(getApplicationContext(), "Has reseleccionado"+ item.getId(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -85,7 +111,6 @@ public class MainFragmentContainer extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.frame_layout,fragment)
                 .commit();
-
     }
 
 
