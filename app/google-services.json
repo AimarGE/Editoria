@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "493695069515",
-    "project_id": "editoria-16df8",
-    "storage_bucket": "editoria-16df8.appspot.com"
+    "project_number": "860850916468",
+    "firebase_url": "https://editoria-bb3aa-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "editoria-bb3aa",
+    "storage_bucket": "editoria-bb3aa.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:493695069515:android:b3a9d30f8bc3caf5e84cce",
+        "mobilesdk_app_id": "1:860850916468:android:8ea5690b4693f246b3d521",
         "android_client_info": {
-          "package_name": "com.example.pruebafirebase"
+          "package_name": "com.example.editoria"
         }
       },
       "oauth_client": [
         {
-          "client_id": "493695069515-5m153g0ivcpfob58hm2hl7v2mpadgpvl.apps.googleusercontent.com",
+          "client_id": "860850916468-l73itm6thvct4gkagdbsvdm54i87ppoi.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBJwTWsZYIPJ9iUhViK2oDN59ueYpHLGVM"
+          "current_key": "AIzaSyCk41Gc963qEG_DJVr5UDzVn65w6XY91HQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "493695069515-5m153g0ivcpfob58hm2hl7v2mpadgpvl.apps.googleusercontent.com",
+              "client_id": "860850916468-l73itm6thvct4gkagdbsvdm54i87ppoi.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
