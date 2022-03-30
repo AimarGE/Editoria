@@ -36,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginTop="66dp"
+        android:textColorHint="#CF1717"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/textView2"
@@ -61,6 +62,7 @@
         android:layout_marginTop="19dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColorHint="#CF1717"
         app:layout_constraintStart_toStartOf="@+id/usuario"
         app:layout_constraintTop_toTopOf="@+id/userTextView4" />
 
@@ -71,7 +73,8 @@
         android:layout_marginTop="19dp"
         android:layout_marginEnd="1dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
+        android:textColorHint="#CF1717"
         app:layout_constraintEnd_toEndOf="@+id/email"
         app:layout_constraintTop_toTopOf="@+id/userTextView7" />
 
@@ -81,6 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
         android:ems="10"
+        android:textColorHint="#CF1717"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/ConfirmPassword"
         app:layout_constraintTop_toTopOf="@+id/userTextView6" />
@@ -131,6 +135,7 @@
         android:layout_marginTop="19dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColorHint="#CF1717"
         app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toTopOf="@+id/userTextView5" />
 
