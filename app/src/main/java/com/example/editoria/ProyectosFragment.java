@@ -16,9 +16,10 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
+
 
 public class ProyectosFragment extends Fragment {
-
 
     ImageView imagen;
     Button galeria;
@@ -68,8 +69,11 @@ public class ProyectosFragment extends Fragment {
     }
 
     private void publicar() {
-        Log.i("Ejemplo", "asd");
-
+        Log.i("Ejemplo", "asd");//quitar
+        MainFragmentContainer.bottomNavigation.show(1, true);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.mainFrame, new HomeFragment());
+        ft.commit();
     }
 
 

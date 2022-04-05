@@ -6,21 +6,17 @@
         <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/login.xml" value="0.264" />
         <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/register.xml" value="0.1793478260869565" />
         <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/registercliente.xml" value="0.264" />
-        <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/drawable/borde_imagen_proyecto.xml" value="0.27239583333333334" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/drawable/ic_baseline_folder_24.xml" value="0.2140625" />
-        <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/drawable/ic_evento.xml" value="0.27239583333333334" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/drawable/pop_bg.xml" value="0.21041666666666667" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/activity_main.xml" value="0.19791666666666666" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/activity_pop_filtro.xml" value="0.33" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_chat.xml" value="0.2604166666666667" />
-        <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_evento.xml" value="0.25625" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_notification.xml" value="0.2604166666666667" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_profile.xml" value="0.2604166666666667" />
-        <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_proyectos.xml" value="0.3904761904761905" />
+        <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_proyectos.xml" value="0.19791666666666666" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/home.xml" value="0.25" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/login.xml" value="0.19791666666666666" />
-        <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/main_fragment_container.xml" value="0.25625" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/paginafiltro.xml" value="0.19791666666666666" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/registercliente.xml" value="0.2838541666666667" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/registereditor.xml" value="0.25625" />
@@ -36,16 +32,31 @@
         <entry key="..\:/Users/larry/AndroidStudioProjects/Editoria/app/src/main/res/layout/registereditor.xml" value="0.2015625" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/drawable/borde.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/drawable/borde_imagen_proyecto.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/drawable/bordefiltro.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/drawable/cuadrado.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/drawable/cuadradosustituirporprueba.xml" value="0.10416666666666667" />
+        <entry key="app/src/main/res/drawable/favorite.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/drawable/favorite_border.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/drawable/ic_chat.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/drawable/pop_bg.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/drawable/prueba.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/separator.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/drawable/shadow_border.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/drawable/toggle_favorite_selector.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/drawable/triangulo.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.296195652173913" />
+        <entry key="app/src/main/res/layout/activity_pop_filtro.xml" value="0.33" />
         <entry key="app/src/main/res/layout/borde.xml" value="0.271286231884058" />
+        <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.16489361702127658" />
+        <entry key="app/src/main/res/layout/fragment_evento.xml" value="0.3390625" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/fragment_perfil.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_proyectos.xml" value="0.29030797101449274" />
         <entry key="app/src/main/res/layout/home.xml" value="0.2" />
         <entry key="app/src/main/res/layout/login.xml" value="0.296195652173913" />
+        <entry key="app/src/main/res/layout/main_fragment_container.xml" value="0.29030797101449274" />
         <entry key="app/src/main/res/layout/recuperarcontrasenya.xml" value="0.25" />
         <entry key="app/src/main/res/layout/recuperarcontraseña.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/register.xml" value="0.29030797101449274" />

@@ -11,7 +11,7 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 public class MainFragmentContainer extends AppCompatActivity {
 
     //Button bFiltro;
-    MeowBottomNavigation bottomNavigation;
+    public static MeowBottomNavigation bottomNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +109,7 @@ public class MainFragmentContainer extends AppCompatActivity {
     private void loadFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.frame_layout,fragment)
+                .replace(R.id.mainFrame,fragment)
                 .commit();
     }
 
