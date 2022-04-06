@@ -16,6 +16,7 @@ public class PerfilFragment extends Fragment {
 
     LottieAnimationView favorito;
     boolean guardado;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,12 +54,12 @@ public class PerfilFragment extends Fragment {
     }
 
 
-    private boolean likeAnimation(LottieAnimationView imageView, Integer animation, Boolean like){
+    private boolean likeAnimation(LottieAnimationView imageView, Integer animation, Boolean like) {
 
-        if (!like){
+        if (!like) {
             imageView.setAnimation(animation);
             imageView.playAnimation();
-        }else{
+        } else {
             imageView.animate()
                     .alpha(0f)
                     .setDuration(200)
