@@ -95,13 +95,15 @@
                     android:textColor="#636363"
                     android:textSize="15dp" />
 
-                <TextView
+                <RatingBar
+                    android:id="@+id/ratingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="Estrellas valoracion"></TextView>
+                    android:layout_marginTop="18dp"
+                    android:progressTint="#FFC107" />
 
                 <Button
+                    android:id="@+id/contactar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -120,7 +122,8 @@
                 <LinearLayout
                     android:id="@+id/descripcionP"
                     android:layout_width="270dp"
-                    android:layout_height="180dp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/borde"
                     android:orientation="vertical">
@@ -137,6 +140,7 @@
                             android:layout_alignParentLeft="true"
                             android:layout_marginLeft="13dp"
                             android:orientation="horizontal">
+
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -148,9 +152,9 @@
                                 android:layout_marginLeft="5dp"
                                 android:text="From"
                                 android:textColor="@color/black"
-                                android:textSize="16dp"
-                                android:textStyle="bold" />
+                                android:textSize="16dp" />
                         </LinearLayout>
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -174,6 +178,7 @@
                             android:layout_alignParentLeft="true"
                             android:layout_marginLeft="13dp"
                             android:orientation="horizontal">
+
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -185,34 +190,94 @@
                                 android:layout_marginLeft="5dp"
                                 android:text="Miembro desde"
                                 android:textColor="@color/black"
-                                android:textSize="16dp"
-                                android:textStyle="bold" />
+                                android:textSize="16dp" />
                         </LinearLayout>
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="26dp"
-                            android:text="España"
+                            android:text="Mar 2022"
                             android:textColor="@color/black"
                             android:textSize="16dp"
                             android:textStyle="bold" />
                     </RelativeLayout>
 
+                    <!--
+                    RELATIVE LAYOUT "SOBRE MI" x2?
+
+                    -->
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Fotos"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <!---
+                    SLIDER DE IMAGENES / VIDEO PREGUNTAR
+                    -->
+
+
                 </LinearLayout>
 
 
+                <LinearLayout
+                    android:id="@+id/llProyectos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Proyectos"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llValoraciones"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Valoraciones"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
             </LinearLayout>
+
+
+
         </RelativeLayout>
-
-
-        <TextView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="200dp"
-            android:text="asdasdasd"></TextView>
-
-
     </LinearLayout>
 
 
