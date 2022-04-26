@@ -68,7 +68,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/ConfirmPassword"
+            android:id="@+id/confirmPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -118,7 +118,7 @@
             android:textSize="20dp"
             android:textStyle="bold" />
         <EditText
-            android:id="@+id/FechaNacimiento"
+            android:id="@+id/fechaNacimiento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
