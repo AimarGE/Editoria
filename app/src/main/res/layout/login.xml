@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/login" />
 
     <EditText
-        android:id="@+id/emailLogIn"
+        android:id="@+id/UserLogIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
@@ -79,20 +79,21 @@
         android:inputType="textPersonName"
         android:password="true"
         app:layout_constraintBottom_toTopOf="@+id/fogottenPasswordButton"
-        app:layout_constraintStart_toStartOf="@+id/emailLogIn"
+        app:layout_constraintStart_toStartOf="@+id/UserLogIn"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
 
     <TextView
         android:id="@+id/userTextView"
-        android:layout_width="73dp"
-        android:layout_height="27dp"
-        android:text="Email"
+        android:layout_width="206dp"
+        android:layout_height="30dp"
+        android:text="Nombre de usuario"
+        android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/emailLogIn"
-        app:layout_constraintEnd_toEndOf="@+id/emailLogIn"
-        app:layout_constraintStart_toStartOf="@+id/emailLogIn"
+        app:layout_constraintBottom_toTopOf="@+id/UserLogIn"
+        app:layout_constraintEnd_toEndOf="@+id/UserLogIn"
+        app:layout_constraintStart_toStartOf="@+id/UserLogIn"
         app:layout_constraintTop_toBottomOf="@+id/editoriaLogo" />
 
     <TextView
@@ -106,6 +107,6 @@
         app:layout_constraintBottom_toTopOf="@+id/contraLogin"
         app:layout_constraintEnd_toEndOf="@+id/contraLogin"
         app:layout_constraintStart_toStartOf="@+id/contraLogin"
-        app:layout_constraintTop_toBottomOf="@+id/emailLogIn" />
+        app:layout_constraintTop_toBottomOf="@+id/UserLogIn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

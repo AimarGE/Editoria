@@ -6,11 +6,13 @@ public class Cliente {
 
     private String idUsuario;
     private String idCliente;
+    private String nombreUsuario;
     //private ArrayList<Proyecto> proyectos;
 
-    public Cliente(String idUsuario){
+    public Cliente(String idUsuario, String nombre){
         this.idCliente= UUID.randomUUID().toString();
         this.idUsuario=idUsuario;
+        this.nombreUsuario=nombre;
     }
 
     public String getIdUsuario(){
@@ -19,5 +21,9 @@ public class Cliente {
 
     public String getIdCliente(){
         return idCliente;
+    }
+
+    public String getNombre(){
+        return nombreUsuario;
     }
 }

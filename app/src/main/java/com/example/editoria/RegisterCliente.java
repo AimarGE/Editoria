@@ -7,23 +7,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.editoria.model.Cliente;
 import com.example.editoria.model.Usuario;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class RegisterCliente extends AppCompatActivity {
 
     EditText CampoUsuario, CampoPassword, CampoConfirmPassword, CampoEmail, CampoTelefono, CampoFechaNacimiento;
-    String usuario, contra, contraConfirmar, email, telefono, fechaNacimiento;
+    String nombreUsuario, contra, contraConfirmar, email, telefono, fechaNacimiento;
     FirebaseDatabase Fdatabase;
     DatabaseReference dRef;
 
@@ -33,10 +27,10 @@ public class RegisterCliente extends AppCompatActivity {
         setContentView(R.layout.registercliente);
         CampoUsuario = (EditText) findViewById(R.id.usuario);
         CampoPassword = (EditText) findViewById(R.id.password);
-        CampoConfirmPassword= (EditText) findViewById(R.id.ConfirmPassword);
+        CampoConfirmPassword= (EditText) findViewById(R.id.confirmPassword);
         CampoEmail = (EditText) findViewById(R.id.email);
         CampoTelefono = (EditText) findViewById(R.id.telefono);
-        CampoFechaNacimiento = (EditText) findViewById(R.id.FechaNacimiento);
+        CampoFechaNacimiento = (EditText) findViewById(R.id.fechaNacimiento);
 
         Fdatabase= FirebaseDatabase.getInstance("https://editoria-bb3aa-default-rtdb.europe-west1.firebasedatabase.app/");
         dRef= Fdatabase.getReference();
@@ -46,13 +40,17 @@ public class RegisterCliente extends AppCompatActivity {
 
 
     public void register(View _) {
-        usuario = CampoUsuario.getText().toString();
+        nombreUsuario = CampoUsuario.getText().toString();
         contra= CampoPassword.getText().toString();
         contraConfirmar= CampoConfirmPassword.getText().toString();
         email = CampoEmail.getText().toString();
         telefono = CampoTelefono.getText().toString();
         fechaNacimiento = CampoFechaNacimiento.getText().toString();
-        comprobacionDatos();
+        if (nombreUsuario.equals("") || contra.equals("") || contraConfirmar.equals("") || email.equals("") || telefono.equals("") || fechaNacimiento.equals("")){
+            Toast.makeText(this, "Rellena todos los campos", Toast.LENGTH_LONG).show();
+        }else {
+            comprobacionDatos();
+        }
     }
 
     private void comprobacionDatos() {
@@ -61,7 +59,7 @@ public class RegisterCliente extends AppCompatActivity {
         boolean contrasMatch = comprobarContrasMatch();
         boolean telefono = comprobarTelefono();
         boolean email = comprobarEmail();
-        boolean usuarioComp = comprobarLenghtUsuario(usuario);
+        boolean usuarioComp = comprobarLenghtUsuario(nombreUsuario);
         int contador = 0;
         if (contrasTamano) {
             contador++;
@@ -141,10 +139,10 @@ public class RegisterCliente extends AppCompatActivity {
     }
 
     private void addUser(){
-        Usuario user = new Usuario(usuario, contra, email, telefono, fechaNacimiento, "Cliente");
-        Cliente cliente = new Cliente(user.getId());
-        dRef.child("Usuarios").child(user.getId()).setValue(user);
-        dRef.child("Clientes").child(cliente.getIdCliente()).setValue(cliente);
+        Usuario user = new Usuario(nombreUsuario, contra, email, telefono, fechaNacimiento, "Cliente");
+        Cliente cliente = new Cliente(user.getId(), nombreUsuario);
+        dRef.child("Usuarios").child(nombreUsuario).setValue(user);
+        dRef.child("Clientes").child(nombreUsuario).setValue(cliente);
         Toast.makeText(this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show();
     }
 }
