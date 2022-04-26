@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,6 +27,7 @@ import com.airbnb.lottie.LottieAnimationView;
 public class PerfilFragment extends Fragment {
 
     LottieAnimationView favorito;
+    ImageView opciones;
     boolean guardado;
     Button contactar;
     View view;
@@ -40,10 +42,11 @@ public class PerfilFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_perfil, container, false);
+        view = inflater.inflate(R.layout.fragment_miperfil_editor, container, false);
         favorito = view.findViewById(R.id.favorito);
         ratingBar = (RatingBar) view.findViewById(R.id.ratingBar);
         contactar = view.findViewById(R.id.contactar);
+        opciones = view.findViewById(R.id.opciones);
         guardado = false;
 
         //RatingBar (0.5 - 5.0)
@@ -70,7 +73,27 @@ public class PerfilFragment extends Fragment {
             }
         });
 
+
+        //abrir ajustes
+        opciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abrirOpciones();
+            }
+        });
+
+
         return view;
+    }
+
+
+    private void abrirOpciones() {
+
+        MainFragmentContainer.bottomNavigation.show(5, true);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.mainFrame, new OpcionesFragment());
+        ft.commit();
+
     }
 
     private void abrirContactos() {
@@ -82,6 +105,20 @@ public class PerfilFragment extends Fragment {
         RelativeLayout contacto_mail = dialog.findViewById(R.id.contacto_mail);
         RelativeLayout contacto_twitter = dialog.findViewById(R.id.contacto_twitter);
         RelativeLayout contacto_facebook = dialog.findViewById(R.id.contacto_facebook);
+
+        contacto_mail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView tv_mail = dialog.findViewById(R.id.tv_mail);
+                Intent email_redirect =new Intent(Intent.ACTION_SEND);
+                String[] mail = {tv_mail.getText().toString()};
+                email_redirect.putExtra(Intent.EXTRA_EMAIL, mail);
+                email_redirect.setType("message/rfc822");
+                startActivity(Intent.createChooser(email_redirect, "Selecciona por donde quieres enviar el correo."));
+
+
+            }
+        });
 
         contacto_twitter.setOnClickListener(new View.OnClickListener() {
             @Override
