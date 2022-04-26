@@ -1,18 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProyectosFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Proyectos"
-        android:textSize="42sp"
-        android:textStyle="bold"
         android:gravity="center"
-        />
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/textViewTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="54dp"
+            android:text="@string/publicarProyecto"
+            android:textColor="#000000"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewNombreProyecto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Nombre proyecto"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/nombreP"
+            android:layout_width="216dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/borde"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="20dp" />
+
+
+        <TextView
+            android:id="@+id/textViewNombreDescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Descripcion proyecto"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/descripcionP"
+            android:layout_width="300dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/borde"
+            android:ems="10"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:scrollHorizontally="false" />
+
+        <TextView
+            android:id="@+id/textViewDisponibilidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Disponibilidad"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp">
+
+            <CheckBox
+                android:id="@+id/checkBoxManana"
+                android:layout_width="110dp"
+                android:layout_height="55dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="20dp"
+                android:text="Mañana" />
+
+            <CheckBox
+                android:id="@+id/checkBoxTarde"
+                android:layout_width="110dp"
+                android:layout_height="55dp"
+                android:layout_centerHorizontal="true"
+                android:text="Tarde" />
+
+            <CheckBox
+                android:id="@+id/checkBoxNoche"
+                android:layout_width="110dp"
+                android:layout_height="55dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:text="Noche" />
+
+            <CheckBox
+                android:id="@+id/checkBoxTodoDia"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="20dp"
+                android:text="Todo el dia" />
+
+            <!-- <Button
+                 android:layout_width="110dp"
+                 android:layout_height="55dp"
+                 android:layout_alignParentLeft="true"
+                 android:layout_marginStart="20dp"
+                 android:text="Mañana" />
+
+             <Button
+                 android:layout_width="110dp"
+                 android:layout_height="55dp"
+                 android:layout_centerHorizontal="true"
+                 android:text="Tarde" />
+
+             <Button
+                 android:layout_width="110dp"
+                 android:layout_height="55dp"
+                 android:layout_alignParentRight="true"
+                 android:layout_marginRight="20dp"
+                 android:text="Noche" />
+
+             <Button
+                 android:layout_width="110dp"
+                 android:layout_height="wrap_content"
+                 android:layout_centerHorizontal="true"
+                 android:layout_marginTop="55dp"
+                 android:layout_marginRight="20dp"
+                 android:text="Todo el dia" />-->
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/textViewFotoP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Foto del proyecto"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/foto"
+            android:layout_width="280dp"
+            android:layout_height="140dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/borde_imagen_proyecto"
+            android:scaleType="fitXY" />
+
+
+        <Button
+            android:id="@+id/botonImagen"
+            android:layout_width="180dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="5dp"
+            android:text="Subir Archivo" />
+
+        <TextView
+            android:id="@+id/textViewPaquetes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Paquetes disponibles"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="320dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/borde">
+
+            <TextView
+                android:id="@+id/textViewPBasico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="4dp"
+                android:text="Básico"
+                android:textColor="#000000"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewPBasicoPrecio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="15dp"
+                android:paddingTop="4dp"
+                android:text="15.99€"
+                android:textColor="#000000"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textViewAnyadirPaquetes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:text="Añadir paquetes..."
+            android:textColor="#000000"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+
+        <Button
+            android:id="@+id/publicar"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:text="Publicar" />
+
+    </LinearLayout>
+
+</ScrollView>
