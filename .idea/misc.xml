@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/fragment_home.xml" value="0.13020833333333334" />
+        <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/fragment_profile.xml" value="0.13020833333333334" />
+        <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/fragment_proyectos.xml" value="0.13020833333333334" />
         <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/login.xml" value="0.264" />
         <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/main_fragment_container.xml" value="0.22735507246376813" />
         <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/register.xml" value="0.1793478260869565" />
