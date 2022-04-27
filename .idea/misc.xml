@@ -57,7 +57,7 @@
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_miperfil_cliente.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_miperfil_editor.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_opciones.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_opciones.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_perfil.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_perfil_cliente.xml" value="0.18020833333333333" />
         <entry key="app/src/main/res/layout/fragment_perfil_editor.xml" value="0.30364583333333334" />
