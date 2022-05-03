@@ -1,4 +1,4 @@
-package com.example.editoria;
+package com.example.editoria.fragments;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -23,6 +23,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.editoria.MainFragmentContainer;
+import com.example.editoria.R;
+import com.example.editoria.fragments.OpcionesFragment;
 
 public class PerfilFragment extends Fragment {
 
@@ -42,7 +45,7 @@ public class PerfilFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_miperfil_editor, container, false);
+        view = inflater.inflate(R.layout.fragment_mi_perfil_editor, container, false);
         favorito = view.findViewById(R.id.favorito);
         ratingBar = (RatingBar) view.findViewById(R.id.ratingBar);
         contactar = view.findViewById(R.id.contactar);

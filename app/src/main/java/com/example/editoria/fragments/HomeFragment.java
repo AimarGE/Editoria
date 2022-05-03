@@ -1,4 +1,4 @@
-package com.example.editoria;
+package com.example.editoria.fragments;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.editoria.R;
 import com.example.editoria.model.ListAdapter;
 import com.example.editoria.model.ListElement;
 

@@ -1,12 +1,16 @@
 package com.example.editoria;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.example.editoria.fragments.ChatFragment;
+import com.example.editoria.fragments.EventoFragment;
+import com.example.editoria.fragments.HomeFragment;
+import com.example.editoria.fragments.PerfilFragment;
+import com.example.editoria.fragments.ProyectosFragment;
 
 public class MainFragmentContainer extends AppCompatActivity {
 
