@@ -53,7 +53,8 @@
         <entry key="app/src/main/res/layout/activity_pop_filtro.xml" value="0.33" />
         <entry key="app/src/main/res/layout/borde.xml" value="0.271286231884058" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.16489361702127658" />
-        <entry key="app/src/main/res/layout/fragment_evento.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_evento.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/fragment_evento_pagina_principal.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_menu_proyecto.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_mi_perfil_cliente.xml" value="0.325" />
@@ -78,6 +79,7 @@
         <entry key="app/src/main/res/layout/registerEditor.xml" value="0.29030797101449274" />
         <entry key="app/src/main/res/layout/registercliente.xml" value="0.33" />
         <entry key="app/src/main/res/layout/registereditor.xml" value="0.33" />
+        <entry key="app/src/main/res/menu/menu_eventos.xml" value="0.3390625" />
       </map>
     </option>
   </component>
