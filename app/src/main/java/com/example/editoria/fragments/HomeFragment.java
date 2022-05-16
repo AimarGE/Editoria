@@ -35,8 +35,6 @@ public class HomeFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_home, container, false);
         init();
 
-
-
         filtro = view.findViewById(R.id.filtro);
         filtro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,8 +64,8 @@ public class HomeFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(listAdapter);
-
-        recyclerView.setOverScrollMode(view.OVER_SCROLL_NEVER);
+        recyclerView.setNestedScrollingEnabled(false);
+        //recyclerView.setOverScrollMode(view.OVER_SCROLL_NEVER);
     }
 
     /*private void crearDialogoFiltro() {

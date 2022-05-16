@@ -22,24 +22,6 @@
             android:outlineProvider="bounds"
             android:paddingBottom="56dp">
 
-            <LinearLayout
-                android:id="@+id/linearLayFav"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="-10dp"
-                android:layout_marginTop="-10dp"
-                android:orientation="vertical">
-
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/favorito"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/favorite_border"></com.airbnb.lottie.LottieAnimationView>
-
-
-            </LinearLayout>
-
 
             <TextView
                 android:id="@+id/estadoConectividad"
@@ -73,42 +55,17 @@
                     app:civ_border_width="1dp" />
 
                 <TextView
-                    android:id="@+id/nombreEditor"
+                    android:id="@+id/nombreCliente"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:paddingHorizontal="20dp"
-                    android:text="(Nombre Editor)"
+                    android:text="(Nombre Cliente)"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/breveDescripcionEditor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:paddingHorizontal="20dp"
-                    android:text="(breve descripción del editor)"
-                    android:textAlignment="center"
-                    android:textColor="#636363"
-                    android:textSize="15dp" />
-
-                <RatingBar
-                    android:id="@+id/ratingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:progressTint="#FFC107" />
-
-                <Button
-                    android:id="@+id/contactar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:backgroundTint="#2776FF"
-                    android:text="Contactar" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -212,47 +169,6 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:text="Fotos"
-                        android:textColor="@color/black"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-                    <!---
-                    SLIDER DE IMAGENES / VIDEO PREGUNTAR
-                    -->
-
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/llProyectos"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:text="Proyectos"
-                        android:textColor="@color/black"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/llValoraciones"
