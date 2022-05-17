@@ -2,7 +2,6 @@ package com.example.editoria.model;
 
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +30,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     @NonNull
     @Override
     public ListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.lista_proyectos, null);
+        View view = mInflater.inflate(R.layout.carta_proyectos, null);
         return new ListAdapter.ViewHolder(view);
     }
 

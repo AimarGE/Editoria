@@ -17,9 +17,10 @@
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
         android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="314dp"
             android:orientation="horizontal"
             android:padding="6dp">
 
@@ -43,12 +44,12 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
                 android:layout_marginTop="2dp"
                 android:layout_toEndOf="@+id/cvIconoEditor"
-                android:orientation="vertical"
-                android:layout_marginLeft="4dp"
                 android:layout_toRightOf="@+id/cvIconoEditor"
-                >
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/cvNombreEditor"
                     android:layout_width="match_parent"
