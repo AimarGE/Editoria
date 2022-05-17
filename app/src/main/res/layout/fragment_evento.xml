@@ -28,6 +28,47 @@
             android:layout_height="300dp"
             android:layout_centerHorizontal="true"
             android:scaleType="fitXY"/>
+        
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:padding="50dp"
+            android:text="Información sobre el evento "
+            android:textColor="@color/black"
+            android:background="@drawable/borde"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            >
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_miembro_desde"
+                android:tint="@color/black"/>
+            <TextView
+                android:id="@+id/numeroDeConcursantes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="40dp"
+                android:textColor="@color/black"
+                android:text="57"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/botonInscribirse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#2342FF"
+            android:text="Inscribirse"/>
+
     </LinearLayout>
 
 </ScrollView>
