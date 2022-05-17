@@ -1,4 +1,4 @@
-package com.example.editoria.fragments;
+package com.example.editoria;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,15 +10,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.editoria.MainFragmentContainer;
-import com.example.editoria.R;
+import com.example.editoria.model.Proyecto;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class ProyectosFragment extends Fragment {
@@ -27,23 +32,31 @@ public class ProyectosFragment extends Fragment {
     Button galeria;
     Button publicar;
     TextView paquetes;
+    private EditText nombreProyecto;
+    private EditText descripcionProyecto;
+    private CheckBox manyana, tarde, noche;
+    private String disponibilidad, nombreP,descripcionP;
+    private DatabaseReference dRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://editoria-bb3aa-default-rtdb.europe-west1.firebasedatabase.app/");
+    private View view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_proyectos, container, false);
+        view = inflater.inflate(R.layout.fragment_proyectos, container, false);
 
         imagen = (ImageView) view.findViewById(R.id.foto);
         galeria = (Button) view.findViewById(R.id.botonImagen);
         publicar = (Button) view.findViewById(R.id.publicar);
         paquetes = (TextView) view.findViewById(R.id.textViewAnyadirPaquetes);
+        manyana = (CheckBox) view.findViewById(R.id.checkBoxManana);
+        noche = (CheckBox) view.findViewById(R.id.checkBoxNoche);
+        tarde = (CheckBox) view.findViewById(R.id.checkBoxTarde);
 
         paquetes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,11 +84,53 @@ public class ProyectosFragment extends Fragment {
     }
 
     private void publicar() {
-        Log.i("Ejemplo", "asd");//quitar
+        disponibilidad="";
+        nombreP= nombreProyecto.getText().toString();
+        descripcionP= descripcionProyecto.getText().toString();
+        if(manyana.isChecked()){
+            disponibilidad += manyana.getText().toString();
+        }
+        if(tarde.isChecked()){
+            if(!disponibilidad.equals("")) {
+                disponibilidad += ",";
+                disponibilidad += tarde.getText().toString();
+            }
+        }
+        if(noche.isChecked()){
+            if(!disponibilidad.equals("")) {
+                disponibilidad += ",";
+                disponibilidad += noche.getText().toString();
+            }
+        }
+        if(comprobarLenghtNombre(nombreP) && comprobarDescripcion(descripcionP)){
+           addProyecto();
+        }
+
         MainFragmentContainer.bottomNavigation.show(1, true);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.mainFrame, new HomeFragment());
         ft.commit();
+    }
+
+    private void addProyecto(){
+        Proyecto proyecto = new Proyecto(nombreP, descripcionP, disponibilidad, "aimar123");
+        dRef.child("Proyectos").child("aimar123").setValue(proyecto);
+    }
+
+    private boolean comprobarDescripcion(String descripcion){
+        if(descripcion.length() < 5){
+            Toast.makeText(view.getContext(), "Descripción muy corta", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean comprobarLenghtNombre(String nombre){
+        if(nombre.length() < 5){
+            Toast.makeText(view.getContext(), "Nombre muy corto", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 
 

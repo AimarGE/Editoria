@@ -11,6 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.editoria.dao.Writer;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,9 +22,8 @@ public class Login extends AppCompatActivity {
 
     private EditText campoNombreUsuario;
     private EditText campoPassword;
-    private FirebaseDatabase firebaseDatabase;
     private DatabaseReference dRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://editoria-bb3aa-default-rtdb.europe-west1.firebasedatabase.app/");
-
+    private Writer writer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +31,7 @@ public class Login extends AppCompatActivity {
         campoNombreUsuario= (EditText) findViewById(R.id.UserLogIn);
         campoPassword= (EditText) findViewById(R.id.contraLogin);
         getSupportActionBar().hide();
-
+        writer = new Writer("D:\\COSASCLASE\\.data\\credentials.txt");
     }
 
     public void register(View view) {
@@ -52,6 +52,7 @@ public class Login extends AppCompatActivity {
 
                         if(getPassword.equals(password)){
                             Toast.makeText(Login.this, "Sesión iniciada con éxito", Toast.LENGTH_SHORT).show();
+                           // writer.escribir(usuario);
                             startActivity(new Intent(Login.this, MainFragmentContainer.class));
                         }else{
                             Toast.makeText(Login.this, "Wrong password", Toast.LENGTH_SHORT).show();
