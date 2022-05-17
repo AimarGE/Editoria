@@ -1,4 +1,4 @@
-package com.example.editoria;
+package com.example.editoria.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -21,10 +21,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.editoria.MainFragmentContainer;
+import com.example.editoria.fragments.HomeFragment;
 import com.example.editoria.model.Proyecto;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
+import com.example.editoria.R;
 
 public class ProyectosFragment extends Fragment {
 
