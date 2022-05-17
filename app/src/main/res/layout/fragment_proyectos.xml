@@ -107,15 +107,6 @@
                 android:layout_marginRight="20dp"
                 android:text="Noche" />
 
-            <CheckBox
-                android:id="@+id/checkBoxTodoDia"
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="50dp"
-                android:layout_marginRight="20dp"
-                android:text="Todo el dia" />
-
             <!-- <Button
                  android:layout_width="110dp"
                  android:layout_height="55dp"
@@ -231,6 +222,7 @@
             android:layout_width="120dp"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
+            android:onClick="publicar"
             android:text="Publicar" />
 
     </LinearLayout>
