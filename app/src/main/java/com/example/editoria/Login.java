@@ -31,6 +31,7 @@ public class Login extends AppCompatActivity {
         campoNombreUsuario= (EditText) findViewById(R.id.UserLogIn);
         campoPassword= (EditText) findViewById(R.id.contraLogin);
         getSupportActionBar().hide();
+
     }
 
     public void register(View view) {

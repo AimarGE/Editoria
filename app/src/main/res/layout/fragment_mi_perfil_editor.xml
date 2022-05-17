@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PerfilFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.MiPerfilEditorFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,23 +22,6 @@
             android:outlineProvider="bounds"
             android:paddingBottom="56dp">
 
-            <LinearLayout
-                android:id="@+id/linearLayFav"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="-10dp"
-                android:layout_marginTop="-10dp"
-                android:orientation="vertical">
-
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/favorito"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/favorite_border"></com.airbnb.lottie.LottieAnimationView>
-
-
-            </LinearLayout>
 
 
             <ImageView
@@ -69,12 +52,12 @@
                     app:civ_border_width="1dp" />
 
                 <TextView
-                    android:id="@+id/nombreEditor"
+                    android:id="@+id/nombreMiPEditor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:paddingHorizontal="20dp"
-                    android:text="(Nombre Editor)"
+                    android:text="(Nombre Mi P.Editor)"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="20dp"
@@ -91,13 +74,6 @@
                     android:textColor="#636363"
                     android:textSize="15dp" />
 
-                <RatingBar
-                    android:id="@+id/ratingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:progressTint="#FFC107" />
-
                 <Button
                     android:id="@+id/contactar"
                     android:layout_width="wrap_content"
@@ -105,6 +81,13 @@
                     android:layout_marginTop="8dp"
                     android:backgroundTint="#2776FF"
                     android:text="Contactar" />
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:progressTint="#FFC107" />
 
                 <TextView
                     android:layout_width="wrap_content"

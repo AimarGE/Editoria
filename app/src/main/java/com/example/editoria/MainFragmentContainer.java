@@ -1,12 +1,18 @@
 package com.example.editoria;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.example.editoria.fragments.ChatFragment;
+import com.example.editoria.fragments.EventoFragment;
+import com.example.editoria.fragments.HomeFragment;
+import com.example.editoria.fragments.MenuProyectoFragment;
+import com.example.editoria.fragments.MiPerfilEditorFragment;
+import com.example.editoria.fragments.PerfilFragment;
+import com.example.editoria.fragments.ProyectosFragment;
 
 public class MainFragmentContainer extends AppCompatActivity {
 
@@ -57,10 +63,10 @@ public class MainFragmentContainer extends AppCompatActivity {
                         fragment = new EventoFragment();
                         break;
                     case 4:
-                        fragment = new ProyectosFragment();
+                        fragment = new MenuProyectoFragment();
                         break;
                     case 5:
-                        fragment = new PerfilFragment();
+                        fragment = new MiPerfilEditorFragment();
                         break;
                 }
                 loadFragment(fragment);

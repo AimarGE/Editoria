@@ -1,4 +1,4 @@
-package com.example.editoria;
+package com.example.editoria.fragments;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.editoria.R;
 import com.example.editoria.model.ListAdapter;
 import com.example.editoria.model.ListElement;
 
@@ -33,8 +34,6 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home, container, false);
         init();
-
-
 
         filtro = view.findViewById(R.id.filtro);
         filtro.setOnClickListener(new View.OnClickListener() {
@@ -65,8 +64,8 @@ public class HomeFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(listAdapter);
-
-        recyclerView.setOverScrollMode(view.OVER_SCROLL_NEVER);
+        recyclerView.setNestedScrollingEnabled(false);
+        //recyclerView.setOverScrollMode(view.OVER_SCROLL_NEVER);
     }
 
     /*private void crearDialogoFiltro() {
