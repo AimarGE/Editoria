@@ -52,6 +52,8 @@ public class ProyectosFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_proyectos, container, false);
 
+        nombreProyecto = (EditText) view.findViewById(R.id.nombreP);
+        descripcionProyecto = (EditText) view.findViewById(R.id.descripcionP);
         imagen = (ImageView) view.findViewById(R.id.foto);
         galeria = (Button) view.findViewById(R.id.botonImagen);
         publicar = (Button) view.findViewById(R.id.publicar);
@@ -97,26 +99,31 @@ public class ProyectosFragment extends Fragment {
                 disponibilidad += ",";
                 disponibilidad += tarde.getText().toString();
             }
+            else{
+                disponibilidad = tarde.getText().toString();
+            }
         }
         if(noche.isChecked()){
             if(!disponibilidad.equals("")) {
                 disponibilidad += ",";
                 disponibilidad += noche.getText().toString();
             }
+            else{
+                disponibilidad = noche.getText().toString();
+            }
         }
         if(comprobarLenghtNombre(nombreP) && comprobarDescripcion(descripcionP)){
            addProyecto();
+            MainFragmentContainer.bottomNavigation.show(1, true);
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.mainFrame, new HomeFragment());
+            ft.commit();
         }
-
-        MainFragmentContainer.bottomNavigation.show(1, true);
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.mainFrame, new HomeFragment());
-        ft.commit();
     }
 
     private void addProyecto(){
-        Proyecto proyecto = new Proyecto(nombreP, descripcionP, disponibilidad, "aimar123");
-        dRef.child("Proyectos").child("aimar123").setValue(proyecto);
+        Proyecto proyecto = new Proyecto(nombreP, descripcionP, disponibilidad, "Juan");
+        dRef.child("Proyectos").child(proyecto.getNombreUsuario()).setValue(proyecto);
     }
 
     private boolean comprobarDescripcion(String descripcion){

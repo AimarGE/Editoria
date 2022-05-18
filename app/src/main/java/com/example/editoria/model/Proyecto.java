@@ -14,6 +14,10 @@ public class Proyecto {
         this.nombreUsuario=nombreUsuario;
     }
 
+    public Proyecto(){
+
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -28,5 +32,15 @@ public class Proyecto {
 
     public String getNombreUsuario() {
         return nombreUsuario;
+    }
+
+    @Override
+    public String toString() {
+        return "Proyecto{" +
+                "nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", disponibilidad='" + disponibilidad + '\'' +
+                ", nombreUsuario='" + nombreUsuario + '\'' +
+                '}';
     }
 }

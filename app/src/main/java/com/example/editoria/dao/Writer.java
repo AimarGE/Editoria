@@ -1,10 +1,12 @@
 package com.example.editoria.dao;
 
 import android.content.Context;
+import android.os.Environment;
 import android.util.Log;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -27,19 +29,22 @@ public class Writer {
 
     private FileWriter fw;
     private BufferedWriter bw;
+    private FileOutputStream fo;
 
     public Writer(String fichero) {
         try {
-            this.fw= new FileWriter(fichero);
-            this.bw= new BufferedWriter(this.fw);
+            fo = new FileOutputStream(new File(Environment.getExternalStorageDirectory(),"credentials.txt"));
+            //this.fw= new FileWriter(fichero);
+            //this.bw= new BufferedWriter(this.fw);
         } catch (IOException ex) {
-            System.out.println("FICHERO NO ENCONTRADO" + ex.getMessage());
+           Log.i("fichero",ex.getMessage());
         }
     }
 
     public void escribir(String texto) {
         try {
-            bw.write(texto);
+           // this.bw.write(texto);
+            fo.write(3);
         }
         catch(IOException e){
             System.out.println("ERROR al escribir en el fichero: " + e.getMessage());
