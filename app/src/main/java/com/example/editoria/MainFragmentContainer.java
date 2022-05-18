@@ -54,20 +54,30 @@ public class MainFragmentContainer extends AppCompatActivity {
 
                 switch (item.getId()){
                     case 1:
+                        borrarPilaFragments();
                         fragment = new HomeFragment();
                         break;
+
                     case 2:
+                        borrarPilaFragments();
                         fragment = new ChatFragment();
                         break;
+
                     case 3:
+                        borrarPilaFragments();
                         fragment = new EventoFragment();
                         break;
+
                     case 4:
+                        borrarPilaFragments();
                         fragment = new MenuProyectoFragment();
                         break;
+
                     case 5:
+                        borrarPilaFragments();
                         fragment = new MiPerfilEditorFragment();
                         break;
+
                 }
                 loadFragment(fragment);
             }
@@ -119,5 +129,11 @@ public class MainFragmentContainer extends AppCompatActivity {
                 .commit();
     }
 
+    private void borrarPilaFragments(){
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+
+        for (int i = 0; i < count; i++) { getSupportFragmentManager().popBackStack(); }
+
+    }
 
 }

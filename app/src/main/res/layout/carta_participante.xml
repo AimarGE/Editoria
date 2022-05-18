@@ -12,10 +12,10 @@
 
 
     <LinearLayout
-        android:background="@drawable/cv_background"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="66dp"
         android:animateLayoutChanges="true"
+        android:background="@drawable/cv_background"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -54,17 +54,34 @@
                     android:id="@+id/cvNombreEditor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="3dp"
                     android:text="Nombre Editor"
-                    android:textSize="30dp"
                     android:textColor="@color/black"
-                    android:textStyle="bold"/>
-
-
-
+                    android:layout_marginLeft="10dp"
+                    android:textSize="23dp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="-0dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
 
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/favorito"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    app:srcCompat="@drawable/favorite_border"></com.airbnb.lottie.LottieAnimationView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="asdasdasdasd"></TextView>
+
+            </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
 

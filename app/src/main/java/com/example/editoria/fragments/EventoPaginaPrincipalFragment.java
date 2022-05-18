@@ -148,7 +148,10 @@ public class EventoPaginaPrincipalFragment extends Fragment {
     }
 
     private void abandonarEvento() {
-
+        MainFragmentContainer.bottomNavigation.show(3, true);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.mainFrame, new EventoFragment());
+        ft.commit();
     }
 
 
@@ -179,7 +182,7 @@ public class EventoPaginaPrincipalFragment extends Fragment {
         elements.add(new ListElement("icono", "Rodrigo"));
 
         ListAdapter listAdapter = new ListAdapter(elements, view.getContext());
-        RecyclerView recyclerView = view.findViewById(R.id.participantesEvento);
+        RecyclerView recyclerView = view.findViewById(R.id.listaParticipanetesEventos);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(listAdapter);

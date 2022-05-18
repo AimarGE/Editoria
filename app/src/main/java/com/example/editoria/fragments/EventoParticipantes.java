@@ -22,6 +22,7 @@ import android.widget.PopupMenu;
 
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
+import com.example.editoria.model.CartaParticipantes;
 import com.example.editoria.model.ListAdapter;
 import com.example.editoria.model.ListElement;
 
@@ -51,6 +52,8 @@ public class EventoParticipantes extends Fragment {
         lupa = view.findViewById(R.id.lupa);
         buscador = view.findViewById(R.id.editTextBusqueda);
         builder = new AlertDialog.Builder(view.getContext());
+
+
 
         init();
 
@@ -143,7 +146,7 @@ public class EventoParticipantes extends Fragment {
         elements.add(new ListElement("icono", "Maria"));
         elements.add(new ListElement("icono", "Rodrigo"));
 
-        ListAdapter listAdapter = new ListAdapter(elements, view.getContext());
+        CartaParticipantes listAdapter = new CartaParticipantes(elements, view.getContext());
         RecyclerView recyclerView = view.findViewById(R.id.listaParticipanetesEventos);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
@@ -183,11 +186,27 @@ public class EventoParticipantes extends Fragment {
     }
 
     private void abandonarEvento() {
-
+        MainFragmentContainer.bottomNavigation.show(3, true);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.mainFrame, new EventoFragment());
+        ft.commit();
     }
 
 
     private void paginaParticipantes() {
+        //ARREGLAR ADDTOBACKSTACK, PARA QUE CUANDO TIRE PARA ATRÁS SOLO SE VEA LA DEL EVENTOPAGINAPRINCIPAL
+        //ARREGLAR ADDTOBACKSTACK, PARA QUE CUANDO TIRE PARA ATRÁS SOLO SE VEA LA DEL EVENTOPAGINAPRINCIPAL
+        //ARREGLAR ADDTOBACKSTACK, PARA QUE CUANDO TIRE PARA ATRÁS SOLO SE VEA LA DEL EVENTOPAGINAPRINCIPAL
+        //ARREGLAR ADDTOBACKSTACK, PARA QUE CUANDO TIRE PARA ATRÁS SOLO SE VEA LA DEL EVENTOPAGINAPRINCIPAL
+        //ARREGLAR ADDTOBACKSTACK, PARA QUE CUANDO TIRE PARA ATRÁS SOLO SE VEA LA DEL EVENTOPAGINAPRINCIPAL
+        //ARREGLAR ADDTOBACKSTACK, PARA QUE CUANDO TIRE PARA ATRÁS SOLO SE VEA LA DEL EVENTOPAGINAPRINCIPAL
+        //ARREGLAR ADDTOBACKSTACK, PARA QUE CUANDO TIRE PARA ATRÁS SOLO SE VEA LA DEL EVENTOPAGINAPRINCIPAL
+
+        MainFragmentContainer.bottomNavigation.show(3, true);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.mainFrame, new EventoParticipantes()).addToBackStack("tag");
+        ft.commit();
+
     }
 
     private void paginaRanking() {
@@ -198,5 +217,4 @@ public class EventoParticipantes extends Fragment {
         ft.commit();
 
     }
-
 }

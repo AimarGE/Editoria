@@ -53,6 +53,14 @@ public class EventoRanking extends Fragment {
         builder = new AlertDialog.Builder(view.getContext());
 
 
+
+        /*private void borrarPilaFragments(){
+            int count = getActivity().getSupportFragmentManager().getBackStackEntryCount();
+
+            for (int i = 0; i < count; i++) { getActivity().getSupportFragmentManager().popBackStack(); }
+
+        }*/
+
         init();
 
 
@@ -184,6 +192,10 @@ public class EventoRanking extends Fragment {
 
     private void abandonarEvento() {
 
+        MainFragmentContainer.bottomNavigation.show(3, true);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.mainFrame, new EventoFragment());
+        ft.commit();
     }
 
     private void paginaParticipantes() {
