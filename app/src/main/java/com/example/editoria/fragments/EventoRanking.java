@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,7 +19,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
-import android.widget.ScrollView;
 
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
@@ -28,11 +28,12 @@ import com.example.editoria.model.ListElement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EventoPaginaPrincipalFragment extends Fragment {
+
+public class EventoRanking extends Fragment {
+
     View view;
-    List<ListElement> elements;
-    ScrollView root;
     ImageView menu, lupa;
+    List<ListElement> elements;
     EditText buscador;
     AlertDialog.Builder builder;
 
@@ -45,25 +46,33 @@ public class EventoPaginaPrincipalFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_evento_pagina_principal, container, false);
-        menu = view.findViewById(R.id.menu_pagina_principal_evento);
-        root = view.findViewById(R.id.root);
+        view = inflater.inflate(R.layout.fragment_ranking_evento, container, false);
+        menu = view.findViewById(R.id.menu_ranking_evento);
         lupa = view.findViewById(R.id.lupa);
         buscador = view.findViewById(R.id.editTextBusqueda);
         builder = new AlertDialog.Builder(view.getContext());
 
+
+
+        /*private void borrarPilaFragments(){
+            int count = getActivity().getSupportFragmentManager().getBackStackEntryCount();
+
+            for (int i = 0; i < count; i++) { getActivity().getSupportFragmentManager().popBackStack(); }
+
+        }*/
+
         init();
+
 
         return view;
     }
 
     private void init() {
 
+
+        mostrarRankingParticipantes();
+
         listeners();
-
-
-        mostrarProyectoParticipantes();
 
     }
 
@@ -97,6 +106,9 @@ public class EventoPaginaPrincipalFragment extends Fragment {
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Log.i("EJEMPLO", "ENTRA");
+
                 PopupMenu popupMenu = new PopupMenu(getActivity().getApplicationContext(), menu);
 
                 popupMenu.getMenuInflater().inflate(R.menu.menu_evento, popupMenu.getMenu());
@@ -118,6 +130,7 @@ public class EventoPaginaPrincipalFragment extends Fragment {
                                 //root.setBackgroundColor(Color.YELLOW);
                                 return true;
                         }
+
                         return false;
                     }
                 });
@@ -126,6 +139,36 @@ public class EventoPaginaPrincipalFragment extends Fragment {
             }
         });
 
+    }
+
+    private void mostrarRankingParticipantes() {
+
+        elements = new ArrayList<>();
+
+        elements.add(new ListElement("icono", "Mario"));
+        elements.add(new ListElement("icono", "Ejemplo2"));
+        elements.add(new ListElement("icono", "José"));
+        elements.add(new ListElement("icono", "Maria"));
+        elements.add(new ListElement("icono", "Rodrigo"));
+
+        ListAdapter listAdapter = new ListAdapter(elements, view.getContext());
+        RecyclerView recyclerView = view.findViewById(R.id.listaParticipanetesEventos);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        recyclerView.setAdapter(listAdapter);
+        recyclerView.setNestedScrollingEnabled(false);
+
+    }
+
+
+    public void showKeyboard(){
+        InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+    }
+
+    public void closeKeyboard(){
+        InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
     }
 
     private void dialogAbandonarEvento() {
@@ -148,18 +191,20 @@ public class EventoPaginaPrincipalFragment extends Fragment {
     }
 
     private void abandonarEvento() {
+
         MainFragmentContainer.bottomNavigation.show(3, true);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.mainFrame, new EventoFragment());
         ft.commit();
     }
 
-
     private void paginaParticipantes() {
+
         MainFragmentContainer.bottomNavigation.show(3, true);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.mainFrame, new EventoParticipantes()).addToBackStack("tag");
         ft.commit();
+
     }
 
     private void paginaRanking() {
@@ -170,34 +215,4 @@ public class EventoPaginaPrincipalFragment extends Fragment {
         ft.commit();
 
     }
-
-    private void mostrarProyectoParticipantes() {
-
-        elements = new ArrayList<>();
-
-        elements.add(new ListElement("icono", "Mario"));
-        elements.add(new ListElement("icono", "Ejemplo2"));
-        elements.add(new ListElement("icono", "José"));
-        elements.add(new ListElement("icono", "Maria"));
-        elements.add(new ListElement("icono", "Rodrigo"));
-
-        ListAdapter listAdapter = new ListAdapter(elements, view.getContext());
-        RecyclerView recyclerView = view.findViewById(R.id.listaParticipanetesEventos);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        recyclerView.setAdapter(listAdapter);
-        recyclerView.setNestedScrollingEnabled(false);
-
-    }
-
-    public void showKeyboard(){
-        InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
-    }
-
-    public void closeKeyboard(){
-        InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputMethodManager.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
-    }
-
 }

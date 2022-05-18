@@ -37,6 +37,9 @@ public class EventoFragment extends Fragment {
         botonInscribirse = view.findViewById(R.id.botonInscribirse);
 
 
+        //IF PARA COMPROBAR QUE SEA UN EDITOR O NO --> REDIRIGE DIRECTAMENTE A EVENTO-PAGINA-PRINCIPAL-FRAGMENT
+
+
         Picasso.get().load("https://upload.wikimedia.org/wikipedia/commons/f/ff/Anas_platyrhynchos_qtl1.jpg").into(imagenEvento);
 
         init();
@@ -57,6 +60,4 @@ public class EventoFragment extends Fragment {
         });
 
     }
-
-
 }

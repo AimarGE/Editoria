@@ -15,13 +15,13 @@ import com.example.editoria.R;
 
 import java.util.List;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
+public class CartaParticipantes extends RecyclerView.Adapter<CartaParticipantes.ViewHolder> {
 
     private List<ListElement> mData;
     private LayoutInflater mInflater;
     private Context context;
 
-    public ListAdapter(List<ListElement> itemList, Context context){
+    public CartaParticipantes(List<ListElement> itemList, Context context){
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
@@ -29,13 +29,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     @NonNull
     @Override
-    public ListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.carta_proyectos, null);
-        return new ListAdapter.ViewHolder(view);
+    public CartaParticipantes.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = mInflater.inflate(R.layout.carta_participante, null);
+        return new CartaParticipantes.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ListAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CartaParticipantes.ViewHolder holder, int position) {
         holder.bindData(mData.get(position));
     }
 

@@ -9,3 +9,13 @@ https://www.youtube.com/watch?v=ejbX9MO2ems //HOME PAGE
 https://www.develou.com/como-crear-dialogos-en-android //dialogo?
 https://www.youtube.com/watch?v=5PaWtQAOdi8 //evento ganado?
 https://www.youtube.com/watch?v=gOXS3RRLE-8&ab_channel=DoctorSpeedCode //menu desplegable
+
+
+
+//BORRAR FRAGMENTS DE LA PILA
+Fragment oldFragment = fm.findFragmentByTag("TAG_FRAGMENT1");
+if(oldFragment!=null){
+        fm.beginTransaction().remove(oldFragment).commit();
+    }
+
+    https://stackoverflow.com/questions/41237423/how-to-remove-older-entries-of-same-fragment-from-backstack

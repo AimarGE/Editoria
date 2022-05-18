@@ -1,13 +1,14 @@
 <resources>
     <string name="app_name">Editoria</string>
-    <string name="editores_Rec"><u>Editores Recomendados</u></string>
+    <string name="proyectos"><u>Proyectos</u></string>
     <string name="editores_Mej"><u>Mejores Editores</u></string>
     <string name="publicarProyecto"><u>Publicar Proyecto</u></string>
     <string name="titulo_proyecto"><u>Proyectos</u></string>
     <string name="mis_servicios"><u>Mis servicios</u></string>
     <string name="servicios_contratados"><u>Servicios Contratados</u></string>
     <string name="tituloEvento"><u>Evento de ejemplo</u></string>
-
+    <string name="rankingEditores"><u>Ranking Editores</u></string>
+    <string name="participantes"><u>Participantes</u></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
