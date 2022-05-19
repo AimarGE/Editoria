@@ -73,12 +73,16 @@
                     android:id="@+id/favorito"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
+                    android:layout_marginLeft="-10dp"
                     app:srcCompat="@drawable/favorite_border"></com.airbnb.lottie.LottieAnimationView>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="523"></TextView>
+                    android:layout_marginTop="27dp"
+                    android:text="523"
+                    android:textSize="17dp"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
         </RelativeLayout>
