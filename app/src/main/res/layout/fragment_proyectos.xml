@@ -151,11 +151,14 @@
 
         <ImageView
             android:id="@+id/foto"
-            android:layout_width="280dp"
-            android:layout_height="140dp"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_margin="15dp"
             android:layout_centerHorizontal="true"
+            android:src="@drawable/image_placeholder"
             android:background="@drawable/borde_imagen_proyecto"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            />
 
 
         <Button
@@ -163,7 +166,8 @@
             android:layout_width="180dp"
             android:layout_height="55dp"
             android:layout_marginTop="5dp"
-            android:text="Subir Archivo" />
+            android:text="Subir Archivo"
+            android:backgroundTint="#0037ff"/>
 
         <TextView
             android:id="@+id/textViewPaquetes"
@@ -225,6 +229,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
             android:onClick="publicar"
+            android:backgroundTint="#0037ff"
             android:text="Publicar" />
 
     </LinearLayout>

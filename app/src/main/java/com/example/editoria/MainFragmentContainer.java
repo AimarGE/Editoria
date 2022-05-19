@@ -12,6 +12,7 @@ import com.example.editoria.fragments.HomeFragment;
 import com.example.editoria.fragments.MenuProyectoFragment;
 import com.example.editoria.fragments.MiPerfilEditorFragment;
 import com.example.editoria.fragments.PerfilFragment;
+import com.example.editoria.fragments.ProyectoInformacionFragment;
 import com.example.editoria.fragments.ProyectosFragment;
 
 public class MainFragmentContainer extends AppCompatActivity {
@@ -55,7 +56,7 @@ public class MainFragmentContainer extends AppCompatActivity {
                 switch (item.getId()){
                     case 1:
                         borrarPilaFragments();
-                        fragment = new HomeFragment();
+                        fragment = new ProyectoInformacionFragment();
                         break;
 
                     case 2:
