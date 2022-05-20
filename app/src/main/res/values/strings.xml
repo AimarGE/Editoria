@@ -11,6 +11,13 @@
     <string name="participantes"><u>Participantes</u></string>
     <string name="titulo_proyecto_info"><u>Titulo del proyecto</u></string>
     <string name="titlo_datos_pedido"><u>Datos del pedido</u></string>
+    <string name="confirmar_y_pagar"><u>Confirmar y pagar</u></string>
+    <string name="nombre_titular"><b>Nombre del titular</b></string>
+    <string name="num_tarjeta"><b>Nº de la tarjeta</b></string>
+    <string name="vencimiento">Vencimiento</string>
+    <string name="vencimiento_hint"><b>MM/AA</b></string>
+    <string name="cvv"><b>CVV</b></string>
+    <string name="cvv_hint"><b>3 dígitos</b></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

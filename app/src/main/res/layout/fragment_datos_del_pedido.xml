@@ -180,6 +180,7 @@
                 android:scrollHorizontally="false" />
         </LinearLayout>
         <Button
+            android:id="@+id/continuar_pago"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#4baf27"

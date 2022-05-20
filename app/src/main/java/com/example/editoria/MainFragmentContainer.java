@@ -101,10 +101,10 @@ public class MainFragmentContainer extends AppCompatActivity {
                         fragment = new EventoFragment();
                         break;
                     case 4:
-                        fragment = new ProyectosFragment();
+                        fragment = new MenuProyectoFragment();
                         break;
                     case 5:
-                        fragment = new PerfilFragment();
+                        fragment = new MiPerfilEditorFragment();
                         break;
                 }
                 loadFragment(fragment);
@@ -132,7 +132,6 @@ public class MainFragmentContainer extends AppCompatActivity {
 
     private void borrarPilaFragments(){
         int count = getSupportFragmentManager().getBackStackEntryCount();
-
         for (int i = 0; i < count; i++) { getSupportFragmentManager().popBackStack(); }
 
     }

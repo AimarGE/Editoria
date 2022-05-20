@@ -107,8 +107,6 @@ public class EventoRanking extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Log.i("EJEMPLO", "ENTRA");
-
                 PopupMenu popupMenu = new PopupMenu(getActivity().getApplicationContext(), menu);
 
                 popupMenu.getMenuInflater().inflate(R.menu.menu_evento, popupMenu.getMenu());

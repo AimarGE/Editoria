@@ -18,8 +18,10 @@ import android.widget.TextView;
 
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
+import com.example.editoria.model.CartaComentario;
 import com.example.editoria.model.ListAdapter;
 import com.example.editoria.model.ListElement;
+import com.example.editoria.model.ListElementComentario;
 import com.example.editoria.model.Proyecto;
 
 import java.util.ArrayList;
@@ -30,6 +32,7 @@ public class ProyectoInformacionFragment extends Fragment {
     View view;
     List<Proyecto> proyectos;
     ArrayList<ListElement> elements;
+    ArrayList<ListElementComentario> elementsComentario;
     TextView basico, estandard, premium, descripcionPaquete;
     Button botonContratar;
 
@@ -60,6 +63,7 @@ public class ProyectoInformacionFragment extends Fragment {
     private void init() {
 
         mostrarProyecto();
+        mostrarComentarios();
         listeners();
 
     }
@@ -126,6 +130,28 @@ public class ProyectoInformacionFragment extends Fragment {
 
         ListAdapter listAdapter = new ListAdapter(elements, view.getContext());
         RecyclerView recyclerView = view.findViewById(R.id.cvProyectoInfo);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        recyclerView.setAdapter(listAdapter);
+        recyclerView.setNestedScrollingEnabled(false);
+
+    }
+
+    private void mostrarComentarios() {
+
+        //BUCLE PARA BUSCAR LOS COMENTARIOS DEL PROYECTO
+        elementsComentario = new ArrayList<>();
+        elementsComentario.add(new ListElementComentario("icono","Mario","Me refiero a que la gente debe ser salvada de sí misma, debe ser protegida de sus propios deseos y f\n" +
+                "\n" +
+                "Fuente: https://concepto.de/comentario/#ixzz7TqbMcwux"));
+
+        elementsComentario.add(new ListElementComentario("icono","Mario","Los comentarios literarios se distinguen de los análisis o de los comentarios filológicos en que abordan la obra literaria como un universo cerrado en sí mismo, y trabajan únicamente con los elementos que allí se encuentran y con la reverberación que ellos generen en el lector y comentarista. Es decir: se trata de una lectura personal de la obra, que se sustenta en lo leído y por lo tanto es demostrable, tiene fundamentos, no es una opinión o una interpretación enteramente libre. Fuente: https://concepto.de/comentario/#ixzz7TqatdzLw"));
+        elementsComentario.add(new ListElementComentario("icono","Mario","Su nombre ya revela sus filiaciones con la palabra griega para la muerte: thanatos, lo cual es conveniente a la hora de explicar su proyecto para el Universo, que es la erradicación de la mitad de los seres vivientes que alberga. Esto lo hace motivado por el deseo, paradójico, de preservar la vida como un todo: para Thanos, somos demasiados los habitantes del Universo y estamos agotando los recursos demasiado aprisa, por lo que deben tomarse medidas drásticas para garantizar que no nos extingamos a nosotros mismos.\n" +
+                "\n" +
+                "Fuente: https://concepto.de/comentario/#ixzz7Tqb9n6Mf"));
+
+        CartaComentario listAdapter = new CartaComentario(elementsComentario, view.getContext());
+        RecyclerView recyclerView = view.findViewById(R.id.cvComentarios);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(listAdapter);

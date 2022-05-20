@@ -1,14 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.datosTargetaFragment">
+    android:overScrollMode="never"
+    android:scrollbars="none"
+    android:id="@+id/scrollViewConfirmarYPagar"
+    tools:context=".fragments.DatosTargetaFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/textViewTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="54dp"
+            android:text="@string/confirmar_y_pagar"
+            android:textColor="#000000"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/descripcionP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/borde"
+            android:ems="10"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:hint="@string/nombre_titular"
+            android:padding="10dp"
+            android:scrollHorizontally="false" />
+        <EditText
+            android:id="@+id/numTarjeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/borde"
+            android:gravity="top"
+            android:hint="@string/num_tarjeta"
+            android:padding="10dp"
+            android:digits="1234567890"
+            android:singleLine="true"
+            android:maxLength="16"
+            android:inputType="number"
+            android:ems="9"
+            android:scrollHorizontally="false" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vencimiento"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="25dp"
+            />
+        <EditText
+            android:id="@+id/vencimiento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/borde"
+            android:gravity="top"
+            android:hint="@string/vencimiento_hint"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:maxLength="4"
+            android:inputType="number"
+            android:ems="9"
+            android:scrollHorizontally="false" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cvv"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="25dp"
+            />
+        <EditText
+            android:id="@+id/cvv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/borde"
+            android:gravity="top"
+            android:hint="@string/cvv_hint"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:maxLength="3"
+            android:inputType="number"
+            android:ems="9"
+            android:scrollHorizontally="false" />
+
+        <Button
+            android:id="@+id/pagar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#4baf27"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Pagar"/>
+    </LinearLayout>
+
+</ScrollView>
