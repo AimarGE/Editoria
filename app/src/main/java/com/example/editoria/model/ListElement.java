@@ -1,13 +1,19 @@
 package com.example.editoria.model;
 
-public class ListElement {
+import java.io.Serializable;
+
+public class ListElement implements Serializable {
 
     public String icon;
     public String name;
+    public String titulo;
+    public String descripcion;
 
-    public ListElement(String icon, String name) {
+    public ListElement(String icon, String name, String descripcion, String titulo) {
         this.icon = icon;
         this.name = name;
+        this.descripcion = descripcion;
+        this.titulo = titulo;
     }
 
     public String getIcon() {
@@ -24,5 +30,21 @@ public class ListElement {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 }

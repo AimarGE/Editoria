@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.editoria.GlobalVariable;
+import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
 import com.example.editoria.model.ListAdapter;
 import com.example.editoria.model.ListElement;
@@ -36,17 +39,23 @@ public class HomeFragment extends Fragment {
     View view;
     private DatabaseReference dRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://editoria-bb3aa-default-rtdb.europe-west1.firebasedatabase.app/");
     List<Proyecto> proyectos;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        proyectos = new ArrayList<>();
-        getAllProyectos();
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_home, container, false);
+        view = inflater.inflate(R.layout.fragment_home_v2, container, false);
         filtro = view.findViewById(R.id.filtro);
+        proyectos = new ArrayList<>();
+        getAllProyectos();
+
+
+
         filtro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,15 +86,41 @@ public class HomeFragment extends Fragment {
         elements = new ArrayList<>();
         for(int i=0; i < proyectos.size(); i++){
             Log.i("proyectos", proyectos.get(i).toString());
-            elements.add(new ListElement("icono", proyectos.get(i).getNombreUsuario()));
+            elements.add(new ListElement("icono", proyectos.get(i).getNombreUsuario(), proyectos.get(i).getDescripcion(), proyectos.get(i).getNombre()));
         }
-        ListAdapter listAdapter = new ListAdapter(elements, view.getContext());
+
+        ListAdapter listAdapter = new ListAdapter(elements, view.getContext(), new ListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(ListElement item) {
+                proyectoSeleccionado(item);
+            }
+        });
+
         RecyclerView recyclerView = view.findViewById(R.id.listaCVEditoresRecomendados);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(listAdapter);
         recyclerView.setNestedScrollingEnabled(false);
         //recyclerView.setOverScrollMode(view.OVER_SCROLL_NEVER);
+    }
+
+    private void proyectoSeleccionado(ListElement item) {
+
+        MainFragmentContainer.bottomNavigation.show(1, true);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+
+        Bundle bundle = new Bundle();
+
+        bundle.putSerializable("item", item);
+        GlobalVariable.bundleEditor = bundle;
+
+
+        //getParentFragmentManager().setFragmentResult("key", bundle);
+
+        ft.replace(R.id.mainFrame, new ProyectoInformacionFragment()).addToBackStack("tag");
+        ft.commit();
+
+
     }
 
     /*private void crearDialogoFiltro() {

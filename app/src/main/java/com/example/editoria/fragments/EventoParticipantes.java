@@ -140,11 +140,21 @@ public class EventoParticipantes extends Fragment {
 
         elements = new ArrayList<>();
 
-        elements.add(new ListElement("icono", "Mario"));
-        elements.add(new ListElement("icono", "Ejemplo2"));
-        elements.add(new ListElement("icono", "José"));
-        elements.add(new ListElement("icono", "Maria"));
-        elements.add(new ListElement("icono", "Rodrigo"));
+        elements.add(new ListElement("icono", "Mario","", ""));
+        elements.add(new ListElement("icono", "Ejemplo2","", ""));
+        elements.add(new ListElement("icono", "José","", ""));
+        elements.add(new ListElement("icono", "Maria","", ""));
+        elements.add(new ListElement("icono", "Rodrigo","", ""));
+        elements.add(new ListElement("icono", "Mario","", ""));
+        elements.add(new ListElement("icono", "Ejemplo2","", ""));
+        elements.add(new ListElement("icono", "José","", ""));
+        elements.add(new ListElement("icono", "Maria","", ""));
+        elements.add(new ListElement("icono", "Rodrigo","", ""));
+        elements.add(new ListElement("icono", "Mario","", ""));
+        elements.add(new ListElement("icono", "Ejemplo2","", ""));
+        elements.add(new ListElement("icono", "José","", ""));
+        elements.add(new ListElement("icono", "Maria","", ""));
+        elements.add(new ListElement("icono", "Rodrigo","", ""));
 
         CartaParticipantes listAdapter = new CartaParticipantes(elements, view.getContext());
         RecyclerView recyclerView = view.findViewById(R.id.listaParticipanetesEventos);

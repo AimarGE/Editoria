@@ -22,6 +22,7 @@ import android.widget.ScrollView;
 
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
+import com.example.editoria.model.CartaEventoProyecto;
 import com.example.editoria.model.ListAdapter;
 import com.example.editoria.model.ListElement;
 
@@ -175,13 +176,14 @@ public class EventoPaginaPrincipalFragment extends Fragment {
 
         elements = new ArrayList<>();
 
-        elements.add(new ListElement("icono", "Mario"));
-        elements.add(new ListElement("icono", "Ejemplo2"));
-        elements.add(new ListElement("icono", "José"));
-        elements.add(new ListElement("icono", "Maria"));
-        elements.add(new ListElement("icono", "Rodrigo"));
+        elements.add(new ListElement("icono", "Mario","", ""));
+        elements.add(new ListElement("icono", "José","", ""));
+        elements.add(new ListElement("icono", "Maria","", ""));
+        elements.add(new ListElement("icono", "Rodrigo","", ""));
+        elements.add(new ListElement("icono", "Ejemplo2","", ""));
 
-        ListAdapter listAdapter = new ListAdapter(elements, view.getContext());
+
+        CartaEventoProyecto listAdapter = new CartaEventoProyecto(elements, view.getContext());
         RecyclerView recyclerView = view.findViewById(R.id.listaParticipanetesEventos);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));

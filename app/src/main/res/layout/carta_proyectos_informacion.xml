@@ -56,23 +56,28 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:paddingRight="10dp"
-                        android:gravity="center"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/cvNombreEditor"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
                             android:layout_marginBottom="2dp"
-                            android:paddingRight="5dp"
                             android:text="Nombre Editor"
-                            android:textSize="20dp"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
 
+                        <TextView
+                            android:id="@+id/tituloProyecto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="Titulo proyecto"
+                            android:textColor="@color/black" />
                     </LinearLayout>
 
                     <!-- SEPARADOR -->
@@ -84,29 +89,34 @@
 
 
                     <LinearLayout
-                        android:layout_width="120dp"
-                        android:layout_height="100dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginTop="-10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
                         android:orientation="horizontal">
 
-                        <com.airbnb.lottie.LottieAnimationView
-                            android:id="@+id/favorito"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_marginLeft="-10dp"
-                            app:srcCompat="@drawable/favorite_border"></com.airbnb.lottie.LottieAnimationView>
-
-                        <TextView
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="27dp"
-                            android:text="523"
-                            android:textSize="17dp"
-                            android:textStyle="bold"/>
+                            android:layout_gravity="center"
+                            android:layout_marginRight="10dp"
+                            android:orientation="horizontal">
 
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/ic_estrella" />
+
+                            <TextView
+                                android:id="@+id/cvValoracionesValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:text="3,3 (400)"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
                     </LinearLayout>
-
 
 
                 </LinearLayout>

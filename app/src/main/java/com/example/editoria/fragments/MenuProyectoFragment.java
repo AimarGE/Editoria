@@ -76,11 +76,18 @@ public class MenuProyectoFragment extends Fragment {
 
         elements = new ArrayList<>();
         //OBTENER INFORMACIÓN DE LA BASE DE DATOS Y INSERTARLA AQUÍ PARA QUE SE MUESTRE
-        elements.add(new ListElement("icono", "Mario Servicios Contratados"));
-        elements.add(new ListElement("icono", "Ejemplo2 Servicios Contratados"));
-        elements.add(new ListElement("icono", "José Servicios Contratados"));
+        elements.add(new ListElement("icono", "Mario Servicios Contratados", "",""));
+        elements.add(new ListElement("icono", "Ejemplo2 Servicios Contratados", "",""));
+        elements.add(new ListElement("icono", "José Servicios Contratados", "",""));
+        elements.add(new ListElement("icono", "Mario Servicios Contratados", "",""));
+        elements.add(new ListElement("icono", "Ejemplo2 Servicios Contratados", "",""));
+        elements.add(new ListElement("icono", "José Servicios Contratados", "",""));
+        ListAdapter listAdapter = new ListAdapter(elements, view.getContext(), new ListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(ListElement item) {
 
-        ListAdapter listAdapter = new ListAdapter(elements, view.getContext());
+            }
+        });
         RecyclerView recyclerView = view.findViewById(R.id.listaServiciosContratados);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
@@ -93,13 +100,18 @@ public class MenuProyectoFragment extends Fragment {
 
         elements = new ArrayList<>();
         //OBTENER INFORMACIÓN DE LA BASE DE DATOS Y INSERTARLA AQUÍ PARA QUE SE MUESTRE
-        elements.add(new ListElement("icono", "Mario MisServicios"));
-        elements.add(new ListElement("icono", "Ejemplo2 MisServicios"));
-        elements.add(new ListElement("icono", "José MisServicios"));
-        elements.add(new ListElement("icono", "Maria MisServicios"));
-        elements.add(new ListElement("icono", "Rodrigo MisServicios"));
+        elements.add(new ListElement("icono", "Mario MisServicios", "",""));
+        elements.add(new ListElement("icono", "Ejemplo2 MisServicios", "",""));
+        elements.add(new ListElement("icono", "José MisServicios", "",""));
+        elements.add(new ListElement("icono", "Maria MisServicios", "",""));
+        elements.add(new ListElement("icono", "Rodrigo MisServicios", "",""));
 
-        ListAdapter listAdapter = new ListAdapter(elements, view.getContext());
+        ListAdapter listAdapter = new ListAdapter(elements, view.getContext(), new ListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(ListElement item) {
+
+            }
+        });
         RecyclerView recyclerView = view.findViewById(R.id.listaMisServicios);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));

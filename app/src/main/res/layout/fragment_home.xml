@@ -12,15 +12,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:id="@+id/parent"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <RelativeLayout
-                android:layout_width="100dp"
-                android:layout_height="wrap_content">
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="71dp"
@@ -30,34 +30,9 @@
                     android:layout_marginEnd="10dp"
                     app:srcCompat="@drawable/editoria_logo" />
 
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true">
-
-                <Button
-                    android:id="@+id/filtro"
-                    android:layout_width="82dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginEnd="7dp"
-                    android:layout_marginBottom="24dp"
-                    android:text="Filtrar"
-                    android:textSize="11dp"
-                    app:layout_constraintVertical_bias="0.0" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true">
-
                 <EditText
                     android:id="@+id/barraBusqueda"
-                    android:layout_width="216dp"
+                    android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:layout_marginTop="36dp"
                     android:layout_marginEnd="9dp"
@@ -65,24 +40,31 @@
                     android:ems="10"
                     android:hint="Buscar"
                     android:inputType="textPersonName"
+                    android:layout_weight="1"
                     android:paddingLeft="20dp" />
-            </RelativeLayout>
+
+                <Button
+                    android:id="@+id/filtro"
+                    android:layout_width="82dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="Filtrar"
+                    android:textSize="11dp"
+                    app:layout_constraintVertical_bias="0.0" />
+            </LinearLayout>
 
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentBottom="true"
+                android:background="@android:color/black" />
 
-                <View
-                    android:id="@+id/view2"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:layout_alignParentBottom="true"
-                    android:background="@android:color/black" />
-            </RelativeLayout>
+        </LinearLayout>
 
 
-        </RelativeLayout>
 
 
         <LinearLayout
@@ -98,7 +80,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="40dp">
+                android:layout_marginTop="20dp">
 
                 <TextView
                     android:id="@+id/textView4"
@@ -114,7 +96,7 @@
                     android:id="@+id/listaCVEditoresRecomendados"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp" />
+                    android:layout_marginTop="80dp" />
             </RelativeLayout>
 
         </LinearLayout>

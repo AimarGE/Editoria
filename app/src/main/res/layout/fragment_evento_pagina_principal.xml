@@ -28,16 +28,19 @@
 
                 <EditText
                     android:id="@+id/editTextBusqueda"
-                    android:layout_width="270dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
                     android:visibility="invisible"/>
                 <ImageView
                     android:id="@+id/lupa"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_marginLeft="10dp"
-                    android:src="@drawable/ic_lupa"/>
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/ic_lupa"
+                    />
             </LinearLayout>
 
         <TextView
@@ -52,11 +55,19 @@
             android:textStyle="bold"
             />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listaParticipanetesEventos"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp" />
+            android:layout_centerHorizontal="true">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listaParticipanetesEventos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp" />
+        </RelativeLayout>
+
+
     </LinearLayout>
 
 </ScrollView>

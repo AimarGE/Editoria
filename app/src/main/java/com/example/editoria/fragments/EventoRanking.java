@@ -10,7 +10,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,7 +45,7 @@ public class EventoRanking extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_ranking_evento, container, false);
+        view = inflater.inflate(R.layout.fragment_evento_ranking, container, false);
         menu = view.findViewById(R.id.menu_ranking_evento);
         lupa = view.findViewById(R.id.lupa);
         buscador = view.findViewById(R.id.editTextBusqueda);
@@ -141,7 +140,7 @@ public class EventoRanking extends Fragment {
 
     private void mostrarRankingParticipantes() {
 
-        elements = new ArrayList<>();
+       /* elements = new ArrayList<>();
 
         elements.add(new ListElement("icono", "Mario"));
         elements.add(new ListElement("icono", "Ejemplo2"));
@@ -154,7 +153,7 @@ public class EventoRanking extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(listAdapter);
-        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setNestedScrollingEnabled(false);*/
 
     }
 

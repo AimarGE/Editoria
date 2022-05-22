@@ -4,7 +4,9 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,31 +18,32 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.editoria.GlobalVariable;
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
 import com.example.editoria.model.CartaComentario;
+import com.example.editoria.model.CartaProyectoInformacion;
 import com.example.editoria.model.ListAdapter;
 import com.example.editoria.model.ListElement;
 import com.example.editoria.model.ListElementComentario;
 import com.example.editoria.model.Proyecto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProyectoInformacionFragment extends Fragment {
-
     View view;
-    List<Proyecto> proyectos;
     ArrayList<ListElement> elements;
     ArrayList<ListElementComentario> elementsComentario;
-    TextView basico, estandard, premium, descripcionPaquete;
+    TextView basico, estandard, premium, descripcionPaquete, descripcionServicio;
     Button botonContratar;
-
+    ListElement listElement;
+    String nombre, descripcion, titulo;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
     }
 
@@ -54,13 +57,41 @@ public class ProyectoInformacionFragment extends Fragment {
         premium = view.findViewById(R.id.paquetePremium);
         descripcionPaquete = view.findViewById(R.id.descripcionPaquete);
         botonContratar = view.findViewById(R.id.botonContratar);
+        descripcionServicio = view.findViewById(R.id.descripcionServicio);
 
-        init();
+        if (GlobalVariable.bundleEditor != null ){
+
+            listElement = (ListElement) GlobalVariable.bundleEditor.getSerializable("item");
+            nombre = listElement.getName();
+            descripcion = listElement.getDescripcion();
+            titulo = listElement.getTitulo();
+
+            init();
+
+        }
+
+
+        /*//PARA RECIBIR DATOS ENTRE FRAGMENTS
+        getParentFragmentManager().setFragmentResultListener("key", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                listElement = (ListElement) result.getSerializable("item");//PARA RECOGER EL ITEM DE LISTELEMENT CON LA KEY ITEM DEL FRAGMENT ANTERIOR
+
+                nombre = listElement.getName();
+
+
+            }
+        });*/
+
+
 
         return view;
     }
 
     private void init() {
+
+        descripcionServicio.setText(listElement.getDescripcion());
+
 
         mostrarProyecto();
         mostrarComentarios();
@@ -126,14 +157,36 @@ public class ProyectoInformacionFragment extends Fragment {
 
         elements = new ArrayList<>();
 
-        elements.add(new ListElement("icono", "Mario"));
+        elements.add(new ListElement("icono", nombre, "", titulo));
 
-        ListAdapter listAdapter = new ListAdapter(elements, view.getContext());
+        CartaProyectoInformacion listAdapter = new CartaProyectoInformacion(elements, view.getContext(), new CartaProyectoInformacion.OnItemClickListener() {
+            @Override
+            public void onItemClick(ListElement item) {
+                    perfilSeleccionado(item);
+            }
+        });
+
         RecyclerView recyclerView = view.findViewById(R.id.cvProyectoInfo);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(listAdapter);
         recyclerView.setNestedScrollingEnabled(false);
+
+    }
+
+    private void perfilSeleccionado(ListElement item) {
+
+        MainFragmentContainer.bottomNavigation.show(1, true);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+
+        Bundle bundle = new Bundle();
+
+        bundle.putSerializable("item", item);
+
+        getParentFragmentManager().setFragmentResult("perfilEditor", bundle);
+
+        ft.replace(R.id.mainFrame, new FragmentPerfilEditor()).addToBackStack("tag");
+        ft.commit();
 
     }
 

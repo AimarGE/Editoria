@@ -9,7 +9,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
@@ -23,23 +25,26 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.editoria.GlobalVariable;
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
+import com.example.editoria.model.ListElement;
 
 
 public class FragmentPerfilEditor extends Fragment {
 
     LottieAnimationView favorito;
-    ImageView opciones;
     boolean guardado;
     Button contactar;
+    TextView nombreEditor;
     View view;
+    ListElement listElement;
     private RatingBar ratingBar;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -49,8 +54,25 @@ public class FragmentPerfilEditor extends Fragment {
         favorito = view.findViewById(R.id.favorito);
         ratingBar = (RatingBar) view.findViewById(R.id.ratingBar);
         contactar = view.findViewById(R.id.contactar);
-        opciones = view.findViewById(R.id.opciones);
+        nombreEditor = view.findViewById(R.id.nombreEditor);
         guardado = false;
+        listElement = (ListElement) GlobalVariable.bundleEditor.getSerializable("item");
+
+        init();
+
+        return view;
+    }
+
+    private void init() {
+
+        nombreEditor.setText(listElement.getName());
+
+
+        listeners();
+
+    }
+
+    private void listeners() {
 
         //RatingBar (0.5 - 5.0)
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
@@ -75,27 +97,6 @@ public class FragmentPerfilEditor extends Fragment {
                 abrirContactos();
             }
         });
-
-
-        //abrir ajustes
-        opciones.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                abrirOpciones();
-            }
-        });
-
-
-        return view;
-    }
-
-
-    private void abrirOpciones() {
-
-        MainFragmentContainer.bottomNavigation.show(5, true);
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.mainFrame, new OpcionesFragment());
-        ft.commit();
 
     }
 

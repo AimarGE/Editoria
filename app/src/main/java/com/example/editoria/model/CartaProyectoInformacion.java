@@ -2,6 +2,7 @@ package com.example.editoria.model;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,18 +16,18 @@ import com.example.editoria.R;
 
 import java.util.List;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
+public class CartaProyectoInformacion extends RecyclerView.Adapter<CartaProyectoInformacion.ViewHolder> {
 
     private List<ListElement> mData;
     private LayoutInflater mInflater;
     private Context context;
-    final ListAdapter.OnItemClickListener listener;
+    final CartaProyectoInformacion.OnItemClickListener listener;
 
     public interface OnItemClickListener{
         void onItemClick(ListElement item);
     }
 
-    public ListAdapter(List<ListElement> itemList, Context context, ListAdapter.OnItemClickListener listener){
+    public CartaProyectoInformacion(List<ListElement> itemList, Context context, CartaProyectoInformacion.OnItemClickListener listener){
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
@@ -35,13 +36,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     @NonNull
     @Override
-    public ListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.carta_proyectos, null);
-        return new ListAdapter.ViewHolder(view);
+    public CartaProyectoInformacion.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = mInflater.inflate(R.layout.carta_proyectos_informacion, null);
+        return new CartaProyectoInformacion.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ListAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CartaProyectoInformacion.ViewHolder holder, int position) {
         holder.bindData(mData.get(position));
     }
 
@@ -56,8 +57,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView icono;//PONER EL ICONO DE LA BASE DE DATOS DEL EDITOR
-        TextView name;
-        TextView titulo;
+        TextView name, titulo;
 
         ViewHolder(View itemView){
             super(itemView);
@@ -70,7 +70,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             icono.setImageResource(R.drawable.ejemplo);
             name.setText(item.getName());
             titulo.setText(item.getTitulo());
-            itemView.setOnClickListener(new View.OnClickListener() {
+
+
+            name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClick(item);
+
+                }
+            });
+
+            icono.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     listener.onItemClick(item);
