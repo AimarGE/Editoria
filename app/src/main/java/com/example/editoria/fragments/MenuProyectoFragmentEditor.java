@@ -1,7 +1,5 @@
 package com.example.editoria.fragments;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
@@ -22,13 +21,14 @@ import com.example.editoria.model.ListElement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuProyectoFragment extends Fragment {
+public class MenuProyectoFragmentEditor extends Fragment {
 
     View view;
     List<ListElement> elements;
     Button crearServicio;
+    ImageView verOfertas;
 
-    public MenuProyectoFragment() {
+    public MenuProyectoFragmentEditor() {
         // Required empty public constructor
     }
 
@@ -41,8 +41,10 @@ public class MenuProyectoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_menu_proyecto, container, false);
+        view = inflater.inflate(R.layout.fragment_menu_proyecto_editor, container, false);
         crearServicio = view.findViewById(R.id.botonCrearNuevoServicio);
+        verOfertas = view.findViewById(R.id.verOfertas);
+
 
         init();
 
@@ -53,9 +55,28 @@ public class MenuProyectoFragment extends Fragment {
 
     private void init() {
 
+
         mostrarMisServicios();
         mostrarServiciosContratados();
 
+        listeners();
+
+
+    }
+
+    private void listeners() {
+
+        verOfertas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                MainFragmentContainer.bottomNavigation.show(4, true);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.mainFrame, new SolicitudesOfertaEditorFragment()).addToBackStack("tag");
+                ft.commit();
+
+            }
+        });
 
         //LISTENER PARA CUANDO LE DE AL BOTÓN DE CREAR SERVICIO
         crearServicio.setOnClickListener(new View.OnClickListener() {
@@ -76,12 +97,12 @@ public class MenuProyectoFragment extends Fragment {
 
         elements = new ArrayList<>();
         //OBTENER INFORMACIÓN DE LA BASE DE DATOS Y INSERTARLA AQUÍ PARA QUE SE MUESTRE
-        elements.add(new ListElement("icono", "Mario Servicios Contratados", "",""));
-        elements.add(new ListElement("icono", "Ejemplo2 Servicios Contratados", "",""));
-        elements.add(new ListElement("icono", "José Servicios Contratados", "",""));
-        elements.add(new ListElement("icono", "Mario Servicios Contratados", "",""));
-        elements.add(new ListElement("icono", "Ejemplo2 Servicios Contratados", "",""));
-        elements.add(new ListElement("icono", "José Servicios Contratados", "",""));
+        elements.add(new ListElement("icono", "Mario Servicios Contratados", "","", "Precio: "+ 30.02+"€"));
+        elements.add(new ListElement("icono", "Ejemplo2 Servicios Contratados", "","", "Precio: "+ 30.02+"€"));
+        elements.add(new ListElement("icono", "José Servicios Contratados", "","", "Precio: "+ 30.02+"€"));
+        elements.add(new ListElement("icono", "Mario Servicios Contratados", "","", "Precio: "+ 30.02+"€"));
+        elements.add(new ListElement("icono", "Ejemplo2 Servicios Contratados", "","", "Precio: "+ 30.02+"€"));
+        elements.add(new ListElement("icono", "José Servicios Contratados", "","", "Precio: "+ 30.02+"€"));
         ListAdapter listAdapter = new ListAdapter(elements, view.getContext(), new ListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ListElement item) {
@@ -100,11 +121,11 @@ public class MenuProyectoFragment extends Fragment {
 
         elements = new ArrayList<>();
         //OBTENER INFORMACIÓN DE LA BASE DE DATOS Y INSERTARLA AQUÍ PARA QUE SE MUESTRE
-        elements.add(new ListElement("icono", "Mario MisServicios", "",""));
-        elements.add(new ListElement("icono", "Ejemplo2 MisServicios", "",""));
-        elements.add(new ListElement("icono", "José MisServicios", "",""));
-        elements.add(new ListElement("icono", "Maria MisServicios", "",""));
-        elements.add(new ListElement("icono", "Rodrigo MisServicios", "",""));
+        elements.add(new ListElement("icono", "Mario MisServicios", "","", "Precio: "+ 30.02+"€"));
+        elements.add(new ListElement("icono", "Ejemplo2 MisServicios", "","", "Precio: "+ 30.02+"€"));
+        elements.add(new ListElement("icono", "José MisServicios", "","", "Precio: "+ 30.02+"€"));
+        elements.add(new ListElement("icono", "Maria MisServicios", "","", "Precio: "+ 30.02+"€"));
+        elements.add(new ListElement("icono", "Rodrigo MisServicios", "","", "Precio: "+ 30.02+"€"));
 
         ListAdapter listAdapter = new ListAdapter(elements, view.getContext(), new ListAdapter.OnItemClickListener() {
             @Override

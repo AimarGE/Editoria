@@ -7,6 +7,7 @@ public class Cliente {
     private String idUsuario;
     private String idCliente;
     private String nombreUsuario;
+
     //private ArrayList<Proyecto> proyectos;
 
     public Cliente(String idUsuario, String nombre){

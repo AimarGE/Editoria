@@ -1,6 +1,5 @@
 package com.example.editoria;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,11 +9,8 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.editoria.fragments.ChatFragment;
 import com.example.editoria.fragments.EventoFragment;
 import com.example.editoria.fragments.HomeFragment;
-import com.example.editoria.fragments.MenuProyectoFragment;
+import com.example.editoria.fragments.MenuProyectoFragmentEditor;
 import com.example.editoria.fragments.MiPerfilEditorFragment;
-import com.example.editoria.fragments.PerfilFragment;
-import com.example.editoria.fragments.ProyectoInformacionFragment;
-import com.example.editoria.fragments.ProyectosFragment;
 
 public class MainFragmentContainer extends AppCompatActivity {
 
@@ -72,7 +68,7 @@ public class MainFragmentContainer extends AppCompatActivity {
 
                     case 4:
                         borrarPilaFragments();
-                        fragment = new MenuProyectoFragment();
+                        fragment = new MenuProyectoFragmentEditor();
                         break;
 
                     case 5:
@@ -106,7 +102,7 @@ public class MainFragmentContainer extends AppCompatActivity {
                         break;
                     case 4:
                         borrarPilaFragments();
-                        fragment = new MenuProyectoFragment();
+                        fragment = new MenuProyectoFragmentEditor();
                         break;
                     case 5:
                         borrarPilaFragments();

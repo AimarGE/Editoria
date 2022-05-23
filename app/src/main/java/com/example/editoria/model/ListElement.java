@@ -8,12 +8,14 @@ public class ListElement implements Serializable {
     public String name;
     public String titulo;
     public String descripcion;
+    public String precio;
 
-    public ListElement(String icon, String name, String descripcion, String titulo) {
+    public ListElement(String icon, String name, String descripcion, String titulo, String precio) {
         this.icon = icon;
         this.name = name;
         this.descripcion = descripcion;
         this.titulo = titulo;
+        this.precio = precio;
     }
 
     public String getIcon() {
@@ -46,5 +48,23 @@ public class ListElement implements Serializable {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public String getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(String precio) {
+        this.precio = precio;
+    }
+
+    @Override
+    public String toString() {
+        return "ListElement{" +
+                "name='" + name + '\'' +
+                ", titulo='" + titulo + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", precio='" + precio + '\'' +
+                '}';
     }
 }

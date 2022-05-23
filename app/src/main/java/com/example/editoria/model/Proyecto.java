@@ -6,6 +6,7 @@ public class Proyecto {
     private String descripcion;
     private String disponibilidad;
     private String nombreUsuario;
+    private RecursosCliente recursoCliente;
 
     public Proyecto(String nombre, String descripcion, String disponibilidad, String nombreUsuario){
         this.nombre=nombre;

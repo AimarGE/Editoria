@@ -1,6 +1,5 @@
 package com.example.editoria.fragments;
 
-import android.app.ActionBar;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
@@ -88,7 +87,7 @@ public class DatosTargetaFragment extends Fragment {
 
         MainFragmentContainer.bottomNavigation.show(4, true);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.mainFrame, new MenuProyectoFragment());
+        ft.replace(R.id.mainFrame, new MenuProyectoFragmentEditor());
         ft.commit();
 
     }
