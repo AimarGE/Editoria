@@ -103,7 +103,7 @@ public class RegisterCliente extends AppCompatActivity {
 
 
     private boolean comprobarContrasLenght(){
-        if(contra.length() < 6){
+        if(contra.length() < 6  || contra.length() > 14){
             return false;
         }
         return true;
@@ -132,7 +132,7 @@ public class RegisterCliente extends AppCompatActivity {
     }
 
     private boolean comprobarLenghtUsuario(String usuario){
-        if(usuario.length() < 6 && usuario.length() > 16){
+        if(usuario.length() < 6 || usuario.length() > 16){
             return false;
         }
         return true;

@@ -14,6 +14,7 @@ public class Proyecto {
         this.descripcion=descripcion;
         this.disponibilidad=disponibilidad;
         this.nombreUsuario=nombreUsuario;
+        this.foto=foto;
     }
 
     public Proyecto(){

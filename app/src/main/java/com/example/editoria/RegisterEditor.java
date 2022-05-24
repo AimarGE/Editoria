@@ -36,7 +36,7 @@ public class RegisterEditor extends AppCompatActivity {
 
         CampoUsuario = (EditText) findViewById(R.id.usuario);
         CampoPassword = (EditText) findViewById(R.id.password);
-        CampoConfirmPassword= (EditText) findViewById(R.id.confirmPassword);
+        //ha petado CampoConfirmPassword= (EditText) findViewById(R.id.confirmPassword);
         CampoEmail = (EditText) findViewById(R.id.email);
         CampoTelefono = (EditText) findViewById(R.id.telefono);
         CampoFechaNacimiento = (EditText) findViewById(R.id.fechaNacimiento);
@@ -51,7 +51,7 @@ public class RegisterEditor extends AppCompatActivity {
     public void register(View _) {
         usuario = CampoUsuario.getText().toString();
         contra= CampoPassword.getText().toString();
-        contraConfirmar= CampoConfirmPassword.getText().toString();
+       contraConfirmar= CampoConfirmPassword.getText().toString();
         email = CampoEmail.getText().toString();
         telefono = CampoTelefono.getText().toString();
         fechaNacimiento = CampoFechaNacimiento.getText().toString();
@@ -115,7 +115,7 @@ public class RegisterEditor extends AppCompatActivity {
 
 
     private boolean comprobarContrasLenght(){
-        if(contra.length() < 6 && contra.length() > 14){
+        if(contra.length() < 6 || contra.length() > 14){
             return false;
         }
         return true;
@@ -144,7 +144,7 @@ public class RegisterEditor extends AppCompatActivity {
     }
 
     private boolean comprobarLenghtUsuario(String usuario){
-        if(usuario.length() < 6){
+        if(usuario.length() < 6 || usuario.length() > 16){
             return false;
         }
         return true;

@@ -24,6 +24,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.editoria.GlobalVariable;
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.fragments.HomeFragment;
 import com.example.editoria.model.Proyecto;
@@ -142,8 +143,8 @@ public class ProyectosFragment extends Fragment {
             @Override
             public void onSuccess(Uri uri) {
                 urlFoto = uri.toString();
-                Proyecto proyecto = new Proyecto(nombreP, descripcionP, disponibilidad, "Pepe", urlFoto);
-                dRef.child("Proyectos").child(proyecto.getNombreUsuario()).setValue(proyecto);
+                Proyecto proyecto = new Proyecto(nombreP, descripcionP, disponibilidad, GlobalVariable.nombreUsuario, urlFoto);
+                //dRef.child("Proyectos").child(proyecto.getNombreUsuario()).setValue();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

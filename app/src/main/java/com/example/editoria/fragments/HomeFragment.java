@@ -1,6 +1,7 @@
 package com.example.editoria.fragments;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,13 +16,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.editoria.GlobalVariable;
+import com.example.editoria.Login;
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
 import com.example.editoria.model.ListAdapter;
 import com.example.editoria.model.ListElement;
 import com.example.editoria.model.Proyecto;
+import com.example.editoria.model.Usuario;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -53,8 +57,7 @@ public class HomeFragment extends Fragment {
         filtro = view.findViewById(R.id.filtro);
         proyectos = new ArrayList<>();
         getAllProyectos();
-
-
+        getUsuario();
 
         filtro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +66,31 @@ public class HomeFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    private void getUsuario(){
+       /* dRef.child("Usuarios").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.hasChild(GlobalVariable.nombreUsuario)) {
+                    GlobalVariable.usuario = snapshot.child(GlobalVariable.nombreUsuario).getValue(Usuario.class);
+                    if(snapshot.child(GlobalVariable).child("clase").getValue(String.class).equals("Editor")){
+                        getEditor();
+                    }else{
+                        getCliente();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });*/
+    }
+
+    private void getEditor(){
+
     }
 
     private void getAllProyectos(){

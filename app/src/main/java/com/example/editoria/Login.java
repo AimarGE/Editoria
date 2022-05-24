@@ -88,6 +88,7 @@ public class Login extends AppCompatActivity {
         editor.putBoolean("sesionIniciada",true);
         editor.putString("usuario", usuario);
         editor.putString("password", password);
+        GlobalVariable.nombreUsuario=usuario;
         editor.commit();
     }
 

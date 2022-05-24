@@ -22,6 +22,9 @@ public class Usuario {
         this.clase = clase;
     }
 
+    public Usuario() {
+    }
+
     public String getId() {
         return this.id;
     }
@@ -48,5 +51,18 @@ public class Usuario {
 
     public String getClase() {
         return clase;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id='" + id + '\'' +
+                ", usuario='" + usuario + '\'' +
+                ", password='" + password + '\'' +
+                ", correoE='" + correoE + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", fechaNacimiento='" + fechaNacimiento + '\'' +
+                ", clase='" + clase + '\'' +
+                '}';
     }
 }
