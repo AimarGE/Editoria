@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -97,7 +98,9 @@ public class DescargarRecursoFragmentEditor extends Fragment {
         BitmapDrawable draw = (BitmapDrawable) cartaRecursosClientes.getImageView().getDrawable();
         Bitmap bitmap = draw.getBitmap();
 
-        FileOutputStream outStream = null;
+        MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), bitmap, "tituloNobita" , "descripcionNobita");
+
+       /* FileOutputStream outStream = null;
         File sdCard = Environment.getExternalStorageDirectory();
         File dir = new File(sdCard.getAbsolutePath() + "/Editoria/");
         dir.mkdirs();
@@ -109,7 +112,7 @@ public class DescargarRecursoFragmentEditor extends Fragment {
         outStream = new FileOutputStream(outFile);
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outStream);
         outStream.flush();
-        outStream.close();
+        outStream.close();*/
 
     }
 
@@ -118,7 +121,7 @@ public class DescargarRecursoFragmentEditor extends Fragment {
         elements = new ArrayList<>();
 
         //CAMBIAR
-        elements.add(new ListElement("icono", nombre,"", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif", precio));
+        elements.add(new ListElement("icono", nombre,"", "", "https://www.exclusivadigital.com/fotos/16368848691.jpg", precio));
 
         cartaRecursosClientes = new CartaRecursosClientes(elements, view.getContext(), new CartaRecursosClientes.OnItemClickListener() {
             @Override

@@ -75,7 +75,7 @@ public class CartaRecursosClientes extends RecyclerView.Adapter<CartaRecursosCli
             name.setText(item.getName());
             titulo.setText(item.getTitulo());
             precio.setText("Precio: "+item.getPrecio()+"€");
-            Picasso.get().load("https://static.wikia.nocookie.net/doraenciclopedia/images/7/79/Nobita_Nobi_-_2005_anime.png/revision/latest?cb=20170723201924&path-prefix=es").into(foto);
+            Picasso.get().load(item.getFoto()).into(foto);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
