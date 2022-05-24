@@ -132,7 +132,7 @@ public class RegisterCliente extends AppCompatActivity {
     }
 
     private boolean comprobarLenghtUsuario(String usuario){
-        if(usuario.length() < 6){
+        if(usuario.length() < 6 && usuario.length() > 16){
             return false;
         }
         return true;

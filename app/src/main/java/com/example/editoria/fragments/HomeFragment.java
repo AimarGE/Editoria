@@ -69,6 +69,7 @@ public class HomeFragment extends Fragment {
         dRef.child("Proyectos").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                proyectos.clear();
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     Proyecto proyecto = postSnapshot.getValue(Proyecto.class);
                     proyectos.add(proyecto);
@@ -86,7 +87,7 @@ public class HomeFragment extends Fragment {
         elements = new ArrayList<>();
         for(int i=0; i < proyectos.size(); i++){
             Log.i("proyectos", proyectos.get(i).toString());
-            elements.add(new ListElement("icono", proyectos.get(i).getNombreUsuario(), proyectos.get(i).getDescripcion(), proyectos.get(i).getNombre(), 50.02));
+            elements.add(new ListElement("icono", proyectos.get(i).getNombreUsuario(), proyectos.get(i).getDescripcion(), proyectos.get(i).getNombre(), proyectos.get(i).getFoto(), 50.02));
         }
 
         ListAdapter listAdapter = new ListAdapter(elements, view.getContext(), new ListAdapter.OnItemClickListener() {

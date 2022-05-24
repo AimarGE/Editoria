@@ -7,8 +7,9 @@ public class Proyecto {
     private String disponibilidad;
     private String nombreUsuario;
     private RecursosCliente recursoCliente;
+    private String foto;
 
-    public Proyecto(String nombre, String descripcion, String disponibilidad, String nombreUsuario){
+    public Proyecto(String nombre, String descripcion, String disponibilidad, String nombreUsuario, String foto){
         this.nombre=nombre;
         this.descripcion=descripcion;
         this.disponibilidad=disponibilidad;
@@ -35,6 +36,14 @@ public class Proyecto {
         return nombreUsuario;
     }
 
+    public RecursosCliente getRecursoCliente() {
+        return recursoCliente;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
     @Override
     public String toString() {
         return "Proyecto{" +
@@ -42,6 +51,8 @@ public class Proyecto {
                 ", descripcion='" + descripcion + '\'' +
                 ", disponibilidad='" + disponibilidad + '\'' +
                 ", nombreUsuario='" + nombreUsuario + '\'' +
+                ", recursoCliente=" + recursoCliente +
+                ", foto='" + foto + '\'' +
                 '}';
     }
 }

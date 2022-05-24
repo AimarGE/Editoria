@@ -101,12 +101,12 @@ public class SolicitudesOfertaEditorFragment extends Fragment {
 
         elements = new ArrayList<>();
         //OBTENER INFORMACIÓN DE LA BASE DE DATOS Y INSERTARLA AQUÍ PARA QUE SE MUESTRE
-        elements.add(new ListElement("icono", "Mario Wong ", "","Tituloej", 30.02));
-        elements.add(new ListElement("icono", "Ejeados", "","Tituloej", 50.02));
-        elements.add(new ListElement("icono", "Aimar Gonzalez", "","Tituloej",  10.02));
-        elements.add(new ListElement("icono", "Mario Servicios ", "","Tituloej", 20.10));
-        elements.add(new ListElement("icono", "Ejemplo2 Servicios ", "","Tituloej", 50.02));
-        elements.add(new ListElement("icono", "José Servicios ", "","Tituloej", 3000.02));
+        elements.add(new ListElement("icono", "Mario Wong ", "","Tituloej", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
+        elements.add(new ListElement("icono", "Ejeados", "","Tituloej","https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif", 50.02));
+        elements.add(new ListElement("icono", "Aimar Gonzalez", "","Tituloej","https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",  10.02));
+        elements.add(new ListElement("icono", "Mario Servicios ", "","Tituloej", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",20.10));
+        elements.add(new ListElement("icono", "Ejemplo2 Servicios ", "","Tituloej", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",50.02));
+        elements.add(new ListElement("icono", "José Servicios ", "","Tituloej", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",3000.02));
 
         CartaOfertasPendientes listAdapter = new CartaOfertasPendientes(elements, view.getContext(), new CartaOfertasPendientes.OnItemClickListener() {
             @Override

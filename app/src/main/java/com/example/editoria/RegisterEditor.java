@@ -115,7 +115,7 @@ public class RegisterEditor extends AppCompatActivity {
 
 
     private boolean comprobarContrasLenght(){
-        if(contra.length() < 6){
+        if(contra.length() < 6 && contra.length() > 14){
             return false;
         }
         return true;

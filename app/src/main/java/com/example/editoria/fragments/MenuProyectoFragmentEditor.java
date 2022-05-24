@@ -106,12 +106,12 @@ public class MenuProyectoFragmentEditor extends Fragment {
 
         elements = new ArrayList<>();
         //OBTENER INFORMACIÓN DE LA BASE DE DATOS Y INSERTARLA AQUÍ PARA QUE SE MUESTRE
-        elements.add(new ListElement("icono", "Mario Servicios", "","", 930.02));
-        elements.add(new ListElement("icono", "Ejemplo2 Servicios", "","", 3420.02));
-        elements.add(new ListElement("icono", "José Servicios", "","",  510.02));
-        elements.add(new ListElement("icono", "Mario Servicios", "","", 800.02));
-        elements.add(new ListElement("icono", "Ejemplo2 Servicios", "","", 33.02));
-        elements.add(new ListElement("icono", "José Servicios", "","", 555.02));
+        elements.add(new ListElement("icono", "Mario Servicios", "","", "https://media.revistagq.com/photos/5ca5f6a77a3aec0df5496c59/master/w_1600%2Cc_limit/bob_esponja_9564.png" ,930.02));
+        elements.add(new ListElement("icono", "Ejemplo2 Servicios", "","", "https://media.revistagq.com/photos/5ca5f6a77a3aec0df5496c59/master/w_1600%2Cc_limit/bob_esponja_9564.png" , 3420.02));
+        elements.add(new ListElement("icono", "José Servicios", "","",  "https://media.revistagq.com/photos/5ca5f6a77a3aec0df5496c59/master/w_1600%2Cc_limit/bob_esponja_9564.png" ,510.02));
+        elements.add(new ListElement("icono", "Mario Servicios", "","", "https://media.revistagq.com/photos/5ca5f6a77a3aec0df5496c59/master/w_1600%2Cc_limit/bob_esponja_9564.png" ,800.02));
+        elements.add(new ListElement("icono", "Ejemplo2 Servicios", "","", "https://media.revistagq.com/photos/5ca5f6a77a3aec0df5496c59/master/w_1600%2Cc_limit/bob_esponja_9564.png" ,33.02));
+        elements.add(new ListElement("icono", "José Servicios", "","", "https://media.revistagq.com/photos/5ca5f6a77a3aec0df5496c59/master/w_1600%2Cc_limit/bob_esponja_9564.png" ,555.02));
         ListAdapter listAdapter = new ListAdapter(elements, view.getContext(), new ListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ListElement item) {
@@ -130,11 +130,11 @@ public class MenuProyectoFragmentEditor extends Fragment {
 
         elements = new ArrayList<>();
         //OBTENER INFORMACIÓN DE LA BASE DE DATOS Y INSERTARLA AQUÍ PARA QUE SE MUESTRE
-        elements.add(new ListElement("icono", "Mario MisServicios", "","", 30.02));
-        elements.add(new ListElement("icono", "Ejemplo2 MisServicios", "","", 30.02));
-        elements.add(new ListElement("icono", "José MisServicios", "","",  30.00));
-        elements.add(new ListElement("icono", "Maria MisServicios", "","", 30.02));
-        elements.add(new ListElement("icono", "Rodrigo MisServicios", "","", 30.05));
+        elements.add(new ListElement("icono", "Mario MisServicios", "","", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif", 30.02));
+        elements.add(new ListElement("icono", "Ejemplo2 MisServicios", "","","https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif", 30.02));
+        elements.add(new ListElement("icono", "José MisServicios", "","","https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",  30.00));
+        elements.add(new ListElement("icono", "Maria MisServicios", "","", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
+        elements.add(new ListElement("icono", "Rodrigo MisServicios", "","", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.05));
 
         ListAdapter listAdapter = new ListAdapter(elements, view.getContext(), new ListAdapter.OnItemClickListener() {
             @Override

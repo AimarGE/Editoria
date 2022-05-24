@@ -140,21 +140,21 @@ public class EventoParticipantes extends Fragment {
 
         elements = new ArrayList<>();
 
-        elements.add(new ListElement("icono", "Mario","", "", 30.02));
-        elements.add(new ListElement("icono", "Ejemplo2","", "", 30.02));
-        elements.add(new ListElement("icono", "José","", "", 30.02));
-        elements.add(new ListElement("icono", "Maria","", "", 30.02));
-        elements.add(new ListElement("icono", "Rodrigo","", "", 30.02));
-        elements.add(new ListElement("icono", "Mario","", "", 30.02));
-        elements.add(new ListElement("icono", "Ejemplo2","", "", 30.02));
-        elements.add(new ListElement("icono", "José","", "", 30.02));
-        elements.add(new ListElement("icono", "Maria","", "", 30.02));
-        elements.add(new ListElement("icono", "Rodrigo","", "", 30.02));
-        elements.add(new ListElement("icono", "Mario","", "", 30.02));
-        elements.add(new ListElement("icono", "Ejemplo2","", "", 30.02));
-        elements.add(new ListElement("icono", "José","", "", 30.02));
-        elements.add(new ListElement("icono", "Maria","", "", 30.02));
-        elements.add(new ListElement("icono", "Rodrigo","", "", 30.02));
+        elements.add(new ListElement("icono", "Mario","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
+        elements.add(new ListElement("icono", "Ejemplo2","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
+        elements.add(new ListElement("icono", "José","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
+        elements.add(new ListElement("icono", "Maria","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
+        elements.add(new ListElement("icono", "Rodrigo","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
+        elements.add(new ListElement("icono", "Mario","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
+        elements.add(new ListElement("icono", "Ejemplo2","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
+        elements.add(new ListElement("icono", "José","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
+        elements.add(new ListElement("icono", "Maria","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
+        elements.add(new ListElement("icono", "Rodrigo","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
+        elements.add(new ListElement("icono", "Mario","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
+        elements.add(new ListElement("icono", "Ejemplo2","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
+        elements.add(new ListElement("icono", "José","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
+        elements.add(new ListElement("icono", "Maria","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
+        elements.add(new ListElement("icono", "Rodrigo","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
         CartaParticipantes listAdapter = new CartaParticipantes(elements, view.getContext());
         RecyclerView recyclerView = view.findViewById(R.id.listaParticipanetesEventos);
         recyclerView.setHasFixedSize(true);

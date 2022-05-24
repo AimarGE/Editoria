@@ -1,7 +1,9 @@
 package com.example.editoria;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,6 +30,9 @@ public class Login extends AppCompatActivity {
     private EditText campoPassword;
     private DatabaseReference dRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://editoria-bb3aa-default-rtdb.europe-west1.firebasedatabase.app/");
     private Writer writer;
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,23 +41,10 @@ public class Login extends AppCompatActivity {
         campoNombreUsuario= (EditText) findViewById(R.id.UserLogIn);
         campoPassword= (EditText) findViewById(R.id.contraLogin);
         getSupportActionBar().hide();
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-            writer = new Writer("./credentials.txt");
-        }
-        else{
-            requestPermissions();
-        }
-    }
+        preferences = getSharedPreferences("sesion", Context.MODE_PRIVATE);
+        editor = preferences.edit();
 
-    private void requestPermissions() {
-        if (ContextCompat.checkSelfPermission(getApplicationContext(),
-                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    Manifest.permission.READ_EXTERNAL_STORAGE,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            }, 0);
-        }
+
     }
 
     public void register(View view) {
@@ -73,6 +65,7 @@ public class Login extends AppCompatActivity {
 
                         if(getPassword.equals(password)){
                             Toast.makeText(Login.this, "Sesión iniciada con éxito", Toast.LENGTH_SHORT).show();
+                            addDataToSharedPreferences(usuario, password);
                             startActivity(new Intent(Login.this, MainFragmentContainer.class));
                         }else{
                             Toast.makeText(Login.this, "Wrong password", Toast.LENGTH_SHORT).show();
@@ -89,6 +82,13 @@ public class Login extends AppCompatActivity {
                 }
             });
         //writer.escribir(usuario);
+    }
+
+    private void addDataToSharedPreferences(String usuario, String password){
+        editor.putBoolean("sesionIniciada",true);
+        editor.putString("usuario", usuario);
+        editor.putString("password", password);
+        editor.commit();
     }
 
     public void forgotenPass(View _){

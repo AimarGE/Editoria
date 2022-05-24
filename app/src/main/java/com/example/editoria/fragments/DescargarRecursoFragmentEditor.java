@@ -118,7 +118,7 @@ public class DescargarRecursoFragmentEditor extends Fragment {
         elements = new ArrayList<>();
 
         //CAMBIAR
-        elements.add(new ListElement("icono", nombre,"", "", precio));
+        elements.add(new ListElement("icono", nombre,"", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif", precio));
 
         cartaRecursosClientes = new CartaRecursosClientes(elements, view.getContext(), new CartaRecursosClientes.OnItemClickListener() {
             @Override
