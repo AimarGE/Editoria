@@ -3,11 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/drawable/ic_home.xml" value="0.21666666666666667" />
-        <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/carta_proyectos.xml" value="0.12360688956433637" />
-        <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/fragment_perfil_cliente.xml" value="0.2" />
-        <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/fragment_perfil_editor.xml" value="0.20052083333333334" />
-        <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/fragment_proyectos.xml" value="0.1171875" />
         <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/login.xml" value="0.264" />
         <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/register.xml" value="0.1793478260869565" />
         <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/registercliente.xml" value="0.264" />
@@ -20,11 +15,13 @@
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/carta_comentario.xml" value="0.22135416666666666" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/carta_participante.xml" value="0.36666666666666664" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/carta_proyecto_evento.xml" value="0.25" />
+        <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/carta_proyecto_pendiente_expandido.xml" value="0.10309017223910841" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/carta_proyectos.xml" value="0.2653985507246377" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/carta_proyectos_informacion.xml" value="0.33" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_chat.xml" value="0.2604166666666667" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_datos_del_pedido.xml" value="0.22447916666666667" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_datos_targeta.xml" value="0.22447916666666667" />
+        <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_descargar_recurso_editor.xml" value="0.21510416666666668" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_evento.xml" value="0.22447916666666667" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_evento_pagina_principal.xml" value="0.22447916666666667" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_evento_participantes.xml" value="0.22447916666666667" />
@@ -32,12 +29,14 @@
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_home.xml" value="0.22135416666666666" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_home_v2.xml" value="0.22135416666666666" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_menu_proyecto.xml" value="0.33" />
+        <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_menu_proyecto_editor.xml" value="0.21510416666666668" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_notification.xml" value="0.2604166666666667" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_perfil_editor.xml" value="0.22135416666666666" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_profile.xml" value="0.2604166666666667" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_proyecto_informacion.xml" value="0.22447916666666667" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_proyectos.xml" value="0.19791666666666666" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_ranking_evento.xml" value="0.22447916666666667" />
+        <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/fragment_solicitudes_oferta_editor.xml" value="0.21510416666666668" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/home.xml" value="0.25" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/login.xml" value="0.19791666666666666" />
         <entry key="..\:/Desktop/DAM2/Editoria/app/src/main/res/layout/paginafiltro.xml" value="0.19791666666666666" />
@@ -76,23 +75,16 @@
         <entry key="app/src/main/res/layout/activity_pop_filtro.xml" value="0.33" />
         <entry key="app/src/main/res/layout/borde.xml" value="0.271286231884058" />
         <entry key="app/src/main/res/layout/carta_participante.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/carta_proyecto_evento.xml" value="0.16489361702127658" />
-        <entry key="app/src/main/res/layout/carta_proyecto_pendiente.xml" value="0.3390625" />
-        <entry key="app/src/main/res/layout/carta_proyecto_pendiente_expandido.xml" value="0.33" />
         <entry key="app/src/main/res/layout/carta_proyectos.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/carta_proyectos_informacion.xml" value="0.3390625" />
         <entry key="app/src/main/res/layout/contactos_dialog.xml" value="0.3390625" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.16489361702127658" />
         <entry key="app/src/main/res/layout/fragment_datos_del_pedido.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_datos_targeta.xml" value="0.3390625" />
-        <entry key="app/src/main/res/layout/fragment_descargar_recurso_editor.xml" value="0.23489583333333333" />
         <entry key="app/src/main/res/layout/fragment_evento.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_evento_pagina_principal.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_evento_participantes.xml" value="0.24320652173913043" />
-        <entry key="app/src/main/res/layout/fragment_evento_ranking.xml" value="0.3390625" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_menu_proyecto.xml" value="0.15" />
-        <entry key="app/src/main/res/layout/fragment_menu_proyecto_editor.xml" value="0.3390625" />
+        <entry key="app/src/main/res/layout/fragment_menu_proyecto.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_mi_perfil_cliente.xml" value="0.325" />
         <entry key="app/src/main/res/layout/fragment_mi_perfil_editor.xml" value="0.3390625" />
         <entry key="app/src/main/res/layout/fragment_miperfil_cliente.xml" value="0.33" />
@@ -106,7 +98,6 @@
         <entry key="app/src/main/res/layout/fragment_proyecto_informacion.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_proyectos.xml" value="0.29030797101449274" />
         <entry key="app/src/main/res/layout/fragment_ranking_evento.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/fragment_solicitudes_oferta_editor.xml" value="0.33" />
         <entry key="app/src/main/res/layout/home.xml" value="0.2" />
         <entry key="app/src/main/res/layout/lista_proyectos.xml" value="0.30364583333333334" />
         <entry key="app/src/main/res/layout/login.xml" value="0.296195652173913" />

@@ -140,22 +140,21 @@ public class EventoParticipantes extends Fragment {
 
         elements = new ArrayList<>();
 
-        elements.add(new ListElement("icono", "Mario","", "", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "Ejemplo2","", "", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "José","", "", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "Maria","", "", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "Rodrigo","", "", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "Mario","", "", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "Ejemplo2","", "", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "José","", "", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "Maria","", "", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "Rodrigo","", "", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "Mario","", "", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "Ejemplo2","", "", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "José","", "", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "Maria","", "", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "Rodrigo","", "", "Precio: "+ 30.02+"€"));
-
+        elements.add(new ListElement("icono", "Mario","", "", 30.02));
+        elements.add(new ListElement("icono", "Ejemplo2","", "", 30.02));
+        elements.add(new ListElement("icono", "José","", "", 30.02));
+        elements.add(new ListElement("icono", "Maria","", "", 30.02));
+        elements.add(new ListElement("icono", "Rodrigo","", "", 30.02));
+        elements.add(new ListElement("icono", "Mario","", "", 30.02));
+        elements.add(new ListElement("icono", "Ejemplo2","", "", 30.02));
+        elements.add(new ListElement("icono", "José","", "", 30.02));
+        elements.add(new ListElement("icono", "Maria","", "", 30.02));
+        elements.add(new ListElement("icono", "Rodrigo","", "", 30.02));
+        elements.add(new ListElement("icono", "Mario","", "", 30.02));
+        elements.add(new ListElement("icono", "Ejemplo2","", "", 30.02));
+        elements.add(new ListElement("icono", "José","", "", 30.02));
+        elements.add(new ListElement("icono", "Maria","", "", 30.02));
+        elements.add(new ListElement("icono", "Rodrigo","", "", 30.02));
         CartaParticipantes listAdapter = new CartaParticipantes(elements, view.getContext());
         RecyclerView recyclerView = view.findViewById(R.id.listaParticipanetesEventos);
         recyclerView.setHasFixedSize(true);

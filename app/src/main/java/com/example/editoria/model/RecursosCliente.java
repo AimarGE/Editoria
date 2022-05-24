@@ -1,6 +1,8 @@
 package com.example.editoria.model;
 
-public class RecursosCliente {
+import java.io.Serializable;
+
+public class RecursosCliente implements Serializable {
 
 
     private String nombreCliente;
@@ -17,6 +19,38 @@ public class RecursosCliente {
 
     public RecursosCliente(){
 
+    }
+
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
     @Override

@@ -16,12 +16,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
 
+import com.example.editoria.GlobalVariable;
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
 import com.example.editoria.model.CartaOfertasPendientes;
 import com.example.editoria.model.ListAdapter;
 import com.example.editoria.model.ListElement;
+import com.example.editoria.model.RecursosCliente;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,8 +78,20 @@ public class SolicitudesOfertaEditorFragment extends Fragment {
 
     private void aceptarOferta(ListElement item) {
 
-        MainFragmentContainer.bottomNavigation.show(3, true);
+
+        MainFragmentContainer.bottomNavigation.show(4, true);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
+
+        Bundle bundle = new Bundle();
+        //FALTA OBTENER INFORMACIÓN DESDE LA BASE DA DATOS
+
+        RecursosCliente recursosCliente = new RecursosCliente(item.getName(), "imagen", "descripcion", item.getPrecio());
+
+        bundle.putSerializable("recursosCliente", recursosCliente);
+        GlobalVariable.bundleSolicitudOferta = bundle;
+
+        //FUNCION EN LA BASE DE DATOS PARA CONFIRMAR LA OFERTA --> CONFIRMAR LA OFERTA EN EL WIREFRAME DEL CLIENTE
+
         ft.replace(R.id.mainFrame, new DescargarRecursoFragmentEditor()).addToBackStack("tag");
         ft.commit();
 
@@ -86,12 +101,12 @@ public class SolicitudesOfertaEditorFragment extends Fragment {
 
         elements = new ArrayList<>();
         //OBTENER INFORMACIÓN DE LA BASE DE DATOS Y INSERTARLA AQUÍ PARA QUE SE MUESTRE
-        elements.add(new ListElement("icono", "Mario Wong ", "","Tituloej", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "Ejeados", "","Tituloej", "Precio: "+ 50.02+"€"));
-        elements.add(new ListElement("icono", "Aimar Gonzalez", "","Tituloej", "Precio: "+ 10.02+"€"));
-        elements.add(new ListElement("icono", "Mario Servicios ", "","Tituloej", "Precio: "+ 20.10+"€"));
-        elements.add(new ListElement("icono", "Ejemplo2 Servicios ", "","Tituloej", "Precio: "+ 50.02+"€"));
-        elements.add(new ListElement("icono", "José Servicios ", "","Tituloej", "Precio: "+ 3000.02+"€"));
+        elements.add(new ListElement("icono", "Mario Wong ", "","Tituloej", 30.02));
+        elements.add(new ListElement("icono", "Ejeados", "","Tituloej", 50.02));
+        elements.add(new ListElement("icono", "Aimar Gonzalez", "","Tituloej",  10.02));
+        elements.add(new ListElement("icono", "Mario Servicios ", "","Tituloej", 20.10));
+        elements.add(new ListElement("icono", "Ejemplo2 Servicios ", "","Tituloej", 50.02));
+        elements.add(new ListElement("icono", "José Servicios ", "","Tituloej", 3000.02));
 
         CartaOfertasPendientes listAdapter = new CartaOfertasPendientes(elements, view.getContext(), new CartaOfertasPendientes.OnItemClickListener() {
             @Override

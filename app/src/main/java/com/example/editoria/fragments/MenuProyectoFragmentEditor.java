@@ -97,12 +97,12 @@ public class MenuProyectoFragmentEditor extends Fragment {
 
         elements = new ArrayList<>();
         //OBTENER INFORMACIÓN DE LA BASE DE DATOS Y INSERTARLA AQUÍ PARA QUE SE MUESTRE
-        elements.add(new ListElement("icono", "Mario Servicios Contratados", "","", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "Ejemplo2 Servicios Contratados", "","", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "José Servicios Contratados", "","", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "Mario Servicios Contratados", "","", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "Ejemplo2 Servicios Contratados", "","", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "José Servicios Contratados", "","", "Precio: "+ 30.02+"€"));
+        elements.add(new ListElement("icono", "Mario Servicios Contratados", "","", 30.02));
+        elements.add(new ListElement("icono", "Ejemplo2 Servicios Contratados", "","", 30.02));
+        elements.add(new ListElement("icono", "José Servicios Contratados", "","",  30.02));
+        elements.add(new ListElement("icono", "Mario Servicios Contratados", "","", 30.02));
+        elements.add(new ListElement("icono", "Ejemplo2 Servicios Contratados", "","", 30.02));
+        elements.add(new ListElement("icono", "José Servicios Contratados", "","", 30.02));
         ListAdapter listAdapter = new ListAdapter(elements, view.getContext(), new ListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ListElement item) {
@@ -121,11 +121,11 @@ public class MenuProyectoFragmentEditor extends Fragment {
 
         elements = new ArrayList<>();
         //OBTENER INFORMACIÓN DE LA BASE DE DATOS Y INSERTARLA AQUÍ PARA QUE SE MUESTRE
-        elements.add(new ListElement("icono", "Mario MisServicios", "","", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "Ejemplo2 MisServicios", "","", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "José MisServicios", "","", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "Maria MisServicios", "","", "Precio: "+ 30.02+"€"));
-        elements.add(new ListElement("icono", "Rodrigo MisServicios", "","", "Precio: "+ 30.02+"€"));
+        elements.add(new ListElement("icono", "Mario MisServicios", "","", 30.02));
+        elements.add(new ListElement("icono", "Ejemplo2 MisServicios", "","", 30.02));
+        elements.add(new ListElement("icono", "José MisServicios", "","",  30.00));
+        elements.add(new ListElement("icono", "Maria MisServicios", "","", 30.02));
+        elements.add(new ListElement("icono", "Rodrigo MisServicios", "","", 30.05));
 
         ListAdapter listAdapter = new ListAdapter(elements, view.getContext(), new ListAdapter.OnItemClickListener() {
             @Override

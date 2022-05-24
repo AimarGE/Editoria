@@ -2,6 +2,7 @@ package com.example.editoria.model;
 
 
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.editoria.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -20,6 +22,7 @@ public class CartaRecursosClientes extends RecyclerView.Adapter<CartaRecursosCli
     private List<ListElement> mData;
     private LayoutInflater mInflater;
     private Context context;
+    private ImageView foto;
     final CartaRecursosClientes.OnItemClickListener listener;
 
     public interface OnItemClickListener{
@@ -64,13 +67,15 @@ public class CartaRecursosClientes extends RecyclerView.Adapter<CartaRecursosCli
                 icono = itemView.findViewById(R.id.cvIconoEditor);
                 titulo = itemView.findViewById(R.id.tituloProyecto);
                 precio = itemView.findViewById(R.id.cvPrecioProyecto);
+                foto = itemView.findViewById(R.id.imagenProyecto);
         }
 
         void bindData(final ListElement item){
             icono.setImageResource(R.drawable.ejemplo);
             name.setText(item.getName());
             titulo.setText(item.getTitulo());
-            precio.setText(item.getPrecio());
+            precio.setText("Precio: "+item.getPrecio()+"€");
+            Picasso.get().load("https://static.wikia.nocookie.net/doraenciclopedia/images/7/79/Nobita_Nobi_-_2005_anime.png/revision/latest?cb=20170723201924&path-prefix=es").into(foto);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -79,5 +84,9 @@ public class CartaRecursosClientes extends RecyclerView.Adapter<CartaRecursosCli
                 }
             });
         }
+    }
+
+    public ImageView getImageView() {
+        return foto;
     }
 }

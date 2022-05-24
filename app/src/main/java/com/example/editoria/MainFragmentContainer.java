@@ -1,8 +1,10 @@
 package com.example.editoria;
 
+import android.Manifest;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
@@ -23,6 +25,11 @@ public class MainFragmentContainer extends AppCompatActivity {
         setContentView(R.layout.main_fragment_container);
 
         getSupportActionBar().hide();
+
+        ActivityCompat.requestPermissions(MainFragmentContainer.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+        ActivityCompat.requestPermissions(MainFragmentContainer.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+
+
 
         bottomNavigation = findViewById(R.id.bottom_navigation);
 

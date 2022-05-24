@@ -86,7 +86,7 @@ public class HomeFragment extends Fragment {
         elements = new ArrayList<>();
         for(int i=0; i < proyectos.size(); i++){
             Log.i("proyectos", proyectos.get(i).toString());
-            elements.add(new ListElement("icono", proyectos.get(i).getNombreUsuario(), proyectos.get(i).getDescripcion(), proyectos.get(i).getNombre(), "Precio: "+ 50.02+"€"));
+            elements.add(new ListElement("icono", proyectos.get(i).getNombreUsuario(), proyectos.get(i).getDescripcion(), proyectos.get(i).getNombre(), 50.02));
         }
 
         ListAdapter listAdapter = new ListAdapter(elements, view.getContext(), new ListAdapter.OnItemClickListener() {

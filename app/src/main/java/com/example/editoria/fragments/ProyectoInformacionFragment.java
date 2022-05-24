@@ -157,7 +157,7 @@ public class ProyectoInformacionFragment extends Fragment {
 
         elements = new ArrayList<>();
 
-        elements.add(new ListElement("icono", nombre, "", titulo, "Precio: "+ 30.02+"€"));
+        elements.add(new ListElement("icono", nombre, "", titulo, 30.02));
 
         CartaProyectoInformacion listAdapter = new CartaProyectoInformacion(elements, view.getContext(), new CartaProyectoInformacion.OnItemClickListener() {
             @Override

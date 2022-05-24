@@ -70,7 +70,7 @@ public class CartaOfertasPendientes extends RecyclerView.Adapter<CartaOfertasPen
             icono.setImageResource(R.drawable.ejemplo);
             name.setText(item.getName());
             titulo.setText(item.getTitulo());
-            precio.setText(item.getPrecio());
+            precio.setText("Precio: "+item.getPrecio()+ "€");
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
