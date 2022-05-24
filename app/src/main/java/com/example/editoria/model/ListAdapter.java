@@ -56,20 +56,21 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView icono;//PONER EL ICONO DE LA BASE DE DATOS DEL EDITOR
-        TextView name;
-        TextView titulo;
+        TextView name, titulo, precio;
 
         ViewHolder(View itemView){
             super(itemView);
                 name = itemView.findViewById(R.id.cvNombreEditor);
                 icono = itemView.findViewById(R.id.cvIconoEditor);
                 titulo = itemView.findViewById(R.id.tituloProyecto);
+                precio = itemView.findViewById(R.id.cvPrecioProyecto);
         }
 
         void bindData(final ListElement item){
             icono.setImageResource(R.drawable.ejemplo);
             name.setText(item.getName());
             titulo.setText(item.getTitulo());
+            precio.setText("Precio: "+item.getPrecio()+"€");
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

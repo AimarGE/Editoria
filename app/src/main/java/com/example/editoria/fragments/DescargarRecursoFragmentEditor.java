@@ -66,6 +66,7 @@ public class DescargarRecursoFragmentEditor extends Fragment {
 
     private void init() {
 
+
         mostrarRecursoCliente();
         listeners();
 

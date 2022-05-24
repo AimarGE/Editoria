@@ -1,22 +1,30 @@
 package com.example.editoria.fragments;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.editoria.GlobalVariable;
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
 import com.example.editoria.model.ListAdapter;
 import com.example.editoria.model.ListElement;
+import com.example.editoria.model.RecursosCliente;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +35,7 @@ public class MenuProyectoFragmentEditor extends Fragment {
     List<ListElement> elements;
     Button crearServicio;
     ImageView verOfertas;
+    AlertDialog.Builder builder;
 
     public MenuProyectoFragmentEditor() {
         // Required empty public constructor
@@ -44,7 +53,7 @@ public class MenuProyectoFragmentEditor extends Fragment {
         view = inflater.inflate(R.layout.fragment_menu_proyecto_editor, container, false);
         crearServicio = view.findViewById(R.id.botonCrearNuevoServicio);
         verOfertas = view.findViewById(R.id.verOfertas);
-
+        builder = new AlertDialog.Builder(view.getContext());
 
         init();
 
@@ -55,7 +64,7 @@ public class MenuProyectoFragmentEditor extends Fragment {
 
     private void init() {
 
-
+        Log.i("EJEMPLO", "Aaaaaa");
         mostrarMisServicios();
         mostrarServiciosContratados();
 
@@ -97,16 +106,16 @@ public class MenuProyectoFragmentEditor extends Fragment {
 
         elements = new ArrayList<>();
         //OBTENER INFORMACIÓN DE LA BASE DE DATOS Y INSERTARLA AQUÍ PARA QUE SE MUESTRE
-        elements.add(new ListElement("icono", "Mario Servicios Contratados", "","", 30.02));
-        elements.add(new ListElement("icono", "Ejemplo2 Servicios Contratados", "","", 30.02));
-        elements.add(new ListElement("icono", "José Servicios Contratados", "","",  30.02));
-        elements.add(new ListElement("icono", "Mario Servicios Contratados", "","", 30.02));
-        elements.add(new ListElement("icono", "Ejemplo2 Servicios Contratados", "","", 30.02));
-        elements.add(new ListElement("icono", "José Servicios Contratados", "","", 30.02));
+        elements.add(new ListElement("icono", "Mario Servicios", "","", 930.02));
+        elements.add(new ListElement("icono", "Ejemplo2 Servicios", "","", 3420.02));
+        elements.add(new ListElement("icono", "José Servicios", "","",  510.02));
+        elements.add(new ListElement("icono", "Mario Servicios", "","", 800.02));
+        elements.add(new ListElement("icono", "Ejemplo2 Servicios", "","", 33.02));
+        elements.add(new ListElement("icono", "José Servicios", "","", 555.02));
         ListAdapter listAdapter = new ListAdapter(elements, view.getContext(), new ListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ListElement item) {
-
+                dialogoServicioContratado(item);
             }
         });
         RecyclerView recyclerView = view.findViewById(R.id.listaServiciosContratados);
@@ -138,6 +147,58 @@ public class MenuProyectoFragmentEditor extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(listAdapter);
         recyclerView.setNestedScrollingEnabled(false);
+
+    }
+
+    private void dialogoServicioContratado(ListElement item) {
+
+        builder.setTitle("Seleccione una opción")
+                .setCancelable(true)
+                .setPositiveButton("Ver información", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                       verInformacionServicioCliente(item);
+                    }
+                })
+                .setNegativeButton("Enviar proyecto", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        enviarProyecto(item);
+                    }
+                })
+                .show();
+
+    }
+
+    private void enviarProyecto(ListElement item) {
+
+        MainFragmentContainer.bottomNavigation.show(4, true);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+
+        RecursosCliente recursosCliente = new RecursosCliente(item.getName(), "imagen", "descripcion", item.getPrecio());
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("recursosCliente", recursosCliente);
+        GlobalVariable.bundleSolicitudOferta = bundle;
+
+        ft.replace(R.id.mainFrame, new EnviarProyectoEditorFragment()).addToBackStack("tag");
+        ft.commit();
+
+    }
+
+    private void verInformacionServicioCliente(ListElement item) {
+
+        MainFragmentContainer.bottomNavigation.show(4, true);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+
+        RecursosCliente recursosCliente = new RecursosCliente(item.getName(), "imagen", "descripcion", item.getPrecio());
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("recursosCliente", recursosCliente);
+        GlobalVariable.bundleSolicitudOferta = bundle;
+
+        ft.replace(R.id.mainFrame, new DescargarRecursoFragmentEditor()).addToBackStack("tag");
+        ft.commit();
 
     }
 }
