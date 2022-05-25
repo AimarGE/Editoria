@@ -58,17 +58,19 @@
 
         <EditText
             android:id="@+id/descripcionP"
-            android:layout_width="300dp"
-            android:layout_height="180dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/borde"
             android:ems="10"
             android:gravity="top"
             android:inputType="textMultiLine"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="5dp"
+            android:hint="Escribe tus requisitos para la edición..."
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp"
             android:scrollHorizontally="false" />
 
         <TextView
@@ -81,32 +83,40 @@
             android:textSize="20dp"
             android:textStyle="bold" />
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="7dp">
+            android:layout_marginTop="7dp"
+            android:orientation="horizontal">
 
             <CheckBox
                 android:id="@+id/checkBoxManana"
-                android:layout_width="110dp"
-                android:layout_height="55dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginStart="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
                 android:text="Mañana" />
-
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
             <CheckBox
                 android:id="@+id/checkBoxTarde"
-                android:layout_width="110dp"
-                android:layout_height="55dp"
-                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Tarde" />
-
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
             <CheckBox
                 android:id="@+id/checkBoxNoche"
-                android:layout_width="110dp"
-                android:layout_height="55dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="50dp"
                 android:text="Noche" />
 
             <!-- <Button
@@ -136,7 +146,7 @@
                  android:layout_marginTop="55dp"
                  android:layout_marginRight="20dp"
                  android:text="Todo el dia" />-->
-        </RelativeLayout>
+        </LinearLayout>
 
 
         <TextView
@@ -180,10 +190,14 @@
             android:textStyle="bold" />
 
         <RelativeLayout
-            android:layout_width="320dp"
-            android:layout_height="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/borde">
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="10dp"
+            android:background="@drawable/borde"
+            >
 
             <TextView
                 android:id="@+id/textViewPBasico"
@@ -194,34 +208,184 @@
                 android:paddingTop="4dp"
                 android:text="Básico"
                 android:textColor="#000000"
-                android:textSize="14dp"
+                android:textSize="16dp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textViewPBasicoPrecio"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="0dp"
-                android:layout_marginRight="15dp"
-                android:paddingTop="4dp"
-                android:text="15.99€"
-                android:textColor="#000000"
-                android:textSize="14dp"
-                android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:layout_alignParentRight="true">
+
+                <EditText
+                    android:id="@+id/textViewPBasicoPrecio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="00.00"
+                    android:paddingTop="4dp"
+                    android:textColor="#000000"
+                    android:textSize="14dp"
+                    android:inputType="numberDecimal"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:text="€"/>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/descripcionPBasico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/borde"
+                android:ems="10"
+                android:gravity="top"
+                android:hint="Escribe la descripción para el paquete básico..."
+                android:inputType="textMultiLine"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="20dp"
+                android:scrollHorizontally="false" />
+
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/textViewAnyadirPaquetes"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_marginTop="10dp"
-            android:text="Añadir paquetes..."
-            android:textColor="#000000"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="10dp"
+            android:background="@drawable/borde">
 
+            <TextView
+                android:id="@+id/textViewPAvanzado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="4dp"
+                android:text="Avanzado"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentRight="true">
+
+                <EditText
+                    android:id="@+id/textViewPAvanzadoPrecio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="00.00"
+                    android:paddingTop="4dp"
+                    android:textColor="#000000"
+                    android:textSize="14dp"
+                    android:inputType="numberDecimal"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:text="€"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/descripcionPAvanzado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/borde"
+                android:ems="10"
+                android:gravity="top"
+                android:hint="Escribe la descripción para el paquete avanzado..."
+                android:inputType="textMultiLine"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="20dp"
+                android:scrollHorizontally="false" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="10dp"
+            android:background="@drawable/borde">
+
+            <TextView
+                android:id="@+id/textViewPPremium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="4dp"
+                android:text="Premium"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentRight="true">
+
+                <EditText
+                    android:id="@+id/textViewPPremiumPrecio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="00.00"
+                    android:paddingTop="4dp"
+                    android:textColor="#000000"
+                    android:textSize="14dp"
+                    android:inputType="numberDecimal"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:text="€"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/descripcionPPremium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/borde"
+                android:ems="10"
+                android:gravity="top"
+                android:hint="Escribe la descripción para el paquete premium..."
+                android:inputType="textMultiLine"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="20dp"
+                android:scrollHorizontally="false" />
+
+        </RelativeLayout>
 
         <Button
             android:id="@+id/publicar"

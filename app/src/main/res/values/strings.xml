@@ -21,6 +21,11 @@
     <string name="solicitudes_de_oferta"><u>Solicitudes de oferta</u></string>
     <string name="descargar_recurso"><u>Descargar recurso</u></string>
     <string name="enviar_proyecto"><u>Enviar proyecto</u></string>
+    <string name="servicios_pendientes"><u>Servicios pendientes</u></string>
+    <string name="valoraciom_editor"><u>Valoración del editor</u></string>
+    <string name="valoraciom_proyecto"><u>Valoración del proyecto</u></string>
+    <string name="entregas"><u>Entregas pendientes</u></string>
+    <string name="valoracion"><u>Valoración</u></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
