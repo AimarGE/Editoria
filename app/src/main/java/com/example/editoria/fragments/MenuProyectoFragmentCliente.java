@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
@@ -23,6 +24,7 @@ import java.util.List;
 
 public class MenuProyectoFragmentCliente extends Fragment {
 
+    LinearLayout verCartera;
     View view;
     ImageView verEstadoServicios;
     List<ListElement> elements;
@@ -38,7 +40,7 @@ public class MenuProyectoFragmentCliente extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_menu_proyecto_cliente, container, false);
         verEstadoServicios = view.findViewById(R.id.verOfertas);
-
+        verCartera = view.findViewById(R.id.verCarteraLL);
 
 
         init();
@@ -58,7 +60,16 @@ public class MenuProyectoFragmentCliente extends Fragment {
     private void listeners() {
 
         //Listener para aceptar la entrega
+        verCartera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                MainFragmentContainer.bottomNavigation.show(4, true);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.mainFrame, new MiCarteraFragment()).addToBackStack("tag");
+                ft.commit();
+            }
+        });
 
         //Listener del icono de notificación
         verEstadoServicios.setOnClickListener(new View.OnClickListener() {

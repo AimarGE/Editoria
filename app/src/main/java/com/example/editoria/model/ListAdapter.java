@@ -1,6 +1,8 @@
 package com.example.editoria.model;
 
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.editoria.R;
 import com.squareup.picasso.Picasso;
 
@@ -83,4 +86,5 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             });
         }
     }
+
 }

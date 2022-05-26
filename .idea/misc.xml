@@ -8,6 +8,7 @@
         <entry key="..\:/COSASCLASE/Editoria/app/src/main/res/layout/registercliente.xml" value="0.264" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/drawable/borde.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/drawable/bordefiltro.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/drawable/cuadrado.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/drawable/cuadradosustituirporprueba.xml" value="0.10416666666666667" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.35520833333333335" />
@@ -15,20 +16,34 @@
         <entry key="app/src/main/res/drawable/separator.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/drawable/triangulo.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.296195652173913" />
-        <entry key="app/src/main/res/layout/activity_pop_filtro.xml" value="0.16489361702127658" />
+        <entry key="app/src/main/res/layout/activity_pop_filtro.xml" value="0.33" />
         <entry key="app/src/main/res/layout/borde.xml" value="0.271286231884058" />
         <entry key="app/src/main/res/layout/carta_comentario.xml" value="0.16489361702127658" />
         <entry key="app/src/main/res/layout/carta_enviar_proyecto.xml" value="0.18697916666666667" />
+        <entry key="app/src/main/res/layout/carta_participante.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/carta_proyecto_evento.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/carta_proyecto_pendiente.xml" value="0.1308876811594203" />
         <entry key="app/src/main/res/layout/carta_proyecto_pendiente_expandido.xml" value="0.12364130434782608" />
         <entry key="app/src/main/res/layout/carta_proyectos.xml" value="0.16489361702127658" />
+        <entry key="app/src/main/res/layout/carta_ranking.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/contactos_dialog.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.16489361702127658" />
         <entry key="app/src/main/res/layout/fragment_descargar_recurso_editor.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_enviar_proyecto_editor.xml" value="0.12364130434782608" />
         <entry key="app/src/main/res/layout/fragment_estado_servicios_cliente.xml" value="0.3390625" />
+        <entry key="app/src/main/res/layout/fragment_evento.xml" value="0.16489361702127658" />
+        <entry key="app/src/main/res/layout/fragment_evento_pagina_principal.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_evento_participantes.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_evento_ranking.xml" value="0.3390625" />
+        <entry key="app/src/main/res/layout/fragment_filtro.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home_v2.xml" value="0.3390625" />
         <entry key="app/src/main/res/layout/fragment_menu_proyecto_cliente.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_menu_proyecto_editor.xml" value="0.16489361702127658" />
+        <entry key="app/src/main/res/layout/fragment_menu_proyecto_editor.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_mi_cartera.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_mi_perfil_cliente.xml" value="0.16489361702127658" />
+        <entry key="app/src/main/res/layout/fragment_mi_perfil_editor.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_opciones.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_opciones_perfil.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_opciones_perfil.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_perfil_cliente.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_perfil_editor.xml" value="0.16489361702127658" />
         <entry key="app/src/main/res/layout/fragment_proyecto_informacion.xml" value="0.16489361702127658" />
@@ -43,6 +58,7 @@
         <entry key="app/src/main/res/layout/registerEditor.xml" value="0.29030797101449274" />
         <entry key="app/src/main/res/layout/registercliente.xml" value="0.25" />
         <entry key="app/src/main/res/layout/registereditor.xml" value="0.22" />
+        <entry key="app/src/main/res/menu/menu_evento.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -26,6 +26,11 @@
     <string name="valoraciom_proyecto"><u>Valoración del proyecto</u></string>
     <string name="entregas"><u>Entregas pendientes</u></string>
     <string name="valoracion"><u>Valoración</u></string>
+    <string name="mi_cartera"><u>Mi Cartera</u></string>
+    <string name="anyadir_dinero"><u>Añadir dinero</u></string>
+    <string name="ejemploMail"><b>NombreGmail@gmail.com</b></string>
+    <string name="ejemploFaceook"><b>NombreFacebook</b></string>
+    <string name="ejemploTwitter"><b>NombreTwitter</b></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

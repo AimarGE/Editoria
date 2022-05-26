@@ -1,5 +1,7 @@
 package com.example.editoria.fragments;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.ScrollView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
 import com.example.editoria.model.CartaEventoProyecto;
@@ -30,12 +34,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EventoPaginaPrincipalFragment extends Fragment {
+
     View view;
     List<ListElement> elements;
     ScrollView root;
     ImageView menu, lupa;
     EditText buscador;
     AlertDialog.Builder builder;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,6 +61,7 @@ public class EventoPaginaPrincipalFragment extends Fragment {
         buscador = view.findViewById(R.id.editTextBusqueda);
         builder = new AlertDialog.Builder(view.getContext());
 
+
         init();
 
         return view;
@@ -69,6 +77,8 @@ public class EventoPaginaPrincipalFragment extends Fragment {
     }
 
     private void listeners() {
+
+
 
         buscador.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -183,7 +193,12 @@ public class EventoPaginaPrincipalFragment extends Fragment {
         elements.add(new ListElement("icono", "Ejemplo2","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
 
 
-        CartaEventoProyecto listAdapter = new CartaEventoProyecto(elements, view.getContext());
+        CartaEventoProyecto listAdapter = new CartaEventoProyecto(elements, view.getContext(), new CartaEventoProyecto.OnItemClickListener() {
+            @Override
+            public void onItemClick(ListElement item) {
+
+            }
+        });
         RecyclerView recyclerView = view.findViewById(R.id.listaParticipanetesEventos);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
@@ -201,5 +216,4 @@ public class EventoPaginaPrincipalFragment extends Fragment {
         InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         inputMethodManager.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
     }
-
 }

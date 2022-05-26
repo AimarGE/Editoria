@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,7 +32,7 @@ public class OpcionesFragment extends Fragment {
     SharedPreferences preferences;
     AlertDialog.Builder builder;
     LinearLayout opcionesPerfil;
-
+    ImageView back;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class OpcionesFragment extends Fragment {
         editor = preferences.edit();
         builder = new AlertDialog.Builder(view.getContext());
         opcionesPerfil= view.findViewById(R.id.opc_perfil);
+        back = view.findViewById(R.id.back);
 
         init();
 
@@ -59,6 +61,15 @@ public class OpcionesFragment extends Fragment {
     }
 
     private void listeners() {
+
+        //LISTENER PARA RETROCEDER
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                retroceder();
+            }
+        });
+
 
         //LISTENER PARA ABRIR LA OPCION DE PERFIL
         opcionesPerfil.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +86,15 @@ public class OpcionesFragment extends Fragment {
                 dialogoCerrarSesion();
             }
         });
+
+    }
+
+    private void retroceder() {
+
+        MainFragmentContainer.bottomNavigation.show(5, true);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.mainFrame, new MiPerfilEditorFragment()).addToBackStack("tag");
+        ft.commit();
 
     }
 
