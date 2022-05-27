@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.editoria.GlobalVariable;
@@ -35,6 +36,7 @@ public class MenuProyectoFragmentEditor extends Fragment {
     List<ListElement> elements;
     Button crearServicio;
     ImageView verOfertas;
+    LinearLayout verCartera;
     AlertDialog.Builder builder;
 
     public MenuProyectoFragmentEditor() {
@@ -54,7 +56,7 @@ public class MenuProyectoFragmentEditor extends Fragment {
         crearServicio = view.findViewById(R.id.botonCrearNuevoServicio);
         verOfertas = view.findViewById(R.id.verOfertas);
         builder = new AlertDialog.Builder(view.getContext());
-
+        verCartera = view.findViewById(R.id.verCarteraLL);
         init();
 
 
@@ -68,12 +70,25 @@ public class MenuProyectoFragmentEditor extends Fragment {
         mostrarMisServicios();
         mostrarServiciosContratados();
 
+
         listeners();
 
 
     }
 
     private void listeners() {
+
+        verCartera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                MainFragmentContainer.bottomNavigation.show(4, true);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.mainFrame, new MiCarteraFragment()).addToBackStack("tag");
+                ft.commit();
+
+            }
+        });
 
         verOfertas.setOnClickListener(new View.OnClickListener() {
             @Override

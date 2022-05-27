@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Editoria</string>
-    <string name="proyectos"><u>Proyectos</u></string>
+    <string name="servicios"><u>Servicios</u></string>
     <string name="editores_Mej"><u>Mejores Editores</u></string>
     <string name="publicarProyecto"><u>Publicar Proyecto</u></string>
     <string name="titulo_proyecto"><u>Proyectos</u></string>
@@ -21,6 +21,16 @@
     <string name="solicitudes_de_oferta"><u>Solicitudes de oferta</u></string>
     <string name="descargar_recurso"><u>Descargar recurso</u></string>
     <string name="enviar_proyecto"><u>Enviar proyecto</u></string>
+    <string name="servicios_pendientes"><u>Servicios pendientes</u></string>
+    <string name="valoraciom_editor"><u>Valoración del editor</u></string>
+    <string name="valoraciom_proyecto"><u>Valoración del proyecto</u></string>
+    <string name="entregas"><u>Entregas pendientes</u></string>
+    <string name="valoracion"><u>Valoración</u></string>
+    <string name="mi_cartera"><u>Mi Cartera</u></string>
+    <string name="anyadir_dinero"><u>Añadir dinero</u></string>
+    <string name="ejemploMail"><b>NombreGmail@gmail.com</b></string>
+    <string name="ejemploFaceook"><b>NombreFacebook</b></string>
+    <string name="ejemploTwitter"><b>NombreTwitter</b></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

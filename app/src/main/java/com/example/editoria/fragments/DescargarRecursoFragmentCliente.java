@@ -1,16 +1,9 @@
 package com.example.editoria.fragments;
 
-import android.app.Activity;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,23 +11,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.editoria.GlobalVariable;
-import com.example.editoria.MainActivity;
+import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
-import com.example.editoria.model.CartaOfertasPendientes;
-import com.example.editoria.model.CartaParticipantes;
 import com.example.editoria.model.CartaRecursosClientes;
 import com.example.editoria.model.ListElement;
 import com.example.editoria.model.RecursosCliente;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class DescargarRecursoFragmentEditor extends Fragment {
+public class DescargarRecursoFragmentCliente extends Fragment {
 
     View view;
     List<ListElement> elements;
@@ -43,6 +38,7 @@ public class DescargarRecursoFragmentEditor extends Fragment {
     String nombre;
     double precio;
     CartaRecursosClientes cartaRecursosClientes;
+    AlertDialog.Builder builder;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,6 +55,7 @@ public class DescargarRecursoFragmentEditor extends Fragment {
         nombre = recursosCliente.getNombreCliente();
         precio = recursosCliente.getPrecio();
         descargar = view.findViewById(R.id.descargar);
+        builder = new AlertDialog.Builder(view.getContext());
 
         init();
 
@@ -82,6 +79,7 @@ public class DescargarRecursoFragmentEditor extends Fragment {
 
                 try {
                     descagarImagen();
+                    dialogoValorarServicio();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -90,6 +88,44 @@ public class DescargarRecursoFragmentEditor extends Fragment {
         });
 
     }
+    private void dialogoValorarServicio() {
+
+        builder.setTitle("¿Quieres valorar el servicio?")
+                .setCancelable(true)
+                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        valorar();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        menuProyectos();
+                    }
+                })
+                .show();
+
+    }
+
+    private void valorar() {
+
+        MainFragmentContainer.bottomNavigation.show(4, true);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.mainFrame, new ValorarFragment()).addToBackStack("tag");
+        ft.commit();
+
+    }
+
+    private void menuProyectos() {
+
+        MainFragmentContainer.bottomNavigation.show(4, true);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.mainFrame, new MenuProyectoFragmentCliente());
+        ft.commit();
+
+    }
+
 
     private void descagarImagen() throws IOException {
 
@@ -99,20 +135,6 @@ public class DescargarRecursoFragmentEditor extends Fragment {
         Bitmap bitmap = draw.getBitmap();
 
         MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), bitmap, "tituloNobita" , "descripcionNobita");
-
-       /* FileOutputStream outStream = null;
-        File sdCard = Environment.getExternalStorageDirectory();
-        File dir = new File(sdCard.getAbsolutePath() + "/Editoria/");
-        dir.mkdirs();
-
-        Log.i("EJEMPLO", "direcotrio -> "+dir.toString());
-
-        String fileName = String.format("%d.jpg", System.currentTimeMillis());
-        File outFile = new File(dir, fileName);
-        outStream = new FileOutputStream(outFile);
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outStream);
-        outStream.flush();
-        outStream.close();*/
 
     }
 

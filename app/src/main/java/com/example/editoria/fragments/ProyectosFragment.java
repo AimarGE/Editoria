@@ -45,7 +45,7 @@ public class ProyectosFragment extends Fragment {
     ImageView imagen;
     Button galeria;
     Button publicar;
-    TextView paquetes;
+    //TextView paquetes;
     private EditText nombreProyecto;
     private EditText descripcionProyecto;
     private CheckBox manyana, tarde, noche;
@@ -71,18 +71,18 @@ public class ProyectosFragment extends Fragment {
         imagen = (ImageView) view.findViewById(R.id.foto);
         galeria = (Button) view.findViewById(R.id.botonImagen);
         publicar = (Button) view.findViewById(R.id.publicar);
-        paquetes = (TextView) view.findViewById(R.id.textViewAnyadirPaquetes);
+        //paquetes = (TextView) view.findViewById(R.id.textViewAnyadirPaquetes);
         manyana = (CheckBox) view.findViewById(R.id.checkBoxManana);
         noche = (CheckBox) view.findViewById(R.id.checkBoxNoche);
         tarde = (CheckBox) view.findViewById(R.id.checkBoxTarde);
         storageRef = FirebaseStorage.getInstance().getReference("proyectos/");
 
-        paquetes.setOnClickListener(new View.OnClickListener() {
+        /*paquetes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i("Ejemplo", "asd");
             }
-        });
+        });*/
 
         galeria.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,7 +144,7 @@ public class ProyectosFragment extends Fragment {
             public void onSuccess(Uri uri) {
                 urlFoto = uri.toString();
                 Proyecto proyecto = new Proyecto(nombreP, descripcionP, disponibilidad, GlobalVariable.nombreUsuario, urlFoto);
-                //dRef.child("Proyectos").child(proyecto.getNombreUsuario()).setValue();
+                dRef.child("Proyectos").child(proyecto.getNombreUsuario()).setValue(proyecto);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

@@ -16,15 +16,15 @@
         android:outlineAmbientShadowColor="@color/black">
 
         <RelativeLayout
-            android:layout_width="340dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:background="@drawable/borde_imagen_proyecto"
             android:elevation="5dp"
             android:outlineProvider="bounds"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:paddingBottom="56dp">
-
-
 
             <ImageView
                 android:id="@+id/opciones"
@@ -83,12 +83,19 @@
                     android:layout_marginTop="8dp"
                     android:backgroundTint="#2776FF"
                     android:text="Contactar" />
-
+                <TextView
+                    android:id="@+id/numValoraciones"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:text="(500)"/>
                 <RatingBar
                     android:id="@+id/ratingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
+                    android:isIndicator="true"
                     android:progressTint="#FFC107" />
 
                 <TextView
