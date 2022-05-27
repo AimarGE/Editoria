@@ -144,7 +144,7 @@ public class ProyectosFragment extends Fragment {
             public void onSuccess(Uri uri) {
                 urlFoto = uri.toString();
                 Proyecto proyecto = new Proyecto(nombreP, descripcionP, disponibilidad, GlobalVariable.nombreUsuario, urlFoto);
-                //dRef.child("Proyectos").child(proyecto.getNombreUsuario()).setValue();
+                dRef.child("Proyectos").child(proyecto.getNombreUsuario()).setValue(proyecto);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
