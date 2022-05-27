@@ -40,6 +40,7 @@ public class MenuProyectoFragmentCliente extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_menu_proyecto_cliente, container, false);
         verEstadoServicios = view.findViewById(R.id.verOfertas);
+        verCartera = view.findViewById(R.id.verCarteraLL);
 
 
         init();
