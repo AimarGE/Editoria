@@ -128,7 +128,7 @@ public class ProyectosFragment extends Fragment {
             }
         }
         if(checkPhoto() && comprobarLenghtNombre(nombreP) && comprobarDescripcion(descripcionP)){
-           addProyecto();
+            addProyecto();
             MainFragmentContainer.bottomNavigation.show(1, true);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.mainFrame, new HomeFragment());

@@ -55,8 +55,10 @@ public class Login extends AppCompatActivity {
     public void login(View _){
         String usuario= campoNombreUsuario.getText().toString();
         String password = campoPassword.getText().toString();
-
-        dRef.child("Usuarios").addListenerForSingleValueEvent(new ValueEventListener() {
+        if(usuario.equals("") || usuario.equals(" ") || password.equals("") || password.equals(" ")) {
+            Toast.makeText(this, "No puede haber campos vacíos", Toast.LENGTH_LONG).show();
+        }else{
+            dRef.child("Usuarios").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if(snapshot.hasChild(usuario)){
@@ -81,7 +83,7 @@ public class Login extends AppCompatActivity {
 
                 }
             });
-        //writer.escribir(usuario);
+        }
     }
 
     private void addDataToSharedPreferences(String usuario, String password){

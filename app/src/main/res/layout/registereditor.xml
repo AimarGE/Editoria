@@ -105,7 +105,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/telefono"
+            android:id="@+id/telefonoEditor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -122,7 +122,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/fechaNacimiento"
+            android:id="@+id/fechaNacimientoEditor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
