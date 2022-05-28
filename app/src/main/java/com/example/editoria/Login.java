@@ -1,21 +1,15 @@
 package com.example.editoria;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import com.example.editoria.dao.Writer;
 import com.google.firebase.database.DataSnapshot;
@@ -55,8 +49,10 @@ public class Login extends AppCompatActivity {
     public void login(View _){
         String usuario= campoNombreUsuario.getText().toString();
         String password = campoPassword.getText().toString();
-
-        dRef.child("Usuarios").addListenerForSingleValueEvent(new ValueEventListener() {
+        if(usuario.equals("") || usuario.equals(" ") || password.equals("") || password.equals(" ")) {
+            Toast.makeText(this, "No puede haber campos vacíos", Toast.LENGTH_LONG).show();
+        }else{
+            dRef.child("Usuarios").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if(snapshot.hasChild(usuario)){
@@ -81,7 +77,7 @@ public class Login extends AppCompatActivity {
 
                 }
             });
-        //writer.escribir(usuario);
+        }
     }
 
     private void addDataToSharedPreferences(String usuario, String password){
@@ -93,7 +89,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void forgotenPass(View _){
-        //Intent intent = new Intent(this,);
-        //startActivity(intent);
+        Intent intent = new Intent(this, RecuperarContrasenya.class);
+        startActivity(intent);
     }
 }

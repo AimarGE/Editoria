@@ -21,8 +21,10 @@ import android.widget.PopupMenu;
 
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
+import com.example.editoria.model.CartaRanking;
 import com.example.editoria.model.ListAdapter;
 import com.example.editoria.model.ListElement;
+import com.example.editoria.model.ListElementRanking;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +34,7 @@ public class EventoRanking extends Fragment {
 
     View view;
     ImageView menu, lupa;
-    List<ListElement> elements;
+    List<ListElementRanking> elements;
     EditText buscador;
     AlertDialog.Builder builder;
 
@@ -140,20 +142,25 @@ public class EventoRanking extends Fragment {
 
     private void mostrarRankingParticipantes() {
 
-       /* elements = new ArrayList<>();
+        elements = new ArrayList<>();
 
-        elements.add(new ListElement("icono", "Mario"));
-        elements.add(new ListElement("icono", "Ejemplo2"));
-        elements.add(new ListElement("icono", "José"));
-        elements.add(new ListElement("icono", "Maria"));
-        elements.add(new ListElement("icono", "Rodrigo"));
+        elements.add(new ListElementRanking("icono", "Mario", "https://img.freepik.com/vector-gratis/trofeo-oro-placa-ganador-concurso_68708-545.jpg?w=2000", "5","5"));
+        elements.add(new ListElementRanking("icono", "Ejemplo2", "https://img.freepik.com/vector-gratis/trofeo-oro-placa-ganador-concurso_68708-545.jpg?w=2000", "2","325"));
+        elements.add(new ListElementRanking("icono", "José", "https://img.freepik.com/vector-gratis/trofeo-oro-placa-ganador-concurso_68708-545.jpg?w=2000", "3","26"));
+        elements.add(new ListElementRanking("icono", "Maria", "https://img.freepik.com/vector-gratis/trofeo-oro-placa-ganador-concurso_68708-545.jpg?w=2000", "1","123123"));
+        elements.add(new ListElementRanking("icono", "Rodrigo", "https://img.freepik.com/vector-gratis/trofeo-oro-placa-ganador-concurso_68708-545.jpg?w=2000", "50","52"));
 
-        ListAdapter listAdapter = new ListAdapter(elements, view.getContext());
+        CartaRanking listAdapter = new CartaRanking(elements, view.getContext(), new CartaRanking.OnItemClickListener() {
+            @Override
+            public void onItemClick(ListElementRanking item) {
+
+            }
+        });
         RecyclerView recyclerView = view.findViewById(R.id.listaParticipanetesEventos);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(listAdapter);
-        recyclerView.setNestedScrollingEnabled(false);*/
+        recyclerView.setNestedScrollingEnabled(false);
 
     }
 

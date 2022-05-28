@@ -80,7 +80,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:text="@string/proyectos"
+                        android:text="@string/servicios"
                         android:textColor="@color/black"
                         android:textSize="35dp"
                         android:textStyle="bold" />
@@ -89,7 +89,8 @@
                         android:id="@+id/listaCVEditoresRecomendados"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="80dp" />
+                        android:layout_marginTop="80dp"
+                        android:overScrollMode="never"/>
                 </RelativeLayout>
 
             </LinearLayout>

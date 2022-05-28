@@ -29,8 +29,8 @@ public class RegisterCliente extends AppCompatActivity {
         CampoPassword = (EditText) findViewById(R.id.password);
         CampoConfirmPassword= (EditText) findViewById(R.id.confirmPassword);
         CampoEmail = (EditText) findViewById(R.id.email);
-        CampoTelefono = (EditText) findViewById(R.id.telefono);
-        CampoFechaNacimiento = (EditText) findViewById(R.id.fechaNacimiento);
+        CampoTelefono = (EditText) findViewById(R.id.telefonoEditor);
+        CampoFechaNacimiento = (EditText) findViewById(R.id.fechaNacimientoEditor);
 
         Fdatabase= FirebaseDatabase.getInstance("https://editoria-bb3aa-default-rtdb.europe-west1.firebasedatabase.app/");
         dRef= Fdatabase.getReference();

@@ -5,22 +5,23 @@
     android:layout_height="match_parent"
     android:overScrollMode="never"
     android:scrollbars="none"
-    tools:context=".fragments.DescargarRecursoFragmentEditor">
+    tools:context=".fragments.EstadoServiciosFragmentCliente">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <TextView
             android:id="@+id/textViewTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/descargar_recurso"
+            android:layout_marginTop="54dp"
+            android:text="@string/servicios_pendientes"
             android:textColor="#000000"
-            android:textSize="34sp"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
         <RelativeLayout
@@ -28,21 +29,36 @@
             android:layout_height="wrap_content">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recursoCliente"
+                android:id="@+id/listaServiciosPendiente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp" />
         </RelativeLayout>
 
-        <Button
-            android:id="@+id/descargar"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#0037FF"
-            android:text="Descargar"/>
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="20dp"
+            android:text="@string/entregas"
+            android:textColor="#000000"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listaEntregasPendientes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp" />
+        </RelativeLayout>
+
 
     </LinearLayout>
-
 
 </ScrollView>

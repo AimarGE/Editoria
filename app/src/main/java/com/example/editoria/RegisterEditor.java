@@ -2,7 +2,6 @@ package com.example.editoria;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -12,7 +11,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.editoria.model.Cliente;
 import com.example.editoria.model.Editor;
 import com.example.editoria.model.Usuario;
 import com.google.firebase.database.DatabaseReference;
@@ -36,10 +34,10 @@ public class RegisterEditor extends AppCompatActivity {
 
         CampoUsuario = (EditText) findViewById(R.id.usuario);
         CampoPassword = (EditText) findViewById(R.id.password);
-        //ha petado CampoConfirmPassword= (EditText) findViewById(R.id.confirmPassword);
-        CampoEmail = (EditText) findViewById(R.id.email);
-        CampoTelefono = (EditText) findViewById(R.id.telefono);
-        CampoFechaNacimiento = (EditText) findViewById(R.id.fechaNacimiento);
+        CampoConfirmPassword= (EditText) findViewById(R.id.confirmPassword);
+        CampoEmail = (EditText) findViewById(R.id.correo);
+        CampoTelefono = (EditText) findViewById(R.id.telefonoEditor);
+        CampoFechaNacimiento = (EditText) findViewById(R.id.fechaNacimientoEditor);
         radioGroup= (RadioGroup) findViewById(R.id.radioGroup);
 
         Fdatabase= FirebaseDatabase.getInstance("https://editoria-bb3aa-default-rtdb.europe-west1.firebasedatabase.app/");
@@ -51,7 +49,7 @@ public class RegisterEditor extends AppCompatActivity {
     public void register(View _) {
         usuario = CampoUsuario.getText().toString();
         contra= CampoPassword.getText().toString();
-       contraConfirmar= CampoConfirmPassword.getText().toString();
+        contraConfirmar= CampoConfirmPassword.getText().toString();
         email = CampoEmail.getText().toString();
         telefono = CampoTelefono.getText().toString();
         fechaNacimiento = CampoFechaNacimiento.getText().toString();
@@ -61,12 +59,16 @@ public class RegisterEditor extends AppCompatActivity {
 
         if (usuario.equals("") || contra.equals("") || contraConfirmar.equals("") || email.equals("") || telefono.equals("") || fechaNacimiento.equals("") || categoria.equals("")){
             Toast.makeText(this, "Rellena todos los campos", Toast.LENGTH_LONG).show();
+        }else{
+            boolean entrada = comprobacionDatos();
+            if(entrada){
+                Intent intent = new Intent(this, Login.class);
+                startActivity(intent);
+            }
         }
-        comprobacionDatos();
     }
 
-    private void comprobacionDatos() {
-        Intent intent = new Intent(this, Login.class);
+    private boolean comprobacionDatos() {
         boolean contrasTamano = comprobarContrasLenght();
         boolean contrasMatch = comprobarContrasMatch();
         boolean telefono = comprobarTelefono();
@@ -109,8 +111,9 @@ public class RegisterEditor extends AppCompatActivity {
         }
         if(contador == 5){
             addUser();
-            startActivity(intent);
+            return true;
         }
+        return false;
     }
 
 

@@ -11,6 +11,7 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.editoria.fragments.ChatFragment;
 import com.example.editoria.fragments.EventoFragment;
 import com.example.editoria.fragments.HomeFragment;
+import com.example.editoria.fragments.MenuProyectoFragmentCliente;
 import com.example.editoria.fragments.MenuProyectoFragmentEditor;
 import com.example.editoria.fragments.MiPerfilEditorFragment;
 
@@ -109,7 +110,7 @@ public class MainFragmentContainer extends AppCompatActivity {
                         break;
                     case 4:
                         borrarPilaFragments();
-                        fragment = new MenuProyectoFragmentEditor();
+                        fragment = new MenuProyectoFragmentCliente();
                         break;
                     case 5:
                         borrarPilaFragments();

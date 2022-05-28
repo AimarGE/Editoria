@@ -64,7 +64,6 @@
         android:layout_marginBottom="28dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:onClick="forgotpass"
         app:layout_constraintBottom_toTopOf="@+id/passwordTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

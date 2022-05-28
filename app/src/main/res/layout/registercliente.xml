@@ -21,13 +21,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/fechaNacimiento"
+        android:id="@+id/fechaNacimientoEditor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/telefono"
+        app:layout_constraintStart_toStartOf="@+id/telefonoEditor"
         app:layout_constraintTop_toTopOf="@+id/userTextView8" />
 
     <EditText
@@ -52,8 +52,8 @@
         android:textColor="#000000"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/telefono"
-        app:layout_constraintTop_toBottomOf="@+id/telefono" />
+        app:layout_constraintStart_toStartOf="@+id/telefonoEditor"
+        app:layout_constraintTop_toBottomOf="@+id/telefonoEditor" />
 
     <EditText
         android:id="@+id/password"
@@ -67,7 +67,7 @@
         app:layout_constraintTop_toTopOf="@+id/userTextView4" />
 
     <EditText
-        android:id="@+id/telefono"
+        android:id="@+id/telefonoEditor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
@@ -176,7 +176,7 @@
         android:layout_marginTop="16dp"
         android:onClick="register"
         android:text="Registrarme"
-        app:layout_constraintStart_toStartOf="@+id/fechaNacimiento"
-        app:layout_constraintTop_toBottomOf="@+id/fechaNacimiento" />
+        app:layout_constraintStart_toStartOf="@+id/fechaNacimientoEditor"
+        app:layout_constraintTop_toBottomOf="@+id/fechaNacimientoEditor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

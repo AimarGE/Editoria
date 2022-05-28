@@ -31,7 +31,7 @@ public class EnviarProyectoEditorFragment extends Fragment {
     RecursosCliente recursosCliente;
     String nombre;
     Button seleccionarArchivo;
-
+    CartaRecursosClientes cartaRecursosClientes;
     double precio;
 
 
@@ -90,7 +90,7 @@ public class EnviarProyectoEditorFragment extends Fragment {
         //CAMBIAR
         elements.add(new ListElement("icono", nombre,"", "","https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg", precio));
 
-        CartaRecursosClientes cartaRecursosClientes = new CartaRecursosClientes(elements, view.getContext(), new CartaRecursosClientes.OnItemClickListener() {
+        cartaRecursosClientes = new CartaRecursosClientes(elements, view.getContext(), new CartaRecursosClientes.OnItemClickListener() {
             @Override
             public void onItemClick(ListElement item) {
 
@@ -109,7 +109,7 @@ public class EnviarProyectoEditorFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK) {
             Uri path = data.getData();
-            imagen.setImageURI(path);//SET IMAGE DEL CARDVIEW DEL
+            cartaRecursosClientes.getImageView().setImageURI(path);//SET IMAGE DEL CARDVIEW DEL
         }
 
     }
