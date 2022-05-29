@@ -2,6 +2,7 @@ package com.example.editoria;
 
 import android.Manifest;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -141,8 +142,10 @@ public class MainFragmentContainer extends AppCompatActivity {
     }
 
     private void borrarPilaFragments(){
+
         int count = getSupportFragmentManager().getBackStackEntryCount();
-        for (int i = 0; i < count; i++) { getSupportFragmentManager().popBackStack(); }
+        for (int i = 0; i < count; i++) { getSupportFragmentManager().popBackStack();
+            }
 
     }
 

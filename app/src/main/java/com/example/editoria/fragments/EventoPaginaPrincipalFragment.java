@@ -24,6 +24,7 @@ import android.widget.PopupMenu;
 import android.widget.ScrollView;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.editoria.GlobalVariable;
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
 import com.example.editoria.model.CartaEventoProyecto;
@@ -128,6 +129,10 @@ public class EventoPaginaPrincipalFragment extends Fragment {
                                 dialogAbandonarEvento();
                                 //root.setBackgroundColor(Color.YELLOW);
                                 return true;
+                            case R.id.insertarImagen:
+                                paginaInsertarImagen();
+                                //root.setBackgroundColor(Color.YELLOW);
+                                return true;
                         }
                         return false;
                     }
@@ -156,6 +161,13 @@ public class EventoPaginaPrincipalFragment extends Fragment {
                     }
                 })
                 .show();
+    }
+
+    private void paginaInsertarImagen() {
+        MainFragmentContainer.bottomNavigation.show(3, true);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.mainFrame, new EventoInsertarImagen()).addToBackStack("tag");
+        ft.commit();
     }
 
     private void abandonarEvento() {
@@ -197,6 +209,15 @@ public class EventoPaginaPrincipalFragment extends Fragment {
             @Override
             public void onItemClick(ListElement item) {
 
+                //COMPROBAR QUE SEA EDITOR O CLIENTE DESDE FIREBASE
+
+                MainFragmentContainer.bottomNavigation.show(3, true);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("item", item);
+                GlobalVariable.bundleEditor = bundle;
+                ft.replace(R.id.mainFrame, new FragmentPerfilEditor()).addToBackStack("tag");
+                ft.commit();
             }
         });
         RecyclerView recyclerView = view.findViewById(R.id.listaParticipanetesEventos);

@@ -35,6 +35,7 @@
             android:textSize="17dp" />
 
         <EditText
+            android:id="@+id/usuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
@@ -50,6 +51,7 @@
             android:textSize="17dp" />
 
         <EditText
+            android:id="@+id/correo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
@@ -61,14 +63,16 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="35dp"
             android:layout_marginTop="30dp"
-            android:text="Contraseña"
+            android:text="Contraseña nueva"
             android:textSize="17dp" />
 
         <EditText
+            android:id="@+id/contrasenya"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
+            android:inputType="textPassword"
             android:backgroundTint="#AEA8A8" />
 
         <TextView
@@ -80,19 +84,48 @@
             android:textSize="17dp" />
 
         <EditText
+            android:id="@+id/confirmarContrasenya"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
+            android:inputType="textPassword"
             android:backgroundTint="#AEA8A8" />
 
+        <TextView
+            android:id="@+id/codigoVerTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="30dp"
+            android:text="Codigo de verificación"
+            android:visibility="gone"
+            android:textSize="17dp" />
 
+        <EditText
+            android:id="@+id/codigoVer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:inputType="number"
+            android:visibility="gone"
+            android:backgroundTint="#AEA8A8" />
         <Button
+            android:id="@+id/enviarCodigo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Generar Código"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#0037FF"/>
+        <Button
+            android:id="@+id/confirmar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Confirmar"
-            android:layout_marginTop="40dp"
-            android:backgroundTint="#0037FF"/>
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#4BAF27"
+            android:visibility="gone" />
     </LinearLayout>
 
 </ScrollView>

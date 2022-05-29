@@ -118,34 +118,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="50dp"
                 android:text="Noche" />
-
-            <!-- <Button
-                 android:layout_width="110dp"
-                 android:layout_height="55dp"
-                 android:layout_alignParentLeft="true"
-                 android:layout_marginStart="20dp"
-                 android:text="Mañana" />
-
-             <Button
-                 android:layout_width="110dp"
-                 android:layout_height="55dp"
-                 android:layout_centerHorizontal="true"
-                 android:text="Tarde" />
-
-             <Button
-                 android:layout_width="110dp"
-                 android:layout_height="55dp"
-                 android:layout_alignParentRight="true"
-                 android:layout_marginRight="20dp"
-                 android:text="Noche" />
-
-             <Button
-                 android:layout_width="110dp"
-                 android:layout_height="wrap_content"
-                 android:layout_centerHorizontal="true"
-                 android:layout_marginTop="55dp"
-                 android:layout_marginRight="20dp"
-                 android:text="Todo el dia" />-->
         </LinearLayout>
 
 

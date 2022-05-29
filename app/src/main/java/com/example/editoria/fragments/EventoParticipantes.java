@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 
+import com.example.editoria.GlobalVariable;
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
 import com.example.editoria.model.CartaParticipantes;
@@ -124,6 +125,10 @@ public class EventoParticipantes extends Fragment {
                                 dialogAbandonarEvento();
                                 //root.setBackgroundColor(Color.YELLOW);
                                 return true;
+                            case R.id.insertarImagen:
+                                paginaInsertarImagen();
+                                //root.setBackgroundColor(Color.YELLOW);
+                                return true;
                         }
 
                         return false;
@@ -155,7 +160,21 @@ public class EventoParticipantes extends Fragment {
         elements.add(new ListElement("icono", "José","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
         elements.add(new ListElement("icono", "Maria","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
         elements.add(new ListElement("icono", "Rodrigo","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",30.02));
-        CartaParticipantes listAdapter = new CartaParticipantes(elements, view.getContext());
+        CartaParticipantes listAdapter = new CartaParticipantes(elements, view.getContext(), new CartaParticipantes.OnItemClickListener() {
+            @Override
+            public void onItemClick(ListElement item) {
+
+                //COMPROBAR QUE SEA EDITOR O CLIENTE DESDE FIREBASE
+
+                MainFragmentContainer.bottomNavigation.show(3, true);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("item", item);
+                GlobalVariable.bundleEditor = bundle;
+                ft.replace(R.id.mainFrame, new FragmentPerfilEditor()).addToBackStack("tag");
+                ft.commit();
+            }
+        });
         RecyclerView recyclerView = view.findViewById(R.id.listaParticipanetesEventos);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
@@ -203,18 +222,6 @@ public class EventoParticipantes extends Fragment {
 
 
     private void paginaParticipantes() {
-        //ARREGLAR ADDTOBACKSTACK, PARA QUE CUANDO TIRE PARA ATRÁS SOLO SE VEA LA DEL EVENTOPAGINAPRINCIPAL
-        //ARREGLAR ADDTOBACKSTACK, PARA QUE CUANDO TIRE PARA ATRÁS SOLO SE VEA LA DEL EVENTOPAGINAPRINCIPAL
-        //ARREGLAR ADDTOBACKSTACK, PARA QUE CUANDO TIRE PARA ATRÁS SOLO SE VEA LA DEL EVENTOPAGINAPRINCIPAL
-        //ARREGLAR ADDTOBACKSTACK, PARA QUE CUANDO TIRE PARA ATRÁS SOLO SE VEA LA DEL EVENTOPAGINAPRINCIPAL
-        //ARREGLAR ADDTOBACKSTACK, PARA QUE CUANDO TIRE PARA ATRÁS SOLO SE VEA LA DEL EVENTOPAGINAPRINCIPAL
-        //ARREGLAR ADDTOBACKSTACK, PARA QUE CUANDO TIRE PARA ATRÁS SOLO SE VEA LA DEL EVENTOPAGINAPRINCIPAL
-        //ARREGLAR ADDTOBACKSTACK, PARA QUE CUANDO TIRE PARA ATRÁS SOLO SE VEA LA DEL EVENTOPAGINAPRINCIPAL
-
-        MainFragmentContainer.bottomNavigation.show(3, true);
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.mainFrame, new EventoParticipantes()).addToBackStack("tag");
-        ft.commit();
 
     }
 
@@ -225,5 +232,12 @@ public class EventoParticipantes extends Fragment {
         ft.replace(R.id.mainFrame, new EventoRanking()).addToBackStack("tag");
         ft.commit();
 
+    }
+
+    private void paginaInsertarImagen() {
+        MainFragmentContainer.bottomNavigation.show(3, true);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.mainFrame, new EventoInsertarImagen()).addToBackStack("tag");
+        ft.commit();
     }
 }

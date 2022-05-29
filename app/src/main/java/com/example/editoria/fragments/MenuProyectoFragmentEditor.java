@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.example.editoria.GlobalVariable;
 import com.example.editoria.MainFragmentContainer;
@@ -24,8 +23,6 @@ import com.example.editoria.R;
 import com.example.editoria.model.ListAdapter;
 import com.example.editoria.model.ListElement;
 import com.example.editoria.model.RecursosCliente;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,7 +81,7 @@ public class MenuProyectoFragmentEditor extends Fragment {
 
                 MainFragmentContainer.bottomNavigation.show(4, true);
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.mainFrame, new MiCarteraFragment()).addToBackStack("tag");
+                ft.replace(R.id.mainFrame, new MiCarteraFragmentEditor()).addToBackStack("tag");
                 ft.commit();
 
             }

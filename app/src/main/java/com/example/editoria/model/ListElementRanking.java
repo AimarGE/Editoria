@@ -1,6 +1,8 @@
 package com.example.editoria.model;
 
-public class ListElementRanking {
+import java.io.Serializable;
+
+public class ListElementRanking implements Serializable {
 
     public String icon;
     public String name;
@@ -58,5 +60,16 @@ public class ListElementRanking {
 
     public void setLikes(String likes) {
         this.likes = likes;
+    }
+
+    @Override
+    public String toString() {
+        return "ListElementRanking{" +
+                "icon='" + icon + '\'' +
+                ", name='" + name + '\'' +
+                ", foto='" + foto + '\'' +
+                ", ranking='" + ranking + '\'' +
+                ", likes='" + likes + '\'' +
+                '}';
     }
 }

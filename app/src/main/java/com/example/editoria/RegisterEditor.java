@@ -154,7 +154,7 @@ public class RegisterEditor extends AppCompatActivity {
     }
 
     private void addUser(){
-        Usuario user = new Usuario(usuario, contra, email, telefono, fechaNacimiento, "Editor");
+        Usuario user = new Usuario(usuario, contra, email, telefono, fechaNacimiento, "Editor", "");
         Editor editor = new Editor(categoria, user.getId(), usuario);
         dRef.child("Usuarios").child(usuario).setValue(user);
         dRef.child("Editores").child(usuario).setValue(editor);

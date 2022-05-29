@@ -18,9 +18,9 @@
             android:id="@+id/back"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_gravity="left"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:layout_gravity="left"
             android:rotation="180"
             android:src="@drawable/ic_arrow" />
 
@@ -28,9 +28,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="-20dp"
             android:paddingHorizontal="20dp"
             android:text="Filtros"
-            android:layout_marginTop="-20dp"
             android:textColor="#000000"
             android:textSize="35dp"
             android:textStyle="bold" />
@@ -39,26 +39,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_gravity="left"
-            android:textSize="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:text="Precio"
             android:textColor="@color/black"
-            android:text="Precio"/>
+            android:textSize="20dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:layout_marginLeft="20dp"
-                android:text="0€"/>
             <!-- SEPARADOR -->
             <View
                 android:layout_width="0dp"
@@ -66,24 +59,351 @@
                 android:layout_weight="1" />
             <!-- SEPARADOR -->
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Mínimo: "
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+            <EditText
+                android:id="@+id/precioMinimo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint=" 00.00 €"
+                android:inputType="numberDecimal"/>
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:text="Máximo"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+            <EditText
                 android:id="@+id/precioMaximo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
-                android:layout_marginRight="15dp"
-                android:textColor="@color/black"
-                android:text="100€"/>
+                android:hint=" 100.00 €"
+                android:inputType="numberDecimal"/>
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:text="Nivel"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <!-- SEPARADOR -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <!-- SEPARADOR -->
+                <RadioButton
+                    android:id="@+id/profesional"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Profesional" />
+                <!-- SEPARADOR -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <!-- SEPARADOR -->
+                <RadioButton
+                    android:id="@+id/amateur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amateur" />
+                <!-- SEPARADOR -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <!-- SEPARADOR -->
+            </RadioGroup>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="20dp"
+            android:textStyle="bold"
+            android:text="Idioma"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:orientation="horizontal">
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Español" />
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inglés" />
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Francés" />
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
 
         </LinearLayout>
 
-        <SeekBar
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            />
+            android:layout_marginTop="7dp"
+            android:orientation="horizontal">
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Catalán" />
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ruso" />
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Italiano" />
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Ranking"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:orientation="horizontal">
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="001 - 100" />
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100 - 500" />
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="500 - 1000" />
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:orientation="horizontal">
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1000 - 10000" />
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10000 - 50000" />
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:text="Disponibilidad"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:orientation="horizontal">
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+            <CheckBox
+                android:id="@+id/disponibilidadManyana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mañana" />
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+            <CheckBox
+                android:id="@+id/disponibilidadTarde"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tarde" />
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+            <CheckBox
+                android:id="@+id/disponibilidadNoche"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Noche" />
+            <!-- SEPARADOR -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <!-- SEPARADOR -->
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/confirmar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirmar"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#0037FF"/>
+
+
     </LinearLayout>
+
+
 
 
 </ScrollView>

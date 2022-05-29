@@ -45,8 +45,6 @@ public class MenuProyectoFragmentCliente extends Fragment {
 
         init();
 
-
-
         return view;
     }
 
@@ -66,7 +64,7 @@ public class MenuProyectoFragmentCliente extends Fragment {
 
                 MainFragmentContainer.bottomNavigation.show(4, true);
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.mainFrame, new MiCarteraFragment()).addToBackStack("tag");
+                ft.replace(R.id.mainFrame, new MiCarteraFragmentCliente()).addToBackStack("tag");
                 ft.commit();
             }
         });
