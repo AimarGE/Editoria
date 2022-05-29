@@ -1,21 +1,26 @@
 package com.example.editoria.fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -23,8 +28,9 @@ import android.widget.PopupMenu;
 import com.example.editoria.GlobalVariable;
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
+import com.example.editoria.model.CartaInsertarImagenEvento;
 import com.example.editoria.model.CartaRanking;
-import com.example.editoria.model.ListAdapter;
+import com.example.editoria.model.CartaRecursosClientes;
 import com.example.editoria.model.ListElement;
 import com.example.editoria.model.ListElementRanking;
 
@@ -32,13 +38,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class EventoRanking extends Fragment {
+public class EventoInsertarImagen extends Fragment {
 
     View view;
-    ImageView menu, lupa;
+    ImageView menu;
     List<ListElementRanking> elements;
-    EditText buscador;
     AlertDialog.Builder builder;
+    CartaInsertarImagenEvento cartaInsertarImagenEvento;
+    Button seleccionarArchivo, confirmar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,31 +56,20 @@ public class EventoRanking extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_evento_ranking, container, false);
+        view = inflater.inflate(R.layout.fragment_evento_insertar_imagen, container, false);
         menu = view.findViewById(R.id.menu_ranking_evento);
-        lupa = view.findViewById(R.id.lupa);
-        buscador = view.findViewById(R.id.editTextBusqueda);
         builder = new AlertDialog.Builder(view.getContext());
-
-
-
-        /*private void borrarPilaFragments(){
-            int count = getActivity().getSupportFragmentManager().getBackStackEntryCount();
-
-            for (int i = 0; i < count; i++) { getActivity().getSupportFragmentManager().popBackStack(); }
-
-        }*/
+        seleccionarArchivo = view.findViewById(R.id.seleccionarArchivo);
+        confirmar = view.findViewById(R.id.confirmar);
 
         init();
-
 
         return view;
     }
 
     private void init() {
 
-
-        mostrarRankingParticipantes();
+        insertarImagenCard();
 
         listeners();
 
@@ -81,29 +77,21 @@ public class EventoRanking extends Fragment {
 
     private void listeners() {
 
-        buscador.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus){
-                    //root.setBackgroundColor(Color.GREEN);
-                }else{
-                    //root.setBackgroundColor(Color.RED);
-                }
-            }
-        });
-
-        //LISTENER LUPA
-        lupa.setOnClickListener(new View.OnClickListener() {
+        confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buscador.setVisibility(view.VISIBLE);
 
-                if (buscador.requestFocus()){
-                    showKeyboard();
-                }
+                //añadir imagen en el proyecto de firebase
+                getFragmentManager().popBackStackImmediate();
             }
         });
 
+        seleccionarArchivo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cargarImagen();
+            }
+        });
 
         //LISTENER MENU
         menu.setOnClickListener(new View.OnClickListener() {
@@ -146,37 +134,30 @@ public class EventoRanking extends Fragment {
 
     }
 
-    private void mostrarRankingParticipantes() {
+    private void cargarImagen() {
 
-        elements = new ArrayList<>();
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("image/");
+        startActivityForResult(intent.createChooser(intent, "Seleccione la Aplicación"), 10);
 
-        elements.add(new ListElementRanking("icono", "Mario", "https://img.freepik.com/vector-gratis/trofeo-oro-placa-ganador-concurso_68708-545.jpg?w=2000", "5","5"));
-        elements.add(new ListElementRanking("icono", "Ejemplo2", "https://img.freepik.com/vector-gratis/trofeo-oro-placa-ganador-concurso_68708-545.jpg?w=2000", "2","325"));
-        elements.add(new ListElementRanking("icono", "José", "https://img.freepik.com/vector-gratis/trofeo-oro-placa-ganador-concurso_68708-545.jpg?w=2000", "3","26"));
-        elements.add(new ListElementRanking("icono", "Maria", "https://img.freepik.com/vector-gratis/trofeo-oro-placa-ganador-concurso_68708-545.jpg?w=2000", "1","123123"));
-        elements.add(new ListElementRanking("icono", "Rodrigo", "https://img.freepik.com/vector-gratis/trofeo-oro-placa-ganador-concurso_68708-545.jpg?w=2000", "50","52"));
+    }
 
-        CartaRanking listAdapter = new CartaRanking(elements, view.getContext(), new CartaRanking.OnItemClickListener() {
+    private void insertarImagenCard() {
+        ArrayList elements = new ArrayList<>();
+
+        //CAMBIAR
+        elements.add(new ListElement("icono", GlobalVariable.nombreUsuario,"", "","https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg", 0));
+
+        cartaInsertarImagenEvento = new CartaInsertarImagenEvento(elements, view.getContext(), new CartaInsertarImagenEvento.OnItemClickListener() {
             @Override
-            public void onItemClick(ListElementRanking item) {
-
-                //COMPROBAR QUE SEA EDITOR O CLIENTE DESDE FIREBASE
-
-                MainFragmentContainer.bottomNavigation.show(3, true);
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                Bundle bundle = new Bundle();
-                ListElement le = new ListElement("icono", item.getName(),"descripcion", "titulo", "https://img.freepik.com/vector-gratis/trofeo-oro-placa-ganador-concurso_68708-545.jpg?w=2000", 2);
-                bundle.putSerializable("item", le);
-                GlobalVariable.bundleEditor = bundle;
-                ft.replace(R.id.mainFrame, new FragmentPerfilEditor()).addToBackStack("tag");
-                ft.commit();
+            public void onItemClick(ListElement item) {
 
             }
         });
-        RecyclerView recyclerView = view.findViewById(R.id.listaParticipanetesEventos);
+        RecyclerView recyclerView = view.findViewById(R.id.insertarImagen);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        recyclerView.setAdapter(listAdapter);
+        recyclerView.setAdapter(cartaInsertarImagenEvento);
         recyclerView.setNestedScrollingEnabled(false);
 
     }
@@ -230,12 +211,25 @@ public class EventoRanking extends Fragment {
 
     private void paginaRanking() {
 
+        MainFragmentContainer.bottomNavigation.show(3, true);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.mainFrame, new EventoRanking()).addToBackStack("tag");
+        ft.commit();
+
     }
 
     private void paginaInsertarImagen() {
-        MainFragmentContainer.bottomNavigation.show(3, true);
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.mainFrame, new EventoInsertarImagen()).addToBackStack("tag");
-        ft.commit();
     }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+            Uri path = data.getData();
+            cartaInsertarImagenEvento.getImageView().setImageURI(path);//SET IMAGE DEL CARDVIEW DEL
+        }
+    }
+
+
 }

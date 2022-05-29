@@ -22,7 +22,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:text="Foto de perfil"
                 android:textColor="@color/black"
                 android:textSize="30dp"
@@ -80,6 +80,7 @@
                 android:textSize="17dp" />
 
             <EditText
+                android:id="@+id/nombreUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -95,6 +96,7 @@
                 android:textSize="17dp" />
 
             <EditText
+                android:id="@+id/correoElectronico"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -110,10 +112,12 @@
                 android:textSize="17dp" />
 
             <EditText
+                android:id="@+id/contrasenya"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:inputType="textPassword"
                 android:backgroundTint="#AEA8A8" />
 
             <TextView
@@ -125,6 +129,7 @@
                 android:textSize="17dp" />
 
             <EditText
+                android:id="@+id/numTelefono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -140,6 +145,7 @@
                 android:textSize="17dp" />
 
             <EditText
+                android:id="@+id/pais"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -178,6 +184,7 @@
             </LinearLayout>
 
             <EditText
+                android:id="@+id/mail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -207,6 +214,7 @@
             </LinearLayout>
 
             <EditText
+                android:id="@+id/twitter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -235,15 +243,21 @@
             </LinearLayout>
 
             <EditText
+                android:id="@+id/facebook"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:backgroundTint="#AEA8A8"
                 android:hint="@string/ejemploFaceook" />
-
+            <Button
+                android:id="@+id/guardar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#0037FF"
+                android:text="Guardar"/>
         </LinearLayout>
-
 
     </RelativeLayout>
 

@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.editoria.dao.Writer;
+import com.example.editoria.model.Usuario;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -62,6 +63,7 @@ public class Login extends AppCompatActivity {
                         if(getPassword.equals(password)){
                             Toast.makeText(Login.this, "Sesión iniciada con éxito", Toast.LENGTH_SHORT).show();
                             addDataToSharedPreferences(usuario, password);
+                            GlobalVariable.usuario = snapshot.child(usuario).getValue(Usuario.class);
                             startActivity(new Intent(Login.this, MainFragmentContainer.class));
                         }else{
                             Toast.makeText(Login.this, "Wrong password", Toast.LENGTH_SHORT).show();

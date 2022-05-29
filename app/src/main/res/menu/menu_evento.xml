@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <item android:id="@+id/insertarImagen" android:title="Insertar Imagen"/>
     <item android:id="@+id/rankingEvento" android:title="Ranking"/>
     <item android:id="@+id/participantesEvento" android:title="Mostrar participantes"/>
     <item android:id="@+id/abandonarEvento" android:title="Abandonar Evento"/>

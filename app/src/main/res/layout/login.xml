@@ -1,25 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".Login">
+
 
     <ImageView
         android:id="@+id/editoriaLogo"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/userTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:srcCompat="@drawable/editoria_logo" />
+
+    <TextView
+        android:id="@+id/userTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Nombre de Usuario"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/UserLogIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"/>
+
+
+    <TextView
+        android:id="@+id/passwordTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:text="Contraseña"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/contraLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"/>
+
+
+    <TextView
+        android:id="@+id/fogottenPasswordButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="15dp"
+        android:onClick="forgotenPass"
+        android:text="¿Has olvidado tu contraseña?"
+        android:textColor="#2A8FFB" />
 
     <Button
         android:id="@+id/login"
@@ -32,80 +70,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fogottenPasswordButton" />
 
-    <TextView
-        android:id="@+id/fogottenPasswordButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginBottom="24dp"
-        android:onClick="forgotenPass"
-        android:text="¿Has olvidado tu contraseña?"
-        android:textColor="#2A8FFB"
-        app:layout_constraintBottom_toTopOf="@+id/login"
-        app:layout_constraintStart_toStartOf="@+id/contraLogin"
-        app:layout_constraintTop_toBottomOf="@+id/contraLogin" />
 
     <Button
         android:id="@+id/register"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
-        android:text="Register"
         android:onClick="register"
+        android:text="Register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login" />
 
-    <EditText
-        android:id="@+id/UserLogIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/passwordTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userTextView" />
 
-    <EditText
-        android:id="@+id/contraLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:password="true"
-        app:layout_constraintBottom_toTopOf="@+id/fogottenPasswordButton"
-        app:layout_constraintStart_toStartOf="@+id/UserLogIn"
-        app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
-
-    <TextView
-        android:id="@+id/userTextView"
-        android:layout_width="206dp"
-        android:layout_height="30dp"
-        android:text="Nombre de usuario"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/UserLogIn"
-        app:layout_constraintEnd_toEndOf="@+id/UserLogIn"
-        app:layout_constraintStart_toStartOf="@+id/UserLogIn"
-        app:layout_constraintTop_toBottomOf="@+id/editoriaLogo" />
-
-    <TextView
-        android:id="@+id/passwordTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Contraseña"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/contraLogin"
-        app:layout_constraintEnd_toEndOf="@+id/contraLogin"
-        app:layout_constraintStart_toStartOf="@+id/contraLogin"
-        app:layout_constraintTop_toBottomOf="@+id/UserLogIn" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

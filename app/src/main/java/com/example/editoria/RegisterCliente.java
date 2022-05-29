@@ -139,7 +139,7 @@ public class RegisterCliente extends AppCompatActivity {
     }
 
     private void addUser(){
-        Usuario user = new Usuario(nombreUsuario, contra, email, telefono, fechaNacimiento, "Cliente");
+        Usuario user = new Usuario(nombreUsuario, contra, email, telefono, fechaNacimiento, "Cliente", "");
         Cliente cliente = new Cliente(user.getId(), nombreUsuario);
         dRef.child("Usuarios").child(nombreUsuario).setValue(user);
         dRef.child("Clientes").child(nombreUsuario).setValue(cliente);

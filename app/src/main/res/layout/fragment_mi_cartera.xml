@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:overScrollMode="never"
     android:scrollbars="none"
-    tools:context=".fragments.MiCarteraFragment">
+    tools:context=".fragments.MiCarteraFragmentEditor">
 
 
     <LinearLayout
@@ -60,6 +60,7 @@
                 android:layout_weight="1" />
             <!-- SEPARADOR -->
             <Button
+                android:id="@+id/menos100"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FF3030"
@@ -70,20 +71,22 @@
                 android:layout_height="0dp"
                 android:layout_weight="1" />
             <!-- SEPARADOR -->
+
             <TextView
                 android:id="@+id/dinero_modificado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="545.04€"
                 android:textColor="@color/black"
-                android:textSize="30dp"
-                android:text="545.04€"/>
-            <!-- SEPARADOR -->
+                android:textSize="30dp" />
+
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
             <!-- SEPARADOR -->
             <Button
+                android:id="@+id/mas100"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#4baf27"
@@ -97,6 +100,7 @@
         </LinearLayout>
 
     <Button
+        android:id="@+id/confirmar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#0037ff"

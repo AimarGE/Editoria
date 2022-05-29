@@ -22,6 +22,7 @@ import com.example.editoria.GlobalVariable;
 import com.example.editoria.Login;
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
+import com.example.editoria.model.Editor;
 import com.example.editoria.model.ListAdapter;
 import com.example.editoria.model.ListElement;
 import com.example.editoria.model.Proyecto;
@@ -33,6 +34,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -56,52 +59,83 @@ public class HomeFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_home_v2, container, false);
         filtro = view.findViewById(R.id.filtro);
         proyectos = new ArrayList<>();
+
+
         getAllProyectos();
         getUsuario();
+        getEditor();
+
 
         filtro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*crearDialogoFiltro();*/
+                paginaFiltro();
             }
         });
         return view;
     }
 
     private void getUsuario(){
-       /* dRef.child("Usuarios").addValueEventListener(new ValueEventListener() {
+        dRef.child("Usuarios").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.hasChild(GlobalVariable.nombreUsuario)) {
                     GlobalVariable.usuario = snapshot.child(GlobalVariable.nombreUsuario).getValue(Usuario.class);
-                    if(snapshot.child(GlobalVariable).child("clase").getValue(String.class).equals("Editor")){
-                        getEditor();
-                    }else{
-                        getCliente();
-                    }
+                    Log.i("pruebaGlobal", GlobalVariable.usuario.toString());
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });*/
+        });
     }
 
     private void getEditor(){
 
+        dRef.child("Editores").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.hasChild(GlobalVariable.usuario.getUsuario())) {
+                    GlobalVariable.editor = snapshot.child(GlobalVariable.usuario.getUsuario()).getValue(Editor.class);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void getAllProyectos(){
-        dRef.child("Proyectos").addValueEventListener(new ValueEventListener() {
+
+        dRef.child("/Proyectos").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 proyectos.clear();
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                    obtenerProyectosEditores(postSnapshot.getKey());
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void obtenerProyectosEditores(String key) {
+
+        dRef.child("/Proyectos/"+key).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //proyectos.clear();
+                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+
                     Proyecto proyecto = postSnapshot.getValue(Proyecto.class);
                     proyectos.add(proyecto);
                 }
+                Collections.shuffle(proyectos);
                 mostrarProyectos(proyectos);
             }
             @Override
@@ -109,7 +143,9 @@ public class HomeFragment extends Fragment {
 
             }
         });
+
     }
+
 
     private void mostrarProyectos(List<Proyecto> proyectos){
         elements = new ArrayList<>();
@@ -152,14 +188,11 @@ public class HomeFragment extends Fragment {
 
     }
 
-    /*private void crearDialogoFiltro() {
+    private void paginaFiltro() {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder();
-        builder.setTitle("Filtro");
-        builder.setMultiChoiceItems(https://www.youtube.com/watch?v=1vIRg6_a_fc&ab_channel=TechnicalSkillz);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.mainFrame, new FiltroFragment()).addToBackStack("tag");
+        ft.commit();
 
-        builder.create();
-        builder.show();
-
-    }*/
+    }
 }

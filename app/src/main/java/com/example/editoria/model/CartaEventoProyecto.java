@@ -12,10 +12,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
+import com.example.editoria.fragments.EventoParticipantes;
+import com.example.editoria.fragments.EventoRanking;
 
 import java.util.List;
 
@@ -76,6 +81,22 @@ public class CartaEventoProyecto extends RecyclerView.Adapter<CartaEventoProyect
             icono.setImageResource(R.drawable.ejemplo);
             name.setText(item.getName());
 
+            icono.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClick(item);
+                }
+            });
+
+            name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClick(item);
+                }
+            });
+
+
+
             //Animacion quitar poner favorito
             favorito.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -85,15 +106,10 @@ public class CartaEventoProyecto extends RecyclerView.Adapter<CartaEventoProyect
                 }
             });
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.i("EJEMPLO", "ASDASD");
-                    listener.onItemClick(item);
-                }
-            });
         }
     }
+
+
 
     private boolean likeAnimation(LottieAnimationView imageView, Integer animation, Boolean like) {
 

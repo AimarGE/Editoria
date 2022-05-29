@@ -91,10 +91,7 @@ public class OpcionesFragment extends Fragment {
 
     private void retroceder() {
 
-        MainFragmentContainer.bottomNavigation.show(5, true);
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.mainFrame, new MiPerfilEditorFragment()).addToBackStack("tag");
-        ft.commit();
+        getFragmentManager().popBackStackImmediate();
 
     }
 
@@ -111,9 +108,9 @@ public class OpcionesFragment extends Fragment {
 
         editor.putBoolean("sesionIniciada",false);
         editor.commit();
-        editor.putString("usuario", "usuarioNull");
+        editor.putString("usuario", "null");
 
-        GlobalVariable.nombreUsuario="usuarioNull";
+        GlobalVariable.nombreUsuario="null";
 
         Intent intent = new Intent(view.getContext(), MainActivity.class);
         startActivity(intent);

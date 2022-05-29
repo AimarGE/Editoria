@@ -11,8 +11,10 @@ public class Usuario {
     private String telefono;
     private String fechaNacimiento;
     private String clase;
+    private String pais;
+    private String icono;
 
-    public Usuario(String usuario, String password, String correoE, String telefono, String fechaNacimiento, String clase) {
+    public Usuario(String usuario, String password, String correoE, String telefono, String fechaNacimiento, String clase, String pais) {
         this.id = UUID.randomUUID().toString();
         this.usuario = usuario;
         this.password = password;
@@ -20,6 +22,8 @@ public class Usuario {
         this.telefono = telefono;
         this.fechaNacimiento = fechaNacimiento;
         this.clase = clase;
+        this.pais = pais;
+        this.icono = "";
     }
 
     public Usuario() {
@@ -51,6 +55,22 @@ public class Usuario {
 
     public String getClase() {
         return clase;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getIcono() {
+        return icono;
+    }
+
+    public void setIcono(String icono) {
+        this.icono = icono;
     }
 
     @Override

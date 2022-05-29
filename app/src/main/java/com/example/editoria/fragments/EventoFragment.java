@@ -32,6 +32,8 @@ public class EventoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        borrarPilaFragments();
+
         view = inflater.inflate(R.layout.fragment_evento, container, false);
         imagenEvento = view.findViewById(R.id.imagenEvento);
         botonInscribirse = view.findViewById(R.id.botonInscribirse);
@@ -58,6 +60,15 @@ public class EventoFragment extends Fragment {
                 ft.commit();
             }
         });
+    }
+
+
+    private void borrarPilaFragments(){
+
+        int count = getActivity().getSupportFragmentManager().getBackStackEntryCount();
+        for (int i = 0; i < count; i++) { getActivity().getSupportFragmentManager().popBackStack();
+        }
 
     }
+
 }
