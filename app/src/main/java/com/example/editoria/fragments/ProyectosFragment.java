@@ -7,6 +7,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,18 +26,26 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.editoria.GlobalVariable;
+import com.example.editoria.Login;
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.fragments.HomeFragment;
+import com.example.editoria.model.Editor;
 import com.example.editoria.model.Proyecto;
+import com.example.editoria.model.Usuario;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.example.editoria.R;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
@@ -49,7 +58,7 @@ public class ProyectosFragment extends Fragment {
     private EditText nombreProyecto;
     private EditText descripcionProyecto;
     private CheckBox manyana, tarde, noche;
-    private String disponibilidad, nombreP,descripcionP;
+    private String disponibilidad, nombreP, descripcionP;
     private DatabaseReference dRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://editoria-bb3aa-default-rtdb.europe-west1.firebasedatabase.app/");
     private View view;
     private StorageReference storageRef;
@@ -65,7 +74,6 @@ public class ProyectosFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_proyectos, container, false);
-
         nombreProyecto = (EditText) view.findViewById(R.id.nombreP);
         descripcionProyecto = (EditText) view.findViewById(R.id.descripcionP);
         imagen = (ImageView) view.findViewById(R.id.foto);
@@ -76,7 +84,7 @@ public class ProyectosFragment extends Fragment {
         noche = (CheckBox) view.findViewById(R.id.checkBoxNoche);
         tarde = (CheckBox) view.findViewById(R.id.checkBoxTarde);
         storageRef = FirebaseStorage.getInstance().getReference("proyectos/");
-
+        getEditor();
         /*paquetes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,31 +111,29 @@ public class ProyectosFragment extends Fragment {
     }
 
     private void publicar() {
-        disponibilidad="";
-        nombreP= nombreProyecto.getText().toString();
-        descripcionP= descripcionProyecto.getText().toString();
-        if(manyana.isChecked()){
+        disponibilidad = "";
+        nombreP = nombreProyecto.getText().toString();
+        descripcionP = descripcionProyecto.getText().toString();
+        if (manyana.isChecked()) {
             disponibilidad += manyana.getText().toString();
         }
-        if(tarde.isChecked()){
-            if(!disponibilidad.equals("")) {
+        if (tarde.isChecked()) {
+            if (!disponibilidad.equals("")) {
                 disponibilidad += ",";
                 disponibilidad += tarde.getText().toString();
-            }
-            else{
+            } else {
                 disponibilidad = tarde.getText().toString();
             }
         }
-        if(noche.isChecked()){
-            if(!disponibilidad.equals("")) {
+        if (noche.isChecked()) {
+            if (!disponibilidad.equals("")) {
                 disponibilidad += ",";
                 disponibilidad += noche.getText().toString();
-            }
-            else{
+            } else {
                 disponibilidad = noche.getText().toString();
             }
         }
-        if(checkPhoto() && comprobarLenghtNombre(nombreP) && comprobarDescripcion(descripcionP)){
+        if (checkPhoto() && comprobarLenghtNombre(nombreP) && comprobarDescripcion(descripcionP)) {
             addProyecto();
             MainFragmentContainer.bottomNavigation.show(1, true);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -137,14 +143,20 @@ public class ProyectosFragment extends Fragment {
     }
 
 
-    private void addProyecto(){
+    private void addProyecto() {
+        //getListProyectos();
         storageRef = FirebaseStorage.getInstance().getReference("proyectos/");
         storageRef.child(nombreP.replace(" ", "_")).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 urlFoto = uri.toString();
                 Proyecto proyecto = new Proyecto(nombreP, descripcionP, disponibilidad, GlobalVariable.nombreUsuario, urlFoto);
-                dRef.child("Proyectos").child(proyecto.getNombreUsuario()).setValue(proyecto);
+                if(GlobalVariable.editor != null){
+                    Log.i("entra", GlobalVariable.editor.toString());
+                    GlobalVariable.editor.addProyecto(proyecto);
+                }
+                actualizarEditor();
+                dRef.child("Proyectos").child(proyecto.getNombreUsuario()).setValue(GlobalVariable.editor.getProyectos());
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -159,48 +171,83 @@ public class ProyectosFragment extends Fragment {
             }
         });
     }
+/*
+    private List<Proyecto> getListProyectos(){
+        List<Proyecto> proyectos = new ArrayList<>();
+        dRef.child("Proyectos").child(GlobalVariable.usuario.getUsuario()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                    Proyecto proyecto = postSnapshot.getValue(Proyecto.class);
+                    proyectos.add(proyecto);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-    private boolean comprobarDescripcion(String descripcion){
-        if(descripcion.length() < 5){
+            }
+        });
+    }*/
+    private void actualizarEditor(){
+        dRef.child("Editores").child(GlobalVariable.usuario.getUsuario()).setValue(GlobalVariable.editor);
+    }
+
+    private boolean comprobarDescripcion(String descripcion) {
+        if (descripcion.length() < 5) {
             Toast.makeText(view.getContext(), "Descripción muy corta", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
     }
 
-    private boolean comprobarLenghtNombre(String nombre){
-        if(nombre.length() < 5){
+    private boolean comprobarLenghtNombre(String nombre) {
+        if (nombre.length() < 5) {
             Toast.makeText(view.getContext(), "Nombre muy corto", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
     }
 
-        private boolean checkPhoto(){
-            if(imagen != null){
-                storageRef = FirebaseStorage.getInstance().getReference("proyectos/");
-                imagen.setDrawingCacheEnabled(true);
-                imagen.buildDrawingCache();
-                Bitmap bitmap = ((BitmapDrawable) imagen.getDrawable()).getBitmap();
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                byte[] data = baos.toByteArray();
-                UploadTask uploadTask = storageRef.child(nombreP.replace(" ", "_")).putBytes(data);
-                uploadTask.addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        Log.i("imagenF", exception.getMessage());
-                    }
-                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Log.i("imagenF", "subida correcta");
-                    }
-                });
-                return true;
-            }
-            return false;
+    private boolean checkPhoto() {
+        if (imagen != null) {
+            storageRef = FirebaseStorage.getInstance().getReference("proyectos/");
+            imagen.setDrawingCacheEnabled(true);
+            imagen.buildDrawingCache();
+            Bitmap bitmap = ((BitmapDrawable) imagen.getDrawable()).getBitmap();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            byte[] data = baos.toByteArray();
+            UploadTask uploadTask = storageRef.child(nombreP.replace(" ", "_")).putBytes(data);
+            uploadTask.addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    Log.i("imagenF", exception.getMessage());
+                }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Log.i("imagenF", "subida correcta");
+                }
+            });
+            return true;
         }
+        return false;
+    }
+
+    private void getEditor(){
+        dRef.child("Editores").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.hasChild(GlobalVariable.usuario.getUsuario())) {
+                    GlobalVariable.editor = snapshot.child(GlobalVariable.usuario.getUsuario()).getValue(Editor.class);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 
     private void cargarImagen() {
 

@@ -14,6 +14,7 @@ import com.example.editoria.fragments.EventoFragment;
 import com.example.editoria.fragments.HomeFragment;
 import com.example.editoria.fragments.MenuProyectoFragmentCliente;
 import com.example.editoria.fragments.MenuProyectoFragmentEditor;
+import com.example.editoria.fragments.MiPerfilClienteFragment;
 import com.example.editoria.fragments.MiPerfilEditorFragment;
 
 public class MainFragmentContainer extends AppCompatActivity {
@@ -77,12 +78,20 @@ public class MainFragmentContainer extends AppCompatActivity {
 
                     case 4:
                         borrarPilaFragments();
-                        fragment = new MenuProyectoFragmentEditor();
+                        if(GlobalVariable.usuario.getClase().equals("Editor")){
+                            fragment = new MenuProyectoFragmentEditor();
+                        }else{
+                            fragment = new MenuProyectoFragmentCliente();
+                        }
                         break;
 
                     case 5:
                         borrarPilaFragments();
-                        fragment = new MiPerfilEditorFragment();
+                        if(GlobalVariable.usuario.getClase().equals("Editor")){
+                            fragment = new MiPerfilEditorFragment();
+                        }else{
+                            fragment = new MiPerfilClienteFragment();
+                        }
                         break;
 
                 }
@@ -111,11 +120,19 @@ public class MainFragmentContainer extends AppCompatActivity {
                         break;
                     case 4:
                         borrarPilaFragments();
-                        fragment = new MenuProyectoFragmentCliente();
+                        if(GlobalVariable.usuario.getClase().equals("Editor")){
+                            fragment = new MenuProyectoFragmentEditor();
+                        }else{
+                            fragment = new MenuProyectoFragmentCliente();
+                        }
                         break;
                     case 5:
                         borrarPilaFragments();
-                        fragment = new MiPerfilEditorFragment();
+                        if(GlobalVariable.usuario.getClase().equals("Editor")){
+                            fragment = new MiPerfilEditorFragment();
+                        }else{
+                            fragment = new MiPerfilClienteFragment();
+                        }
                         break;
                 }
                 loadFragment(fragment);
