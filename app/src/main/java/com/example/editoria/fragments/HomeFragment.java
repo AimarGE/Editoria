@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ import com.example.editoria.GlobalVariable;
 import com.example.editoria.Login;
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
+import com.example.editoria.model.Editor;
 import com.example.editoria.model.ListAdapter;
 import com.example.editoria.model.ListElement;
 import com.example.editoria.model.Proyecto;
@@ -35,6 +37,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class HomeFragment extends Fragment {
 
@@ -58,6 +61,7 @@ public class HomeFragment extends Fragment {
         proyectos = new ArrayList<>();
         getAllProyectos();
         getUsuario();
+        getEditor();
 
         filtro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,30 +73,34 @@ public class HomeFragment extends Fragment {
     }
 
     private void getUsuario(){
-       /* dRef.child("Usuarios").addValueEventListener(new ValueEventListener() {
+       dRef.child("Usuarios").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.hasChild(GlobalVariable.nombreUsuario)) {
                     GlobalVariable.usuario = snapshot.child(GlobalVariable.nombreUsuario).getValue(Usuario.class);
-                    if(snapshot.child(GlobalVariable).child("clase").getValue(String.class).equals("Editor")){
-                        getEditor();
-                    }else{
-                        getCliente();
-                    }
+                    Log.i("pruebaGlobal", GlobalVariable.usuario.toString());
                 }
             }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
 
+    private void getEditor(){
+        dRef.child("Editores").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.hasChild(GlobalVariable.usuario.getUsuario())) {
+                    GlobalVariable.editor = snapshot.child(GlobalVariable.usuario.getUsuario()).getValue(Editor.class);
+                }
+            }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });*/
+        });
     }
-
-    private void getEditor(){
-
-    }
-
     private void getAllProyectos(){
         dRef.child("Proyectos").addValueEventListener(new ValueEventListener() {
             @Override
@@ -124,7 +132,6 @@ public class HomeFragment extends Fragment {
                 proyectoSeleccionado(item);
             }
         });
-
         RecyclerView recyclerView = view.findViewById(R.id.listaCVEditoresRecomendados);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));

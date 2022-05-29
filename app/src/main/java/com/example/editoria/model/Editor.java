@@ -20,6 +20,10 @@ public class Editor {
         this.proyectos = new ArrayList<>();
     }
 
+    public Editor(){
+
+    }
+
     public String getIdEditor(){
         return idEditor;
     }
@@ -37,10 +41,24 @@ public class Editor {
     }
 
     public void addProyecto(Proyecto proyecto){
+        if(this.proyectos == null){
+            proyectos = new ArrayList<>();
+        }
         this.proyectos.add(proyecto);
     }
 
     public ArrayList<Proyecto> getProyectos(){
         return proyectos;
+    }
+
+    @Override
+    public String toString() {
+        return "Editor{" +
+                "categoria='" + categoria + '\'' +
+                ", idUsuario='" + idUsuario + '\'' +
+                ", idEditor='" + idEditor + '\'' +
+                ", nombreUsuario='" + nombreUsuario + '\'' +
+                ", proyectos=" + proyectos +
+                '}';
     }
 }

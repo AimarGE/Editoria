@@ -12,5 +12,6 @@ public class GlobalVariable {
     public static Bundle bundleSolicitudOferta;
     public static String nombreUsuario;
     public static Usuario usuario;
+    public static Editor editor;
 
 }
