@@ -46,6 +46,9 @@ public class Editor {
     }
 
     public void addProyecto(Proyecto proyecto){
+        if(proyectos == null){
+            this.proyectos = new ArrayList<>();
+        }
         this.proyectos.add(proyecto);
     }
 

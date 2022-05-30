@@ -189,7 +189,7 @@
                 android:layout_alignParentRight="true">
 
                 <EditText
-                    android:id="@+id/textViewPBasicoPrecio"
+                    android:id="@+id/basicoPrecio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="00.00"
@@ -207,7 +207,7 @@
             </LinearLayout>
 
             <EditText
-                android:id="@+id/descripcionPBasico"
+                android:id="@+id/descripcionBasico"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
@@ -254,7 +254,7 @@
                 android:layout_alignParentRight="true">
 
                 <EditText
-                    android:id="@+id/textViewPAvanzadoPrecio"
+                    android:id="@+id/avanzadoPrecio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="00.00"
@@ -273,7 +273,7 @@
             </LinearLayout>
 
             <EditText
-                android:id="@+id/descripcionPAvanzado"
+                android:id="@+id/descripcionAvanzado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
@@ -320,7 +320,7 @@
                 android:layout_alignParentRight="true">
 
                 <EditText
-                    android:id="@+id/textViewPPremiumPrecio"
+                    android:id="@+id/premiumPrecio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="00.00"
@@ -339,7 +339,7 @@
             </LinearLayout>
 
             <EditText
-                android:id="@+id/descripcionPPremium"
+                android:id="@+id/descripcionPremium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"

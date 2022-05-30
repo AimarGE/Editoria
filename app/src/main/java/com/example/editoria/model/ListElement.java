@@ -8,10 +8,10 @@ public class ListElement implements Serializable {
     public String name;
     public String titulo;
     public String descripcion;
-    public double precio;
+    public String precio;
     public String foto;
 
-    public ListElement(String icon, String name, String descripcion, String titulo, String foto, double precio) {
+    public ListElement(String icon, String name, String descripcion, String titulo, String foto, String precio) {
         this.icon = icon;
         this.name = name;
         this.descripcion = descripcion;
@@ -48,11 +48,11 @@ public class ListElement implements Serializable {
         this.titulo = titulo;
     }
 
-    public double getPrecio() {
+    public String getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
     }
 

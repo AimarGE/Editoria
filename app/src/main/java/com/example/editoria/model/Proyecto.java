@@ -1,5 +1,7 @@
 package com.example.editoria.model;
 
+import java.util.ArrayList;
+
 public class Proyecto {
 
     private String nombre;
@@ -8,13 +10,15 @@ public class Proyecto {
     private String nombreUsuario;
     private RecursosCliente recursoCliente;
     private String foto;
+    private ArrayList<Paquete> paquetes;
 
-    public Proyecto(String nombre, String descripcion, String disponibilidad, String nombreUsuario, String foto){
+    public Proyecto(String nombre, String descripcion, String disponibilidad, String nombreUsuario, String foto, ArrayList<Paquete> paquetes){
         this.nombre=nombre;
         this.descripcion=descripcion;
         this.disponibilidad=disponibilidad;
         this.nombreUsuario=nombreUsuario;
         this.foto=foto;
+        this.paquetes = paquetes;
     }
 
     public Proyecto(){
@@ -43,6 +47,32 @@ public class Proyecto {
 
     public String getFoto() {
         return foto;
+    }
+
+    public ArrayList<Paquete> getPaquetes(){
+        return this.paquetes;
+    }
+
+    public String getPaqueteMasBarato(){
+        if(paquetes.size() == 1){
+            return paquetes.get(0).getPrecio();
+        }else if(paquetes.size() == 2){
+            if(Double.parseDouble(paquetes.get(0).getPrecio()) < Double.parseDouble(paquetes.get(1).getPrecio())){
+            return paquetes.get(0).getPrecio();
+            }else{
+                return paquetes.get(1).getPrecio();
+            }
+        }else if(paquetes.size() == 3){
+            if(Double.parseDouble(paquetes.get(0).getPrecio()) < Double.parseDouble(paquetes.get(1).getPrecio()) && Double.parseDouble(paquetes.get(0).getPrecio()) < Double.parseDouble(paquetes.get(2).getPrecio())){
+                return paquetes.get(0).getPrecio();
+            }
+            else if(Double.parseDouble(paquetes.get(1).getPrecio()) < Double.parseDouble(paquetes.get(0).getPrecio()) && Double.parseDouble(paquetes.get(1).getPrecio()) < Double.parseDouble(paquetes.get(2).getPrecio())){
+                return paquetes.get(1).getPrecio();
+            }else{
+                return paquetes.get(2).getPrecio();
+            }
+        }
+        return null;
     }
 
     @Override
