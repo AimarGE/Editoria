@@ -42,7 +42,7 @@ import java.util.concurrent.TimeUnit;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class OpcionesPerfilFragment extends Fragment {
+public class OpcionesPerfilEditorFragment extends Fragment {
 
     CircleImageView profile_image;
     View view;
