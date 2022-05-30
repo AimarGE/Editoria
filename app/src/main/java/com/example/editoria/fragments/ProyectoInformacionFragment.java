@@ -39,7 +39,7 @@ public class ProyectoInformacionFragment extends Fragment {
     TextView basico, estandard, premium, descripcionPaquete, descripcionServicio;
     Button botonContratar;
     ListElement listElement;
-    String nombre, descripcion, titulo;
+    String nombre, descripcion, titulo, precioBasico, descripcionBasico;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
