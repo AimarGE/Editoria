@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.editoria.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -55,7 +56,7 @@ public class CartaOfertasPendientes extends RecyclerView.Adapter<CartaOfertasPen
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView icono;//PONER EL ICONO DE LA BASE DE DATOS DEL EDITOR
+        ImageView icono, imagen;//PONER EL ICONO DE LA BASE DE DATOS DEL EDITOR
         TextView name, titulo, precio;
 
         ViewHolder(View itemView){
@@ -64,6 +65,7 @@ public class CartaOfertasPendientes extends RecyclerView.Adapter<CartaOfertasPen
                 icono = itemView.findViewById(R.id.cvIconoEditor);
                 titulo = itemView.findViewById(R.id.tituloProyecto);
                 precio = itemView.findViewById(R.id.cvPrecioProyecto);
+                imagen = itemView.findViewById(R.id.imagenProyecto);
         }
 
         void bindData(final ListElement item){
@@ -71,6 +73,9 @@ public class CartaOfertasPendientes extends RecyclerView.Adapter<CartaOfertasPen
             name.setText(item.getName());
             titulo.setText(item.getTitulo());
             precio.setText("Precio: "+item.getPrecio()+ "€");
+
+            Picasso.get().load(item.getFoto()).into(imagen);
+            Picasso.get().load(item.getIcon()).into(icono);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
