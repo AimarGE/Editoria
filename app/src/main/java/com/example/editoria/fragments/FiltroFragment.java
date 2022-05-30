@@ -96,9 +96,15 @@ public class FiltroFragment extends Fragment {
        if (precioMin == null){
            GlobalVariable.filtroPrecio.add(00.00);
        }else{
+           Double dineroD;
 
            String dineroS = precioMin.getText().toString();
-           Double dineroD = Double.valueOf(dineroS);
+           if (dineroS == null || dineroS.equals("")){
+               dineroD = 00.00;
+           }else{
+               dineroD = Double.valueOf(dineroS);
+           }
+
            dineroS = String.format("%.2f", dineroD).replace(",",".");
 
            GlobalVariable.filtroPrecio.add(Double.parseDouble(dineroS));
@@ -109,11 +115,19 @@ public class FiltroFragment extends Fragment {
        }else{
 
            String dineroS = precioMax.getText().toString();
-           Double dineroD = Double.valueOf(dineroS);
+           Double dineroD;
+
+           if (dineroS == null || dineroS.equals("")){
+               dineroD = 100.00;
+           }else{
+               dineroD = Double.valueOf(dineroS);
+           }
+
            dineroS = String.format("%.2f", dineroD).replace(",",".");
 
            GlobalVariable.filtroPrecio.add(Double.parseDouble(dineroS));
        }
+        getFragmentManager().popBackStackImmediate();
     }
 
 }
