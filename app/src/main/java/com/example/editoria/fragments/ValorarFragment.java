@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -57,6 +58,8 @@ public class ValorarFragment extends Fragment {
         publicar = view.findViewById(R.id.publicar);
         init();
 
+        Picasso.get().load("https://cloudfront-us-east-1.images.arcpublishing.com/infobae/MN2XNZY4XJH27KAROURFGYWLYY.jpg").into(icono_editor);
+        nombre_editor.setText("MarioWopi");
         return view;
     }
 
@@ -88,11 +91,11 @@ public class ValorarFragment extends Fragment {
         dRef.child("Editores").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.hasChild("mario12")) {
-                    GlobalVariable.editorAvalorar = snapshot.child("mario12").getValue(Editor.class);
+                if(snapshot.hasChild("MarioWopi")) {
+                    GlobalVariable.editorAvalorar = snapshot.child("MarioWopi").getValue(Editor.class);
                     GlobalVariable.editorAvalorar.setValoraciones(String.valueOf(rbEditor.getRating()));
                     Editor editor = GlobalVariable.editorAvalorar;
-                    dRef.child("/Editores").child("mario12").setValue(editor);
+                    dRef.child("/Editores").child("MarioWopi").setValue(editor);
                 }
             }
             @Override
@@ -104,7 +107,7 @@ public class ValorarFragment extends Fragment {
         //VALORACION servicio CUANDO ESTÉ HECHO LA RELACION ENTRE EL PROYECTO DE CLIENTE Y EDITOR EN LA BASE DE DATOS
         //dRef.child("/Proyectos/aimar12345/9").child(GlobalVariable.usuario.getUsuario()).setValue();
         //valorarEditor
-        dRef.child("Proyectos/mario12/0").addValueEventListener(new ValueEventListener() {
+        dRef.child("Editores/MarioWopi/0").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -112,7 +115,7 @@ public class ValorarFragment extends Fragment {
                 proyecto.setValoracion(String.valueOf(rbProyecto.getRating()));
                 proyecto.setComentario(comentario.getText().toString());
                 Log.i("EJEMPLO","->"+proyecto.toString());
-                dRef.child("Proyectos/mario12/0").setValue(proyecto);
+                dRef.child("Proyectos/MarioWopi/0").setValue(proyecto);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

@@ -122,7 +122,7 @@ public class MainFragmentContainer extends AppCompatActivity {
                     case 4:
                         borrarPilaFragments();
                         if(GlobalVariable.usuario.getClase().equals("Editor")){
-                            fragment = new ValorarFragment();
+                            fragment = new MenuProyectoFragmentEditor();
                         }else{
                             fragment = new MenuProyectoFragmentCliente();
                         }

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
@@ -78,6 +79,7 @@ public class DescargarRecursoFragmentCliente extends Fragment {
             public void onClick(View v) {
 
                 try {
+                    Toast.makeText(getContext(), "Imagen descargada!", Toast.LENGTH_SHORT).show();
                     descagarImagen();
                     dialogoValorarServicio();
                 } catch (IOException e) {
@@ -143,7 +145,7 @@ public class DescargarRecursoFragmentCliente extends Fragment {
         elements = new ArrayList<>();
 
         //CAMBIAR
-        elements.add(new ListElement("icono", nombre,"", "", "https://www.exclusivadigital.com/fotos/16368848691.jpg", "50", ""));
+        elements.add(new ListElement("https://img.unocero.com/2020/07/Super-Mario-Bros-verdadera-nacionalidad-1024x576.jpg", nombre,"Quiero estar en la playa en una tabla de surf del Mario 64", "", "https://i.kym-cdn.com/photos/images/original/000/587/698/037.png", "50", ""));
 
         cartaRecursosClientes = new CartaRecursosClientes(elements, view.getContext(), new CartaRecursosClientes.OnItemClickListener() {
             @Override

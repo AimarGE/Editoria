@@ -1,7 +1,9 @@
 package com.example.editoria;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
@@ -10,6 +12,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.editoria.model.Proyecto;
+import com.example.editoria.model.Usuario;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Properties;
 import java.util.Random;
@@ -27,7 +37,9 @@ public class RecuperarContrasenya extends AppCompatActivity {
     EditText usuario, correo, contrasenya, confContrasenya, codigoVer;
     TextView codigoVerificacionTV;
     Button confirmar, generarCodigo;
-
+    Usuario usuarioC;
+    String codigoVerificacion;
+    private DatabaseReference dRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://editoria-bb3aa-default-rtdb.europe-west1.firebasedatabase.app/");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +57,7 @@ public class RecuperarContrasenya extends AppCompatActivity {
         codigoVerificacionTV = findViewById(R.id.codigoVerTV);
         confirmar = findViewById(R.id.confirmar);
         generarCodigo = findViewById(R.id.enviarCodigo);
-
+        usuarioC = new Usuario();
         init();
 
     }
@@ -58,16 +70,87 @@ public class RecuperarContrasenya extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                generarCodigo();
+                String contra = contrasenya.getText().toString();
+                String cContra = confContrasenya.getText().toString();
 
-                confirmar.setVisibility(View.VISIBLE);
-                codigoVer.setVisibility(View.VISIBLE);
-                codigoVerificacionTV.setVisibility(View.VISIBLE);
+                if (contra.equals("") || contra == null || cContra.equals("") || cContra == null || !contra.equals(cContra)){
+                    Toast.makeText(RecuperarContrasenya.this, "Los campos contraseña són incorrectos", Toast.LENGTH_LONG).show();
+                }else{
+
+                    comprobarUsuario();
+
+                }
+            }
+        });
+
+        confirmar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                confirmarDatos();
 
             }
         });
 
+    }
 
+    private void confirmarDatos() {
+
+        if (codigoVerificacion.equalsIgnoreCase(codigoVer.getText().toString())){
+            cambiarContrasenya();
+        }else{
+            Toast.makeText(RecuperarContrasenya.this, "El código de verificación es incorrecto", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    private void cambiarContrasenya() {
+
+
+        dRef.child("Usuarios").child(usuarioC.getUsuario()).setValue(null);
+
+        usuarioC.setPassword(contrasenya.getText().toString());
+        dRef.child("Usuarios").child(usuarioC.getUsuario()).setValue(usuarioC);
+
+        Intent intent = new Intent(RecuperarContrasenya.this, Login.class);
+        startActivity(intent);
+
+
+
+    }
+
+    private void comprobarUsuario() {
+
+
+        if (usuario.getText().toString() == null || usuario.getText().toString().equalsIgnoreCase("")){
+            Toast.makeText(RecuperarContrasenya.this, "Rellena el campo de usuario", Toast.LENGTH_LONG).show();
+        }else{
+
+            dRef.child("/Usuarios/"+usuario.getText().toString()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                    if (snapshot.getValue() == null){
+                        Toast.makeText(RecuperarContrasenya.this, "El usuario no existe!", Toast.LENGTH_LONG).show();
+                    }else{
+
+                        usuarioC = snapshot.getValue(Usuario.class);
+
+                        if (usuarioC.getCorreoE().equals(correo.getText().toString())){
+                            generarCodigo();
+                            confirmar.setVisibility(View.VISIBLE);
+                            codigoVer.setVisibility(View.VISIBLE);
+                            codigoVerificacionTV.setVisibility(View.VISIBLE);
+                            Toast.makeText(RecuperarContrasenya.this, "Código de verificación enviado!", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
     }
 
     private void generarCodigo() {
@@ -78,7 +161,7 @@ public class RecuperarContrasenya extends AppCompatActivity {
         int r4 = new Random().nextInt(9);
         int r5 = new Random().nextInt(9);
 
-        String codigoVer = String.valueOf(r1)+String.valueOf(r2)+String.valueOf(r3)+String.valueOf(r4)+String.valueOf(r5);
+        codigoVerificacion = String.valueOf(r1)+String.valueOf(r2)+String.valueOf(r3)+String.valueOf(r4)+String.valueOf(r5);
 
         final String username = "editoria.app@gmail.com";
         final String password = "editoria2002!";
@@ -105,7 +188,7 @@ public class RecuperarContrasenya extends AppCompatActivity {
             message.setFrom(new InternetAddress(username));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(correo.getText().toString()));
             message.setSubject("Código de verificacion");
-            message.setText("Tu código de verificación es "+codigoVer);
+            message.setText("Tu código de verificación es "+codigoVerificacion);
             Transport.send(message);
             Toast.makeText(getApplicationContext(), "Código de verificación enviado!", Toast.LENGTH_LONG).show();
         }catch (MessagingException e){

@@ -59,7 +59,7 @@ public class CartaRecursosClientes extends RecyclerView.Adapter<CartaRecursosCli
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView icono;//PONER EL ICONO DE LA BASE DE DATOS DEL EDITOR
-        TextView name, titulo, precio;
+        TextView name, titulo, precio, descripcion;
 
         ViewHolder(View itemView){
             super(itemView);
@@ -68,15 +68,17 @@ public class CartaRecursosClientes extends RecyclerView.Adapter<CartaRecursosCli
                 titulo = itemView.findViewById(R.id.tituloProyecto);
                 precio = itemView.findViewById(R.id.cvPrecioProyecto);
                 foto = itemView.findViewById(R.id.imagenProyecto);
+                descripcion = itemView.findViewById(R.id.descripcion);
         }
 
         void bindData(final ListElement item){
             icono.setImageResource(R.drawable.ejemplo);
             name.setText(item.getName());
             titulo.setText(item.getTitulo());
-            precio.setText("Precio: "+item.getPrecio()+"€");
+            descripcion.setText(item.getDescripcion());
+            precio.setText("Precio: 10.99"+/*+item.getPrecio()+*/"€");
             Picasso.get().load(item.getFoto()).into(foto);
-
+            Picasso.get().load(item.getIcon()).into(icono);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
