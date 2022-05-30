@@ -27,6 +27,11 @@ import com.example.editoria.model.ListAdapter;
 import com.example.editoria.model.ListElement;
 import com.example.editoria.model.ListElementComentario;
 import com.example.editoria.model.Proyecto;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -40,6 +45,7 @@ public class ProyectoInformacionFragment extends Fragment {
     Button botonContratar;
     ListElement listElement;
     String nombre, descripcion, titulo, precioBasico, descripcionBasico;
+    private DatabaseReference dRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://editoria-bb3aa-default-rtdb.europe-west1.firebasedatabase.app/");
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -88,6 +94,29 @@ public class ProyectoInformacionFragment extends Fragment {
         return view;
     }
 
+    private void obtenerPaquete(){
+
+        dRef.child("/Proyectos/"+GlobalVariable.listElementServicios.getName()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+
+                    Proyecto p = snapshot.child(postSnapshot.getKey()).getValue(Proyecto.class);
+                    if (p.getNombre().equals(GlobalVariable.listElementServicios.getTitulo())){
+                        Log.i("EJEMPLO", "a -> "+p.toString());
+                    }
+
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
     private void init() {
 
         descripcionServicio.setText(listElement.getDescripcion());
@@ -96,7 +125,7 @@ public class ProyectoInformacionFragment extends Fragment {
         mostrarProyecto();
         mostrarComentarios();
         listeners();
-
+        obtenerPaquete();
     }
 
     private void listeners() {
