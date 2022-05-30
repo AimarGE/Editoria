@@ -86,7 +86,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
             if (item.getIcon() != null && !item.getIcon().equalsIgnoreCase("")){
                 Picasso.get().load(item.getIcon()).into(icono);
-            }
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
