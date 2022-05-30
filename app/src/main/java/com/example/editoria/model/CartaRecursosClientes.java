@@ -2,7 +2,6 @@ package com.example.editoria.model;
 
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,7 +66,7 @@ public class CartaRecursosClientes extends RecyclerView.Adapter<CartaRecursosCli
                 icono = itemView.findViewById(R.id.cvIconoEditor);
                 titulo = itemView.findViewById(R.id.tituloProyecto);
                 precio = itemView.findViewById(R.id.cvPrecioProyecto);
-                foto = itemView.findViewById(R.id.imagenProyecto);
+                foto = itemView.findViewById(R.id.insertImagenEvent);
         }
 
         void bindData(final ListElement item){

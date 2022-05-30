@@ -21,6 +21,10 @@ public class Paquete {
         return precio;
     }
 
+    public String getTipo(){
+        return tipo;
+    }
+
     public void setPrecio(String precio) {
         this.precio = precio;
     }

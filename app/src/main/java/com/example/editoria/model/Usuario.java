@@ -15,6 +15,7 @@ public class Usuario {
     private String pais;
     private String icono;
     private String dinero;
+    private String fotoEvento;
 
     public Usuario(String usuario, String password, String correoE, String telefono, String fechaNacimiento, String clase, String pais) {
         this.id = UUID.randomUUID().toString();
@@ -27,6 +28,7 @@ public class Usuario {
         this.pais = pais;
         this.icono = "";
         this.dinero = String.format("%.2f",ThreadLocalRandom.current().nextDouble(1, 500)).replace(",",".");
+        this.fotoEvento="";
     }
 
     public Usuario() {
@@ -110,6 +112,14 @@ public class Usuario {
 
     public void setDinero(String dinero) {
         this.dinero = dinero;
+    }
+
+    public void setFotoEvento(String foto){
+        this.fotoEvento=foto;
+    }
+
+    public String getFotoEvento(){
+        return this.fotoEvento;
     }
 
     @Override

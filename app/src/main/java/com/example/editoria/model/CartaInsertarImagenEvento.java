@@ -64,7 +64,7 @@ public class CartaInsertarImagenEvento extends RecyclerView.Adapter<CartaInserta
             super(itemView);
                 name = itemView.findViewById(R.id.cvNombreParticipante);
                 icono = itemView.findViewById(R.id.cvIconoEditor);
-                foto = itemView.findViewById(R.id.imagenProyecto);
+                foto = itemView.findViewById(R.id.insertImagenEvent);
         }
 
         void bindData(final ListElement item){

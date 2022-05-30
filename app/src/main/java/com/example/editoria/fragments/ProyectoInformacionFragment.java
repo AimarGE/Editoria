@@ -26,6 +26,7 @@ import com.example.editoria.model.CartaProyectoInformacion;
 import com.example.editoria.model.ListAdapter;
 import com.example.editoria.model.ListElement;
 import com.example.editoria.model.ListElementComentario;
+import com.example.editoria.model.Paquete;
 import com.example.editoria.model.Proyecto;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,6 +37,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class ProyectoInformacionFragment extends Fragment {
     View view;
@@ -44,7 +46,10 @@ public class ProyectoInformacionFragment extends Fragment {
     TextView basico, estandard, premium, descripcionPaquete, descripcionServicio;
     Button botonContratar;
     ListElement listElement;
-    String nombre, descripcion, titulo, precioBasico, descripcionBasico;
+    String nombre, descripcion, titulo;
+    private Proyecto p;
+    private Proyecto proyecto;
+    private Paquete Pbasico, Pavanzado, Ppremium;
     private DatabaseReference dRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://editoria-bb3aa-default-rtdb.europe-west1.firebasedatabase.app/");
 
     @Override
@@ -64,68 +69,28 @@ public class ProyectoInformacionFragment extends Fragment {
         descripcionPaquete = view.findViewById(R.id.descripcionPaquete);
         botonContratar = view.findViewById(R.id.botonContratar);
         descripcionServicio = view.findViewById(R.id.descripcionServicio);
-
+        p = new Proyecto();
+        obtenerPaquete();
         if (GlobalVariable.listElementServicios != null ){
 
             listElement = (ListElement) GlobalVariable.listElementServicios;
             nombre = listElement.getName();
             descripcion = listElement.getDescripcion();
             titulo = listElement.getTitulo();
-
             init();
-
         }
 
-
-        /*//PARA RECIBIR DATOS ENTRE FRAGMENTS
-        getParentFragmentManager().setFragmentResultListener("key", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                listElement = (ListElement) result.getSerializable("item");//PARA RECOGER EL ITEM DE LISTELEMENT CON LA KEY ITEM DEL FRAGMENT ANTERIOR
-
-                nombre = listElement.getName();
-
-
-            }
-        });*/
-
-
-
         return view;
-    }
-
-    private void obtenerPaquete(){
-
-        dRef.child("/Proyectos/"+GlobalVariable.listElementServicios.getName()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
-
-                    Proyecto p = snapshot.child(postSnapshot.getKey()).getValue(Proyecto.class);
-                    if (p.getNombre().equals(GlobalVariable.listElementServicios.getTitulo())){
-                        Log.i("EJEMPLO", "a -> "+p.toString());
-                    }
-
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
     }
 
     private void init() {
 
         descripcionServicio.setText(listElement.getDescripcion());
 
-
         mostrarProyecto();
         mostrarComentarios();
         listeners();
-        obtenerPaquete();
+
     }
 
     private void listeners() {
@@ -136,9 +101,15 @@ public class ProyectoInformacionFragment extends Fragment {
                 premium.setTextColor(Color.parseColor("#808080"));
                 estandard.setTextColor(Color.parseColor("#808080"));
                 basico.setTextColor(Color.parseColor("#000000"));
+                if(Pbasico != null){
+                    botonContratar.setText("Contratar (" + Pbasico.getPrecio() + "€)");
+                    descripcionPaquete.setText(Pbasico.getDescripcion());
+                }
+                else{
+                    botonContratar.setText("Paquete no disponible");
+                    descripcionPaquete.setText("Paquete no disponible");
+                }
 
-                botonContratar.setText("Contratar (20€)");
-                descripcionPaquete.setText("Doña Uzeada de Ribera Maldonado de Bracamonte y Anaya era baja, rechoncha, abigotada. Ya no existia razon para llamar talle al suyo. Sus colores vivos, sanos, podian mas que el albayalde y el soliman del afeite, con que se blanqueaba por simular melancolias. Gastaba dos parches oscuros, adheridos a las sienes y que fingian medicamentos. Tenia los ojitos ratoniles, maliciosos. Sabia dilatarlos duramente o desmayarlos con recato o levantarlos con disimulo. Caminaba contoneando las imposibles caderas y era dificil, al verla, no asociar su estampa achaparrada con la de ciertos palmipedos domesticos. Sortijas celestes y azules le ahorcaban las falanges");
             }
         });
 
@@ -149,8 +120,13 @@ public class ProyectoInformacionFragment extends Fragment {
                 premium.setTextColor(Color.parseColor("#808080"));
                 estandard.setTextColor(Color.parseColor("#000000"));
 
-                botonContratar.setText("Contratar (50€)");
-                descripcionPaquete.setText("Los flamencos son aves gregarias altamente especializadas, que habitan sistemas salinos de donde obtienen su alimento (compuesto generalmente de algas microscópicas e invertebrados) y materiales para desarrollar sus hábitos reproductivos.*");
+                if(Pavanzado != null){
+                    botonContratar.setText("Contratar (" +Pavanzado.getPrecio()+ "€)");
+                    descripcionPaquete.setText(Pavanzado.getDescripcion());
+                }else{
+                    botonContratar.setText("Paquete no disponible");
+                    descripcionPaquete.setText("Paquete no disponible");
+                }
             }
         });
 
@@ -161,12 +137,13 @@ public class ProyectoInformacionFragment extends Fragment {
                 estandard.setTextColor(Color.parseColor("#808080"));
                 premium.setTextColor(Color.parseColor("#000000"));
 
-                botonContratar.setText("Contratar (75€)");
-                descripcionPaquete.setText("Para ingresar al cajero pase la tarjeta por la ranura que se encuentra junto a la puerta vidriada del Banco en la posición señalada en la imagen.\n" +
-                        "Aguarde a que se encienda la luz y empuje la puerta.\n" +
-                        "Inserte la tarjeta en la ranura señalada, en la posicion correcta (observar ilustracion)\n" +
-                        "Ingrese su codigo de seguridad o pin, luego de que el mismo sea solicitado en la pantalla. Luego oprima el boton confirmar.\n" +
-                        "Seleccione la operacion a realizar.");
+                if(Ppremium != null){
+                    botonContratar.setText("Contratar (" +Ppremium.getPrecio()+ "€)");
+                    descripcionPaquete.setText(Ppremium.getDescripcion());
+                }else{
+                    botonContratar.setText("Paquete no disponible");
+                    descripcionPaquete.setText("Paquete no disponible");
+                }
             }
         });
 
@@ -191,7 +168,7 @@ public class ProyectoInformacionFragment extends Fragment {
         CartaProyectoInformacion listAdapter = new CartaProyectoInformacion(elements, view.getContext(), new CartaProyectoInformacion.OnItemClickListener() {
             @Override
             public void onItemClick(ListElement item) {
-                    perfilSeleccionado(item);
+                perfilSeleccionado(item);
             }
         });
 
@@ -201,6 +178,7 @@ public class ProyectoInformacionFragment extends Fragment {
         recyclerView.setAdapter(listAdapter);
         recyclerView.setNestedScrollingEnabled(false);
 
+        obtenerPaquete();
     }
 
     private void perfilSeleccionado(ListElement item) {
@@ -219,18 +197,57 @@ public class ProyectoInformacionFragment extends Fragment {
 
     }
 
+    private void obtenerPaquete(){
+
+        dRef.child("/Proyectos/"+GlobalVariable.listElementServicios.getName()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+
+                    Proyecto p = snapshot.child(postSnapshot.getKey()).getValue(Proyecto.class);
+                    if (p.getNombre().equals(GlobalVariable.listElementServicios.getTitulo())){
+                        proyecto = postSnapshot.getValue(Proyecto.class);
+                        Log.i("PAQUES", proyecto.toString());
+                    }
+
+                }
+                if(proyecto.getPaquetes().get(0).getTipo().equals("Basico")){
+                    botonContratar.setText("Contratar (" + proyecto.getPaquetes().get(0).getPrecio() + "€)");
+                    descripcionPaquete.setText(proyecto.getPaquetes().get(0).getDescripcion());
+                }else{
+                    botonContratar.setText("Paquete no disponible");
+                    descripcionPaquete.setText("Paquete no disponible");
+                }
+                getPaquetes();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void getPaquetes(){
+        ArrayList<Paquete> paquetes = proyecto.getPaquetes();
+        for(int i=0; i < paquetes.size(); i++){
+            if(paquetes.get(i).getTipo().equals("Basico")){
+                Pbasico = new Paquete(paquetes.get(i).getTipo(), paquetes.get(i).getPrecio(), paquetes.get(i).getDescripcion());
+            }
+            else if(paquetes.get(i).getTipo().equals("Avanzado")){
+                Pavanzado = new Paquete(paquetes.get(i).getTipo(), paquetes.get(i).getPrecio(), paquetes.get(i).getDescripcion());
+            }
+            else if(paquetes.get(i).getTipo().equals("Premium")){
+                Ppremium = new Paquete(paquetes.get(i).getTipo(), paquetes.get(i).getPrecio(), paquetes.get(i).getDescripcion());
+            }
+        }
+    }
+
     private void mostrarComentarios() {
 
         //BUCLE PARA BUSCAR LOS COMENTARIOS DEL PROYECTO
         elementsComentario = new ArrayList<>();
-        elementsComentario.add(new ListElementComentario("icono","Mario","Me refiero a que la gente debe ser salvada de sí misma, debe ser protegida de sus propios deseos y f\n" +
-                "\n" +
-                "Fuente: https://concepto.de/comentario/#ixzz7TqbMcwux"));
-
-        elementsComentario.add(new ListElementComentario("icono","Mario","Los comentarios literarios se distinguen de los análisis o de los comentarios filológicos en que abordan la obra literaria como un universo cerrado en sí mismo, y trabajan únicamente con los elementos que allí se encuentran y con la reverberación que ellos generen en el lector y comentarista. Es decir: se trata de una lectura personal de la obra, que se sustenta en lo leído y por lo tanto es demostrable, tiene fundamentos, no es una opinión o una interpretación enteramente libre. Fuente: https://concepto.de/comentario/#ixzz7TqatdzLw"));
-        elementsComentario.add(new ListElementComentario("icono","Mario","Su nombre ya revela sus filiaciones con la palabra griega para la muerte: thanatos, lo cual es conveniente a la hora de explicar su proyecto para el Universo, que es la erradicación de la mitad de los seres vivientes que alberga. Esto lo hace motivado por el deseo, paradójico, de preservar la vida como un todo: para Thanos, somos demasiados los habitantes del Universo y estamos agotando los recursos demasiado aprisa, por lo que deben tomarse medidas drásticas para garantizar que no nos extingamos a nosotros mismos.\n" +
-                "\n" +
-                "Fuente: https://concepto.de/comentario/#ixzz7Tqb9n6Mf"));
+        elementsComentario.add(new ListElementComentario(GlobalVariable.listElementServicios.getIcon(),p.getNombreUsuario(), p.getComentario(), p.getValoracion()));
 
         CartaComentario listAdapter = new CartaComentario(elementsComentario, view.getContext());
         RecyclerView recyclerView = view.findViewById(R.id.cvComentarios);

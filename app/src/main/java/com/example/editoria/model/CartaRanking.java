@@ -65,7 +65,7 @@ public class CartaRanking extends RecyclerView.Adapter<CartaRanking.ViewHolder> 
                 icono = itemView.findViewById(R.id.cvIconoEditor);
                 ranking = itemView.findViewById(R.id.cvRanking);
                 likes = itemView.findViewById(R.id.likes);
-                foto = itemView.findViewById(R.id.imagenProyecto);
+                foto = itemView.findViewById(R.id.insertImagenEvent);
         }
 
         void bindData(final ListElementRanking item){

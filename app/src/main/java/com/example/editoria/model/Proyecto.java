@@ -54,6 +54,9 @@ public class Proyecto {
     }
 
     public ArrayList<Paquete> getPaquetes(){
+        if(paquetes == null){
+            paquetes = new ArrayList<>();
+        }
         return this.paquetes;
     }
 
