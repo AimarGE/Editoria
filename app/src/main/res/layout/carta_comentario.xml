@@ -90,11 +90,12 @@
                             app:srcCompat="@drawable/ic_estrella"></ImageView>
 
                         <TextView
+                            android:id="@+id/valoracionTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="5dp"
-                            android:text="3,5"
+                            android:text="0"
                             android:textColor="@color/black"
                             android:textSize="17dp"
                             android:textStyle="bold" />
