@@ -143,7 +143,7 @@ public class DescargarRecursoFragmentCliente extends Fragment {
         elements = new ArrayList<>();
 
         //CAMBIAR
-        elements.add(new ListElement("icono", nombre,"", "", "https://www.exclusivadigital.com/fotos/16368848691.jpg", "50"));
+        elements.add(new ListElement("icono", nombre,"", "", "https://www.exclusivadigital.com/fotos/16368848691.jpg", "50", ""));
 
         cartaRecursosClientes = new CartaRecursosClientes(elements, view.getContext(), new CartaRecursosClientes.OnItemClickListener() {
             @Override

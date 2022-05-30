@@ -104,7 +104,7 @@ public class ValorarFragment extends Fragment {
         //VALORACION servicio CUANDO ESTÉ HECHO LA RELACION ENTRE EL PROYECTO DE CLIENTE Y EDITOR EN LA BASE DE DATOS
         //dRef.child("/Proyectos/aimar12345/9").child(GlobalVariable.usuario.getUsuario()).setValue();
         //valorarEditor
-        dRef.child("Proyectos/aaaaaa/0").addValueEventListener(new ValueEventListener() {
+        dRef.child("Proyectos/mario12/0").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -112,7 +112,7 @@ public class ValorarFragment extends Fragment {
                 proyecto.setValoracion(String.valueOf(rbProyecto.getRating()));
 
                 Log.i("EJEMPLO","->"+proyecto.toString());
-
+                dRef.child("Proyectos/mario12/0").setValue(proyecto);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

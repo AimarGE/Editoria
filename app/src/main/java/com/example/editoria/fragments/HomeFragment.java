@@ -1,11 +1,8 @@
 package com.example.editoria.fragments;
 
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,10 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
+import com.airbnb.lottie.L;
 import com.example.editoria.GlobalVariable;
-import com.example.editoria.Login;
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
 import com.example.editoria.model.Editor;
@@ -34,8 +30,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -46,8 +42,7 @@ public class HomeFragment extends Fragment {
     View view;
     private DatabaseReference dRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://editoria-bb3aa-default-rtdb.europe-west1.firebasedatabase.app/");
     List<Proyecto> proyectos;
-
-
+    HashMap<String, String> mapaIcono;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +54,7 @@ public class HomeFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_home_v2, container, false);
         filtro = view.findViewById(R.id.filtro);
         proyectos = new ArrayList<>();
-
+        mapaIcono = new HashMap<String, String>();
         getAllProyectos();
         getUsuario();
         getEditor();
@@ -125,15 +120,19 @@ public class HomeFragment extends Fragment {
 
     private void obtenerProyectosEditores(String key) {
 
-        dRef.child("/Proyectos/"+key).addValueEventListener(new ValueEventListener() {
+        dRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 //proyectos.clear();
-                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                for (DataSnapshot postSnapshot: snapshot.child("/Proyectos/"+key).getChildren()) {
 
                     Proyecto proyecto = postSnapshot.getValue(Proyecto.class);
                     proyectos.add(proyecto);
+                    Usuario u = snapshot.child("/Usuarios/"+proyecto.getNombreUsuario()).getValue(Usuario.class);
+                    mapaIcono.put(proyecto.getNombreUsuario(), u.getIcono());
+
                 }
+
                 Collections.shuffle(proyectos);
                 mostrarProyectos(proyectos);
             }
@@ -142,15 +141,17 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
     }
+
 
 
     private void mostrarProyectos(List<Proyecto> proyectos){
         elements = new ArrayList<>();
         for(int i=0; i < proyectos.size(); i++){
             Log.i("proyectos", proyectos.get(i).toString());
-            elements.add(new ListElement("icono", proyectos.get(i).getNombreUsuario(), proyectos.get(i).getDescripcion(), proyectos.get(i).getNombre(), proyectos.get(i).getFoto(), proyectos.get(i).getPaqueteMasBarato()));
+
+            elements.add(new ListElement(mapaIcono.get(proyectos.get(i).getNombreUsuario()), proyectos.get(i).getNombreUsuario(), proyectos.get(i).getDescripcion(), proyectos.get(i).getNombre(), proyectos.get(i).getFoto(), proyectos.get(i).getPaqueteMasBarato(), proyectos.get(i).getValoracion()));
+
         }
 
         ListAdapter listAdapter = new ListAdapter(elements, view.getContext(), new ListAdapter.OnItemClickListener() {
@@ -168,18 +169,14 @@ public class HomeFragment extends Fragment {
         //recyclerView.setOverScrollMode(view.OVER_SCROLL_NEVER);
     }
 
+
+
     private void proyectoSeleccionado(ListElement item) {
 
         MainFragmentContainer.bottomNavigation.show(1, true);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
 
-        Bundle bundle = new Bundle();
-
-        bundle.putSerializable("item", item);
-        GlobalVariable.bundleEditor = bundle;
-
-
-        //getParentFragmentManager().setFragmentResult("key", bundle);
+        GlobalVariable.listElementServicios = item;
 
         ft.replace(R.id.mainFrame, new ProyectoInformacionFragment()).addToBackStack("tag");
         ft.commit();

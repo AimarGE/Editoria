@@ -56,7 +56,7 @@ public class FragmentPerfilEditor extends Fragment {
         contactar = view.findViewById(R.id.contactar);
         nombreEditor = view.findViewById(R.id.nombreEditor);
         guardado = false;
-        listElement = (ListElement) GlobalVariable.bundleEditor.getSerializable("item");
+        listElement = GlobalVariable.listElementServicios;
 
         init();
 

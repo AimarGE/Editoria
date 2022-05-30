@@ -88,7 +88,7 @@ public class EnviarProyectoEditorFragment extends Fragment {
         ArrayList elements = new ArrayList<>();
 
         //CAMBIAR
-        elements.add(new ListElement("icono", nombre,"", "","https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg", "50"));
+        elements.add(new ListElement("icono", nombre,"", "","https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg", "50",""));
 
         cartaRecursosClientes = new CartaRecursosClientes(elements, view.getContext(), new CartaRecursosClientes.OnItemClickListener() {
             @Override

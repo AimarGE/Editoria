@@ -10,6 +10,17 @@ public class ListElement implements Serializable {
     public String descripcion;
     public String precio;
     public String foto;
+    public String valoracion;
+
+    public ListElement(String icon, String name, String descripcion, String titulo, String foto, String precio, String valoracion) {
+        this.icon = icon;
+        this.name = name;
+        this.descripcion = descripcion;
+        this.titulo = titulo;
+        this.precio = precio;
+        this.foto = foto;
+        this.valoracion = valoracion;
+    }
 
     public ListElement(String icon, String name, String descripcion, String titulo, String foto, String precio) {
         this.icon = icon;
@@ -18,6 +29,7 @@ public class ListElement implements Serializable {
         this.titulo = titulo;
         this.precio = precio;
         this.foto = foto;
+        this.valoracion = "";
     }
 
     public void setColor(String icon) {
@@ -58,6 +70,18 @@ public class ListElement implements Serializable {
 
     public void setIcon(String icon) {
         this.icon = icon;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public String getValoracion() {
+        return valoracion;
+    }
+
+    public void setValoracion(String valoracion) {
+        this.valoracion = valoracion;
     }
 
     public String getFoto() {

@@ -16,6 +16,7 @@ import com.example.editoria.fragments.MenuProyectoFragmentCliente;
 import com.example.editoria.fragments.MenuProyectoFragmentEditor;
 import com.example.editoria.fragments.MiPerfilClienteFragment;
 import com.example.editoria.fragments.MiPerfilEditorFragment;
+import com.example.editoria.fragments.ValorarFragment;
 
 public class MainFragmentContainer extends AppCompatActivity {
 
@@ -121,7 +122,7 @@ public class MainFragmentContainer extends AppCompatActivity {
                     case 4:
                         borrarPilaFragments();
                         if(GlobalVariable.usuario.getClase().equals("Editor")){
-                            fragment = new MenuProyectoFragmentEditor();
+                            fragment = new ValorarFragment();
                         }else{
                             fragment = new MenuProyectoFragmentCliente();
                         }

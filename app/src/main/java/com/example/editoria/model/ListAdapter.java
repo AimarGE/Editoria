@@ -4,6 +4,7 @@ package com.example.editoria.model;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +62,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView icono, fotoP;//PONER EL ICONO DE LA BASE DE DATOS DEL EDITOR
-        TextView name, titulo, precio;
+        TextView name, titulo, precio, valoraciones;
 
         ViewHolder(View itemView){
             super(itemView);
@@ -70,18 +71,27 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                 titulo = itemView.findViewById(R.id.tituloProyecto);
                 precio = itemView.findViewById(R.id.cvPrecioProyecto);
                 fotoP = itemView.findViewById(R.id.imagenProyecto);
+                valoraciones = itemView.findViewById(R.id.valoracion);
         }
 
         void bindData(final ListElement item){
-            icono.setImageResource(R.drawable.ejemplo);
+            icono.setImageResource(R.drawable.image_placeholder);
             name.setText(item.getName());
             titulo.setText(item.getTitulo());
             precio.setText("Precio: "+item.getPrecio()+"€");
+
+
+            if (item.getValoracion() != null && !item.getValoracion().equalsIgnoreCase("")){
+                valoraciones.setText(item.getValoracion()+" (1)");
+            }
 
             if (item.getFoto() != null && !item.getFoto().equalsIgnoreCase("")){
                 Picasso.get().load(item.getFoto()).into(fotoP);
             }
 
+            if (item.getIcon() != null && !item.getIcon().equalsIgnoreCase("")){
+                Picasso.get().load(item.getIcon()).into(icono);
+            }
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

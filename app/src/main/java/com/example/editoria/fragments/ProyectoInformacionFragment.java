@@ -59,9 +59,9 @@ public class ProyectoInformacionFragment extends Fragment {
         botonContratar = view.findViewById(R.id.botonContratar);
         descripcionServicio = view.findViewById(R.id.descripcionServicio);
 
-        if (GlobalVariable.bundleEditor != null ){
+        if (GlobalVariable.listElementServicios != null ){
 
-            listElement = (ListElement) GlobalVariable.bundleEditor.getSerializable("item");
+            listElement = (ListElement) GlobalVariable.listElementServicios;
             nombre = listElement.getName();
             descripcion = listElement.getDescripcion();
             titulo = listElement.getTitulo();
@@ -157,7 +157,7 @@ public class ProyectoInformacionFragment extends Fragment {
 
         elements = new ArrayList<>();
 
-        elements.add(new ListElement("icono", nombre, "", titulo, "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif","30.02"));
+        elements.add(new ListElement("icono", nombre, "", titulo, "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif","30.02", ""));
 
         CartaProyectoInformacion listAdapter = new CartaProyectoInformacion(elements, view.getContext(), new CartaProyectoInformacion.OnItemClickListener() {
             @Override
