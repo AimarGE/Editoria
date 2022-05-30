@@ -104,6 +104,9 @@ public class Proyecto {
                 ", nombreUsuario='" + nombreUsuario + '\'' +
                 ", recursoCliente=" + recursoCliente +
                 ", foto='" + foto + '\'' +
+                ", paquetes=" + paquetes +
+                ", valoracion='" + valoracion + '\'' +
+                ", comentario='" + comentario + '\'' +
                 '}';
     }
 }

@@ -71,7 +71,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                 titulo = itemView.findViewById(R.id.tituloProyecto);
                 precio = itemView.findViewById(R.id.cvPrecioProyecto);
                 fotoP = itemView.findViewById(R.id.imagenProyecto);
-                valoraciones = itemView.findViewById(R.id.valoracion);
+                valoraciones = itemView.findViewById(R.id.cvValoracionesValue);
         }
 
         void bindData(final ListElement item){

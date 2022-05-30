@@ -130,7 +130,6 @@ public class HomeFragment extends Fragment {
                     proyectos.add(proyecto);
                     Usuario u = snapshot.child("/Usuarios/"+proyecto.getNombreUsuario()).getValue(Usuario.class);
                     mapaIcono.put(proyecto.getNombreUsuario(), u.getIcono());
-
                 }
 
                 Collections.shuffle(proyectos);
@@ -142,8 +141,6 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-
-
 
     private void mostrarProyectos(List<Proyecto> proyectos){
         elements = new ArrayList<>();

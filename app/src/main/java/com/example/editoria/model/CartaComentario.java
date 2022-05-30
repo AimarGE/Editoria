@@ -2,6 +2,7 @@ package com.example.editoria.model;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,19 +51,22 @@ public class CartaComentario extends RecyclerView.Adapter<CartaComentario.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView icono;//PONER EL ICONO DE LA BASE DE DATOS DEL EDITOR
-        TextView name, comentario;
+        TextView name, comentario, valoracion;
 
         ViewHolder(View itemView){
             super(itemView);
                 name = itemView.findViewById(R.id.cvNombreEditor);
                 icono = itemView.findViewById(R.id.cvIconoEditor);
                 comentario = itemView.findViewById(R.id.cvComentarioText);
+                valoracion = itemView.findViewById(R.id.valoracionTV);
         }
 
         void bindData(final ListElementComentario item){
             icono.setImageResource(R.drawable.ejemplo);
             name.setText(item.getName());
+            Log.i("EJEMPLO", "TEXTO "+item.getComentario());
             comentario.setText(item.getComentario());
+            valoracion.setText(item.getValoracion());
         }
     }
 }
