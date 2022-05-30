@@ -14,7 +14,7 @@ public class Proyecto {
     private String valoracion;
     private String comentario;
 
-    public Proyecto(String nombre, String descripcion, String disponibilidad, String nombreUsuario, String foto){
+    public Proyecto(String nombre, String descripcion, String disponibilidad, String nombreUsuario, String foto, ArrayList<Paquete> paquetes){
         this.nombre=nombre;
         this.descripcion=descripcion;
         this.disponibilidad=disponibilidad;

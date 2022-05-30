@@ -96,6 +96,12 @@ public class ProyectosFragment extends Fragment {
         tarde = (CheckBox) view.findViewById(R.id.checkBoxTarde);
         storageRef = FirebaseStorage.getInstance().getReference("proyectos/");
         paquetes= new ArrayList<>();
+        precioPaqueteBasico = (EditText) view.findViewById(R.id.basicoPrecio);
+        precioPaqueteAvanzado = (EditText) view.findViewById(R.id.avanzadoPrecio);
+        precioPaquetePremium = (EditText) view.findViewById(R.id.premiumPrecio);
+        descripcionPaqueteBasico = (EditText) view.findViewById(R.id.descripcionBasico);
+        descripcionPaqueteAvanzado = (EditText) view.findViewById(R.id.descripcionAvanzado);
+        descripcionPaquetePremium = (EditText) view.findViewById(R.id.descripcionPremium);
         getEditor();
         /*paquetes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,7 +151,7 @@ public class ProyectosFragment extends Fragment {
                 disponibilidad = noche.getText().toString();
             }
         }
-        if (checkPhoto() && comprobarLenghtNombre(nombreP) && comprobarDescripcion(descripcionP)) {
+        if (checkPhoto() && comprobarLenghtNombre(nombreP) && comprobarDescripcion(descripcionP) && comprobarPaquetes()) {
             if(paqueteUno){
                 paquete = new Paquete("Básico", precioPaqueteBasico.getText().toString(), descripcionPaqueteBasico.getText().toString());
                 paquetes.add(paquete);

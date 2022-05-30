@@ -89,5 +89,9 @@ public class Editor {
     public void setValoraciones(String valoraciones) {
         this.valoraciones = valoraciones;
     }
+
+    public void setNombreUsuario(String nombreUsuario){
+        this.nombreUsuario = nombreUsuario;
+    }
 }
 
