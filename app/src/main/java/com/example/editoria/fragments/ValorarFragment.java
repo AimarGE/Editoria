@@ -110,7 +110,7 @@ public class ValorarFragment extends Fragment {
 
                 Proyecto proyecto = snapshot.getValue(Proyecto.class);
                 proyecto.setValoracion(String.valueOf(rbProyecto.getRating()));
-
+                proyecto.setComentario(comentario.getText().toString());
                 Log.i("EJEMPLO","->"+proyecto.toString());
                 dRef.child("Proyectos/mario12/0").setValue(proyecto);
             }

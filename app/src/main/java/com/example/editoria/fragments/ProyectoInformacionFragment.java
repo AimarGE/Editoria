@@ -27,6 +27,11 @@ import com.example.editoria.model.ListAdapter;
 import com.example.editoria.model.ListElement;
 import com.example.editoria.model.ListElementComentario;
 import com.example.editoria.model.Proyecto;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -39,7 +44,9 @@ public class ProyectoInformacionFragment extends Fragment {
     TextView basico, estandard, premium, descripcionPaquete, descripcionServicio;
     Button botonContratar;
     ListElement listElement;
-    String nombre, descripcion, titulo, precioBasico, descripcionBasico;
+    String nombre, descripcion, titulo;
+    private Proyecto p;
+    private DatabaseReference dRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://editoria-bb3aa-default-rtdb.europe-west1.firebasedatabase.app/");
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,6 +65,7 @@ public class ProyectoInformacionFragment extends Fragment {
         descripcionPaquete = view.findViewById(R.id.descripcionPaquete);
         botonContratar = view.findViewById(R.id.botonContratar);
         descripcionServicio = view.findViewById(R.id.descripcionServicio);
+        p = new Proyecto();
 
         if (GlobalVariable.listElementServicios != null ){
 
@@ -71,27 +79,12 @@ public class ProyectoInformacionFragment extends Fragment {
         }
 
 
-        /*//PARA RECIBIR DATOS ENTRE FRAGMENTS
-        getParentFragmentManager().setFragmentResultListener("key", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                listElement = (ListElement) result.getSerializable("item");//PARA RECOGER EL ITEM DE LISTELEMENT CON LA KEY ITEM DEL FRAGMENT ANTERIOR
-
-                nombre = listElement.getName();
-
-
-            }
-        });*/
-
-
-
         return view;
     }
 
     private void init() {
 
         descripcionServicio.setText(listElement.getDescripcion());
-
 
         mostrarProyecto();
         mostrarComentarios();
@@ -172,6 +165,7 @@ public class ProyectoInformacionFragment extends Fragment {
         recyclerView.setAdapter(listAdapter);
         recyclerView.setNestedScrollingEnabled(false);
 
+        obtenerPaquete();
     }
 
     private void perfilSeleccionado(ListElement item) {
@@ -194,14 +188,7 @@ public class ProyectoInformacionFragment extends Fragment {
 
         //BUCLE PARA BUSCAR LOS COMENTARIOS DEL PROYECTO
         elementsComentario = new ArrayList<>();
-        elementsComentario.add(new ListElementComentario("icono","Mario","Me refiero a que la gente debe ser salvada de sí misma, debe ser protegida de sus propios deseos y f\n" +
-                "\n" +
-                "Fuente: https://concepto.de/comentario/#ixzz7TqbMcwux"));
-
-        elementsComentario.add(new ListElementComentario("icono","Mario","Los comentarios literarios se distinguen de los análisis o de los comentarios filológicos en que abordan la obra literaria como un universo cerrado en sí mismo, y trabajan únicamente con los elementos que allí se encuentran y con la reverberación que ellos generen en el lector y comentarista. Es decir: se trata de una lectura personal de la obra, que se sustenta en lo leído y por lo tanto es demostrable, tiene fundamentos, no es una opinión o una interpretación enteramente libre. Fuente: https://concepto.de/comentario/#ixzz7TqatdzLw"));
-        elementsComentario.add(new ListElementComentario("icono","Mario","Su nombre ya revela sus filiaciones con la palabra griega para la muerte: thanatos, lo cual es conveniente a la hora de explicar su proyecto para el Universo, que es la erradicación de la mitad de los seres vivientes que alberga. Esto lo hace motivado por el deseo, paradójico, de preservar la vida como un todo: para Thanos, somos demasiados los habitantes del Universo y estamos agotando los recursos demasiado aprisa, por lo que deben tomarse medidas drásticas para garantizar que no nos extingamos a nosotros mismos.\n" +
-                "\n" +
-                "Fuente: https://concepto.de/comentario/#ixzz7Tqb9n6Mf"));
+        elementsComentario.add(new ListElementComentario(GlobalVariable.listElementServicios.getIcon(),p.getNombreUsuario(), p.getComentario(), p.getValoracion()));
 
         CartaComentario listAdapter = new CartaComentario(elementsComentario, view.getContext());
         RecyclerView recyclerView = view.findViewById(R.id.cvComentarios);
@@ -211,4 +198,35 @@ public class ProyectoInformacionFragment extends Fragment {
         recyclerView.setNestedScrollingEnabled(false);
 
     }
+
+    private void obtenerPaquete(){
+
+        dRef.child("/Proyectos/"+GlobalVariable.listElementServicios.getName()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+
+
+                    p = snapshot.child(postSnapshot.getKey()).getValue(Proyecto.class);
+
+                    if (p.getNombre().equals(GlobalVariable.listElementServicios.getTitulo())){
+                        Log.i("EJEMPLO", "PROYTECTO -> "+snapshot.child(postSnapshot.getKey()).getValue());
+                        Log.i("EJEMPLO", "a -> "+p.toString());
+                        mostrarComentarios();
+                    }
+
+                }
+
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
+
+
 }
