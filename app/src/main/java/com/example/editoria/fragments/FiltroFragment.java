@@ -93,7 +93,7 @@ public class FiltroFragment extends Fragment {
            GlobalVariable.filtroDisponibilidad.add((String) dNoche.getText());
        }
 
-       if (precioMin.equals("")){
+       if (precioMin == null){
            GlobalVariable.filtroPrecio.add(00.00);
        }else{
 
@@ -104,7 +104,7 @@ public class FiltroFragment extends Fragment {
            GlobalVariable.filtroPrecio.add(Double.parseDouble(dineroS));
        }
 
-       if (precioMax.equals("")){
+       if (precioMax == null){
            GlobalVariable.filtroPrecio.add(100.00);
        }else{
 

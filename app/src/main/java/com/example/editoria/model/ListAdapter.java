@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.editoria.GlobalVariable;
 import com.example.editoria.R;
 import com.squareup.picasso.Picasso;
 
@@ -76,7 +77,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             name.setText(item.getName());
             titulo.setText(item.getTitulo());
             precio.setText("Precio: "+item.getPrecio()+"€");
-            Picasso.get().load(item.getFoto()).into(fotoP);
+
+            if (item.getFoto() != null && !item.getFoto().equalsIgnoreCase("")){
+                Picasso.get().load(item.getFoto()).into(fotoP);
+            }
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

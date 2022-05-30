@@ -12,7 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.example.editoria.GlobalVariable;
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
 import com.example.editoria.model.ListAdapter;
@@ -28,6 +30,7 @@ public class MenuProyectoFragmentCliente extends Fragment {
     View view;
     ImageView verEstadoServicios;
     List<ListElement> elements;
+    TextView dinero;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,7 +44,7 @@ public class MenuProyectoFragmentCliente extends Fragment {
         view = inflater.inflate(R.layout.fragment_menu_proyecto_cliente, container, false);
         verEstadoServicios = view.findViewById(R.id.verOfertas);
         verCartera = view.findViewById(R.id.verCarteraLL);
-
+        dinero = view.findViewById(R.id.dinero);
 
         init();
 
@@ -49,6 +52,8 @@ public class MenuProyectoFragmentCliente extends Fragment {
     }
 
     private void init() {
+
+        dinero.setText(GlobalVariable.usuario.getDinero()+"€");
         borrarPilaFragments();
         listeners();
         mostrarServiciosContratados();

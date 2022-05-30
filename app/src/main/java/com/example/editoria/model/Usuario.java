@@ -1,6 +1,7 @@
 package com.example.editoria.model;
 
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Usuario {
 
@@ -13,6 +14,7 @@ public class Usuario {
     private String clase;
     private String pais;
     private String icono;
+    private String dinero;
 
     public Usuario(String usuario, String password, String correoE, String telefono, String fechaNacimiento, String clase, String pais) {
         this.id = UUID.randomUUID().toString();
@@ -24,37 +26,66 @@ public class Usuario {
         this.clase = clase;
         this.pais = pais;
         this.icono = "";
+        this.dinero = String.format("%.2f",ThreadLocalRandom.current().nextDouble(1, 500)).replace(",",".");
     }
 
     public Usuario() {
     }
 
     public String getId() {
-        return this.id;
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getUsuario() {
         return usuario;
     }
 
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getCorreoE() {
         return correoE;
     }
 
+    public void setCorreoE(String correoE) {
+        this.correoE = correoE;
+    }
+
     public String getTelefono() {
         return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public String getFechaNacimiento() {
         return fechaNacimiento;
     }
 
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
     public String getClase() {
         return clase;
+    }
+
+    public void setClase(String clase) {
+        this.clase = clase;
     }
 
     public String getPais() {
@@ -73,6 +104,14 @@ public class Usuario {
         this.icono = icono;
     }
 
+    public String getDinero() {
+        return dinero;
+    }
+
+    public void setDinero(String dinero) {
+        this.dinero = dinero;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
@@ -83,6 +122,9 @@ public class Usuario {
                 ", telefono='" + telefono + '\'' +
                 ", fechaNacimiento='" + fechaNacimiento + '\'' +
                 ", clase='" + clase + '\'' +
+                ", pais='" + pais + '\'' +
+                ", icono='" + icono + '\'' +
+                ", dinero=" + dinero +
                 '}';
     }
 }

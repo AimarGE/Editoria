@@ -2,6 +2,7 @@ package com.example.editoria.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -11,14 +12,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.editoria.GlobalVariable;
 import com.example.editoria.R;
+import com.example.editoria.model.Usuario;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class MiCarteraFragmentEditor extends Fragment {
 
     View view;
     Button mas100, menos100, confirmar;
-    TextView dinero;
+    TextView dinero, dineroActual;
+    String dineroS;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,13 +42,17 @@ public class MiCarteraFragmentEditor extends Fragment {
         menos100 = view.findViewById(R.id.menos100);
         dinero = view.findViewById(R.id.dinero_modificado);
         confirmar = view.findViewById(R.id.confirmar);
+        dineroActual = view.findViewById(R.id.dinero_actual);
         init();
 
         return view;
     }
 
     private void init() {
-        Log.i("EJEMPLO", "aaa");
+
+        dineroS = GlobalVariable.usuario.getDinero();
+        dineroActual.setText(GlobalVariable.usuario.getDinero()+"€");
+        dinero.setText(GlobalVariable.usuario.getDinero()+"€");
         listeners();
 
     }
@@ -50,7 +63,7 @@ public class MiCarteraFragmentEditor extends Fragment {
             @Override
             public void onClick(View v) {
 
-                String dineroS = dinero.getText().toString().replace("€", "");
+                dineroS = dinero.getText().toString().replace("€", "");
 
                 Double dineroD = Double.valueOf(dineroS)+100.00;
 
@@ -66,7 +79,7 @@ public class MiCarteraFragmentEditor extends Fragment {
             @Override
             public void onClick(View v) {
 
-                String dineroS = dinero.getText().toString().replace("€", "");
+                dineroS = dinero.getText().toString().replace("€", "");
 
                 Double dineroD = Double.valueOf(dineroS)-100.00;
 
@@ -80,13 +93,37 @@ public class MiCarteraFragmentEditor extends Fragment {
         confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-                //CAMBIAR EL DINERO DE LA CARTERA DEL USUARIO
+                modificarDinero();
                 getFragmentManager().popBackStackImmediate();
 
             }
         });
+
+    }
+
+    private void modificarDinero() {
+
+        DatabaseReference dRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://editoria-bb3aa-default-rtdb.europe-west1.firebasedatabase.app/");
+
+        Usuario usuario = GlobalVariable.usuario;
+        usuario.setDinero(dineroS);
+
+        dRef.child("Usuarios").child(GlobalVariable.nombreUsuario).setValue(usuario);
+
+        /*DatabaseReference dRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://editoria-bb3aa-default-rtdb.europe-west1.firebasedatabase.app/Usuarios/");
+
+
+
+        dRef.child("asdasd").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                Log.i("EJEMPLO", "-> "+task.getResult().toString());
+            }
+        });*/
+
+        //Log.i("EJEMPLO", "-> "+dRef.child("asdasd").);
+
+
 
     }
 }

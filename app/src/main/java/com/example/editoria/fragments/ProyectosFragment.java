@@ -84,6 +84,7 @@ public class ProyectosFragment extends Fragment {
         noche = (CheckBox) view.findViewById(R.id.checkBoxNoche);
         tarde = (CheckBox) view.findViewById(R.id.checkBoxTarde);
         storageRef = FirebaseStorage.getInstance().getReference("proyectos/");
+
         getEditor();
         /*paquetes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,7 +153,6 @@ public class ProyectosFragment extends Fragment {
                 urlFoto = uri.toString();
                 Proyecto proyecto = new Proyecto(nombreP, descripcionP, disponibilidad, GlobalVariable.nombreUsuario, urlFoto);
                 if(GlobalVariable.editor != null){
-                    Log.i("entra", GlobalVariable.editor.toString());
                     GlobalVariable.editor.addProyecto(proyecto);
                 }
                 actualizarEditor();

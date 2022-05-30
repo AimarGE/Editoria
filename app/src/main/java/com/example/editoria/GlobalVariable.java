@@ -18,4 +18,6 @@ public class GlobalVariable {
     public static Editor editor;
     public static ArrayList<String> filtroDisponibilidad;
     public static ArrayList<Double> filtroPrecio;
+    public static Editor editorAvalorar;
+
 }

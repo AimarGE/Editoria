@@ -6,8 +6,8 @@
     <string name="titulo_proyecto"><u>Proyectos</u></string>
     <string name="mis_servicios"><u>Mis servicios</u></string>
     <string name="servicios_contratados"><u>Servicios Contratados</u></string>
-    <string name="tituloEvento"><u>Evento de ejemplo</u></string>
-    <string name="rankingEditores"><u>Ranking Editores</u></string>
+    <string name="tituloEvento"><u>Evento de la primera beta de la Aplicación</u></string>
+    <string name="rankingEditores"><u>Ranking</u></string>
     <string name="insertarImagen"><u>Participar en el evento</u></string>
     <string name="participantes"><u>Participantes</u></string>
     <string name="titulo_proyecto_info"><u>Titulo del proyecto</u></string>

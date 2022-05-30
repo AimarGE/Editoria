@@ -21,21 +21,24 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
+import com.example.editoria.GlobalVariable;
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
 import com.example.editoria.fragments.OpcionesFragment;
+import com.squareup.picasso.Picasso;
 
 public class MiPerfilEditorFragment extends Fragment {
 
-    ImageView opciones;
+    ImageView opciones, profile_image;
     Button contactar;
     View view;
     private RatingBar ratingBar;
+    TextView nombre, from;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -45,6 +48,22 @@ public class MiPerfilEditorFragment extends Fragment {
         ratingBar = (RatingBar) view.findViewById(R.id.ratingBar);
         contactar = view.findViewById(R.id.contactar);
         opciones = view.findViewById(R.id.opciones);
+        nombre = view.findViewById(R.id.nombreMiPEditor);
+        from = view.findViewById(R.id.from);
+        profile_image = view.findViewById(R.id.profile_image);
+        nombre.setText(GlobalVariable.usuario.getUsuario());
+        Log.i("EJEMPLO", "asdasd "+GlobalVariable.usuario.getPais());
+
+        if (GlobalVariable.usuario.getPais() != null && !GlobalVariable.usuario.getPais().toString().equalsIgnoreCase("")){
+            from.setText(GlobalVariable.usuario.getPais());
+        }else{
+            from.setText("----");
+        }
+
+        if (GlobalVariable.usuario.getIcono() != null && !GlobalVariable.usuario.getIcono().equalsIgnoreCase("")){
+            Picasso.get().load(GlobalVariable.usuario.getIcono()).into(profile_image);
+        }
+
 
 
         //RatingBar (0.5 - 5.0)
@@ -95,11 +114,17 @@ public class MiPerfilEditorFragment extends Fragment {
         RelativeLayout contacto_mail = dialog.findViewById(R.id.contacto_mail);
         RelativeLayout contacto_twitter = dialog.findViewById(R.id.contacto_twitter);
         RelativeLayout contacto_facebook = dialog.findViewById(R.id.contacto_facebook);
+        TextView tv_mail = dialog.findViewById(R.id.tv_mail);
+        TextView tv_twitter = dialog.findViewById(R.id.tv_twitter);
+        TextView tv_facebook = dialog.findViewById(R.id.tv_facebook);
+        tv_twitter.setText(GlobalVariable.editor.getTwitter());
+        tv_facebook.setText(GlobalVariable.editor.getFacebook());
+        tv_mail.setText(GlobalVariable.editor.getMail());
 
         contacto_mail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView tv_mail = dialog.findViewById(R.id.tv_mail);
+
                 Intent email_redirect =new Intent(Intent.ACTION_SEND);
                 String[] mail = {tv_mail.getText().toString()};
                 email_redirect.putExtra(Intent.EXTRA_EMAIL, mail);
@@ -113,7 +138,8 @@ public class MiPerfilEditorFragment extends Fragment {
         contacto_twitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView tv_twitter = dialog.findViewById(R.id.tv_twitter);
+
+
                 Intent twitter_redirect =new Intent("android.intent.action.VIEW", Uri.parse("https://twitter.com/"+tv_twitter.getText().toString()));
                 startActivity(twitter_redirect);
 
@@ -124,7 +150,7 @@ public class MiPerfilEditorFragment extends Fragment {
         contacto_facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView tv_facebook = dialog.findViewById(R.id.tv_facebook);
+
                 Intent facebook_redirect =new Intent("android.intent.action.VIEW", Uri.parse("https://facebook.com/"+tv_facebook.getText().toString()));
                 startActivity(facebook_redirect);
             }

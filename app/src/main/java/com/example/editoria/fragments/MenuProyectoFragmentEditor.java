@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.editoria.GlobalVariable;
 import com.example.editoria.MainFragmentContainer;
@@ -35,6 +36,7 @@ public class MenuProyectoFragmentEditor extends Fragment {
     ImageView verOfertas;
     LinearLayout verCartera;
     AlertDialog.Builder builder;
+    TextView dinero;
 
     public MenuProyectoFragmentEditor() {
         // Required empty public constructor
@@ -54,6 +56,8 @@ public class MenuProyectoFragmentEditor extends Fragment {
         verOfertas = view.findViewById(R.id.verOfertas);
         builder = new AlertDialog.Builder(view.getContext());
         verCartera = view.findViewById(R.id.verCarteraLL);
+        dinero = view.findViewById(R.id.dinero);
+
         init();
 
 
@@ -64,6 +68,8 @@ public class MenuProyectoFragmentEditor extends Fragment {
     private void init() {
 
         Log.i("EJEMPLO", "Aaaaaa");
+
+        dinero.setText(GlobalVariable.usuario.getDinero()+"€");
         mostrarMisServicios();
         mostrarServiciosContratados();
 

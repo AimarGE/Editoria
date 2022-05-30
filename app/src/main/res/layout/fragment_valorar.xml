@@ -104,6 +104,7 @@
             android:progressTint="#FFC107" />
 
         <Button
+            android:id="@+id/publicar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#0037FF"

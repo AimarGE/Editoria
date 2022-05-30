@@ -138,7 +138,7 @@
                     android:layout_height="200dp"
                     android:layout_gravity="center"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ejemplo" />
+                    android:src="@drawable/image_placeholder" />
             </LinearLayout>
 
 

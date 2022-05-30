@@ -60,7 +60,6 @@ public class HomeFragment extends Fragment {
         filtro = view.findViewById(R.id.filtro);
         proyectos = new ArrayList<>();
 
-
         getAllProyectos();
         getUsuario();
         getEditor();

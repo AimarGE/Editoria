@@ -40,9 +40,7 @@ public class EventoFragment extends Fragment {
 
 
         //IF PARA COMPROBAR QUE SEA UN EDITOR O NO --> REDIRIGE DIRECTAMENTE A EVENTO-PAGINA-PRINCIPAL-FRAGMENT
-
-
-        Picasso.get().load("https://upload.wikimedia.org/wikipedia/commons/f/ff/Anas_platyrhynchos_qtl1.jpg").into(imagenEvento);
+        //Picasso.get().load("https://upload.wikimedia.org/wikipedia/commons/f/ff/Anas_platyrhynchos_qtl1.jpg").into(imagenEvento);
 
         init();
 

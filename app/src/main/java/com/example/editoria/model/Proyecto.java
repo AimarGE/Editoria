@@ -8,6 +8,8 @@ public class Proyecto {
     private String nombreUsuario;
     private RecursosCliente recursoCliente;
     private String foto;
+    private String valoracion;
+    private String comentario;
 
     public Proyecto(String nombre, String descripcion, String disponibilidad, String nombreUsuario, String foto){
         this.nombre=nombre;
@@ -15,6 +17,8 @@ public class Proyecto {
         this.disponibilidad=disponibilidad;
         this.nombreUsuario=nombreUsuario;
         this.foto=foto;
+        this.valoracion = "";
+        this.comentario = "";
     }
 
     public Proyecto(){
@@ -45,6 +49,22 @@ public class Proyecto {
         return foto;
     }
 
+    public String getValoracion() {
+        return valoracion;
+    }
+
+    public void setValoracion(String valoracion) {
+        this.valoracion = valoracion;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
     @Override
     public String toString() {
         return "Proyecto{" +
@@ -54,6 +74,8 @@ public class Proyecto {
                 ", nombreUsuario='" + nombreUsuario + '\'' +
                 ", recursoCliente=" + recursoCliente +
                 ", foto='" + foto + '\'' +
+                ", valoracion='" + valoracion + '\'' +
+                ", comentario='" + comentario + '\'' +
                 '}';
     }
 }
