@@ -99,7 +99,7 @@ public class OpcionesFragment extends Fragment {
 
         MainFragmentContainer.bottomNavigation.show(5, true);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.mainFrame, new OpcionesPerfilFragment()).addToBackStack("tag");
+        ft.replace(R.id.mainFrame, new OpcionesPerfilEditorFragment()).addToBackStack("tag");
         ft.commit();
 
     }

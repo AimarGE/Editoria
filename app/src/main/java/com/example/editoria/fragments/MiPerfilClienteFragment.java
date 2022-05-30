@@ -23,6 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.editoria.GlobalVariable;
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
 
@@ -31,6 +32,7 @@ public class MiPerfilClienteFragment extends Fragment {
 
 
     ImageView opciones;
+    TextView nombreCliente;
     View view;
 
     @Override
@@ -44,8 +46,11 @@ public class MiPerfilClienteFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_mi_perfil_cliente, container, false);
         opciones = view.findViewById(R.id.opciones);
+        nombreCliente = view.findViewById(R.id.nombreMiCliente);
 
 
+
+        nombreCliente.setText(GlobalVariable.usuario.getUsuario());
 
         //abrir ajustes
         opciones.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +69,7 @@ public class MiPerfilClienteFragment extends Fragment {
 
         MainFragmentContainer.bottomNavigation.show(5, true);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.mainFrame, new OpcionesFragment());
+        ft.replace(R.id.mainFrame, new OpcionesFragment()).addToBackStack("tag");
         ft.commit();
 
     }

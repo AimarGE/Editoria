@@ -44,7 +44,7 @@ public class ProyectoInformacionFragment extends Fragment {
     TextView basico, estandard, premium, descripcionPaquete, descripcionServicio;
     Button botonContratar;
     ListElement listElement;
-    String nombre, descripcion, titulo;
+    String nombre, descripcion, titulo, precioBasico, descripcionBasico;;
     private Proyecto p;
     private DatabaseReference dRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://editoria-bb3aa-default-rtdb.europe-west1.firebasedatabase.app/");
 

@@ -124,12 +124,8 @@ public class MenuProyectoFragmentEditor extends Fragment {
 
         elements = new ArrayList<>();
         //OBTENER INFORMACIÓN DE LA BASE DE DATOS Y INSERTARLA AQUÍ PARA QUE SE MUESTRE
-        elements.add(new ListElement("icono", "Mario Servicios", "","", "https://media.revistagq.com/photos/5ca5f6a77a3aec0df5496c59/master/w_1600%2Cc_limit/bob_esponja_9564.png" ,"930.02", ""));
-        elements.add(new ListElement("icono", "Ejemplo2 Servicios", "","", "https://media.revistagq.com/photos/5ca5f6a77a3aec0df5496c59/master/w_1600%2Cc_limit/bob_esponja_9564.png" , "3420.02", ""));
-        elements.add(new ListElement("icono", "José Servicios", "","",  "https://media.revistagq.com/photos/5ca5f6a77a3aec0df5496c59/master/w_1600%2Cc_limit/bob_esponja_9564.png" ,"510.02", ""));
-        elements.add(new ListElement("icono", "Mario Servicios", "","", "https://media.revistagq.com/photos/5ca5f6a77a3aec0df5496c59/master/w_1600%2Cc_limit/bob_esponja_9564.png" ,"800.02", ""));
-        elements.add(new ListElement("icono", "Ejemplo2 Servicios", "","", "https://media.revistagq.com/photos/5ca5f6a77a3aec0df5496c59/master/w_1600%2Cc_limit/bob_esponja_9564.png" ,"33.02", ""));
-        elements.add(new ListElement("icono", "José Servicios", "","", "https://media.revistagq.com/photos/5ca5f6a77a3aec0df5496c59/master/w_1600%2Cc_limit/bob_esponja_9564.png" ,"555.02", ""));
+        elements.add(new ListElement("https://i0.wp.com/www.senpai.com.mx/wp-content/uploads/2020/08/8dc3fa32016308543e1f34f4c1996a1747.jpg?fit=1280%2C720&ssl=1", "Peach Cliente", "","", "https://preview.redd.it/xmotbwksh7911.jpg?auto=webp&s=de75f9fff1e3521550925291c68e4ea499a48e0d" ,"19.99", ""));
+
         ListAdapter listAdapter = new ListAdapter(elements, view.getContext(), new ListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ListElement item) {
@@ -148,11 +144,9 @@ public class MenuProyectoFragmentEditor extends Fragment {
 
         elements = new ArrayList<>();
         //OBTENER INFORMACIÓN DE LA BASE DE DATOS Y INSERTARLA AQUÍ PARA QUE SE MUESTRE
-        elements.add(new ListElement("icono", "Mario MisServicios", "","", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif", "30.02", ""));
-        elements.add(new ListElement("icono", "Ejemplo2 MisServicios", "","","https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif", "30.02", ""));
-        elements.add(new ListElement("icono", "José MisServicios", "","","https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif",  "30.02", ""));
-        elements.add(new ListElement("icono", "Maria MisServicios", "","", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif","30.02", ""));
-        elements.add(new ListElement("icono", "Rodrigo MisServicios", "","", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif","30.02", ""));
+        elements.add(new ListElement("https://img.unocero.com/2020/07/Super-Mario-Bros-verdadera-nacionalidad-1024x576.jpg", "MarioWopi", "","", "https://cloudfront-us-east-1.images.arcpublishing.com/infobae/MN2XNZY4XJH27KAROURFGYWLYY.jpg" ,"49.99", ""));
+        elements.add(new ListElement("https://img.unocero.com/2020/07/Super-Mario-Bros-verdadera-nacionalidad-1024x576.jpg", "MarioWopi", "","", "https://preview.redd.it/xmotbwksh7911.jpg?auto=webp&s=de75f9fff1e3521550925291c68e4ea499a48e0d" , "19.99", ""));
+        elements.add(new ListElement("https://img.unocero.com/2020/07/Super-Mario-Bros-verdadera-nacionalidad-1024x576.jpg", "MarioWopi", "","",  "https://c.tenor.com/P0H97FaEQhoAAAAM/mario-edit-edit.gif" ,"10.99", ""));
 
         ListAdapter listAdapter = new ListAdapter(elements, view.getContext(), new ListAdapter.OnItemClickListener() {
             @Override

@@ -17,8 +17,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.editoria.GlobalVariable;
+import com.example.editoria.Login;
 import com.example.editoria.MainActivity;
 import com.example.editoria.R;
 import com.example.editoria.model.CartaOfertasPendientes;
@@ -81,6 +83,7 @@ public class DescargarRecursoFragmentEditor extends Fragment {
             public void onClick(View v) {
 
                 try {
+                    Toast.makeText(getContext(), "Imagen descargada!", Toast.LENGTH_SHORT).show();
                     descagarImagen();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -121,7 +124,7 @@ public class DescargarRecursoFragmentEditor extends Fragment {
         elements = new ArrayList<>();
 
         //CAMBIAR
-        elements.add(new ListElement("icono", nombre,"", "", "https://www.exclusivadigital.com/fotos/16368848691.jpg", "50",""));
+        elements.add(new ListElement("https://i.pinimg.com/originals/75/97/12/759712abd30ecec7865705483ddc3b52.png", nombre,"Quiero estar en la playa en una tabla de surf del Mario 64", "", "https://www.smashbros.com/images/og/luigi.jpg", "10.99",""));
 
         cartaRecursosClientes = new CartaRecursosClientes(elements, view.getContext(), new CartaRecursosClientes.OnItemClickListener() {
             @Override
