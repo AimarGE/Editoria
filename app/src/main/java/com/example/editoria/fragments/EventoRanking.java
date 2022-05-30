@@ -165,7 +165,7 @@ public class EventoRanking extends Fragment {
                 MainFragmentContainer.bottomNavigation.show(3, true);
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 Bundle bundle = new Bundle();
-                ListElement le = new ListElement("icono", item.getName(),"descripcion", "titulo", "https://img.freepik.com/vector-gratis/trofeo-oro-placa-ganador-concurso_68708-545.jpg?w=2000", 2);
+                ListElement le = new ListElement("icono", item.getName(),"descripcion", "titulo", "https://img.freepik.com/vector-gratis/trofeo-oro-placa-ganador-concurso_68708-545.jpg?w=2000", "2");
                 bundle.putSerializable("item", le);
                 GlobalVariable.bundleEditor = bundle;
                 ft.replace(R.id.mainFrame, new FragmentPerfilEditor()).addToBackStack("tag");

@@ -1,5 +1,7 @@
 package com.example.editoria.model;
 
+import java.util.ArrayList;
+
 public class Proyecto {
 
     private String nombre;
@@ -8,6 +10,7 @@ public class Proyecto {
     private String nombreUsuario;
     private RecursosCliente recursoCliente;
     private String foto;
+    private ArrayList<Paquete> paquetes;
     private String valoracion;
     private String comentario;
 
@@ -17,6 +20,7 @@ public class Proyecto {
         this.disponibilidad=disponibilidad;
         this.nombreUsuario=nombreUsuario;
         this.foto=foto;
+        this.paquetes = paquetes;
         this.valoracion = "";
         this.comentario = "";
     }
@@ -49,6 +53,32 @@ public class Proyecto {
         return foto;
     }
 
+    public ArrayList<Paquete> getPaquetes(){
+        return this.paquetes;
+    }
+
+    public String getPaqueteMasBarato(){
+        if(paquetes.size() == 1){
+            return paquetes.get(0).getPrecio();
+        }else if(paquetes.size() == 2){
+            if(Double.parseDouble(paquetes.get(0).getPrecio()) < Double.parseDouble(paquetes.get(1).getPrecio())){
+                return paquetes.get(0).getPrecio();
+            }else{
+                return paquetes.get(1).getPrecio();
+            }
+        }else if(paquetes.size() == 3){
+            if(Double.parseDouble(paquetes.get(0).getPrecio()) < Double.parseDouble(paquetes.get(1).getPrecio()) && Double.parseDouble(paquetes.get(0).getPrecio()) < Double.parseDouble(paquetes.get(2).getPrecio())){
+                return paquetes.get(0).getPrecio();
+            }
+            else if(Double.parseDouble(paquetes.get(1).getPrecio()) < Double.parseDouble(paquetes.get(0).getPrecio()) && Double.parseDouble(paquetes.get(1).getPrecio()) < Double.parseDouble(paquetes.get(2).getPrecio())){
+                return paquetes.get(1).getPrecio();
+            }else{
+                return paquetes.get(2).getPrecio();
+            }
+        }
+        return null;
+    }
+
     public String getValoracion() {
         return valoracion;
     }
@@ -74,8 +104,6 @@ public class Proyecto {
                 ", nombreUsuario='" + nombreUsuario + '\'' +
                 ", recursoCliente=" + recursoCliente +
                 ", foto='" + foto + '\'' +
-                ", valoracion='" + valoracion + '\'' +
-                ", comentario='" + comentario + '\'' +
                 '}';
     }
 }

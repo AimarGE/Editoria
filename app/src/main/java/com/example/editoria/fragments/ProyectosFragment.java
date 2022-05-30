@@ -30,6 +30,7 @@ import com.example.editoria.Login;
 import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.fragments.HomeFragment;
 import com.example.editoria.model.Editor;
+import com.example.editoria.model.Paquete;
 import com.example.editoria.model.Proyecto;
 import com.example.editoria.model.Usuario;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -57,12 +58,22 @@ public class ProyectosFragment extends Fragment {
     //TextView paquetes;
     private EditText nombreProyecto;
     private EditText descripcionProyecto;
+    private EditText precioPaqueteBasico, precioPaqueteAvanzado, precioPaquetePremium;
+    private EditText descripcionPaqueteBasico, descripcionPaqueteAvanzado, descripcionPaquetePremium;
     private CheckBox manyana, tarde, noche;
     private String disponibilidad, nombreP, descripcionP;
     private DatabaseReference dRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://editoria-bb3aa-default-rtdb.europe-west1.firebasedatabase.app/");
     private View view;
     private StorageReference storageRef;
     private String urlFoto;
+    private boolean paqueteUno;
+    private boolean paqueteDos;
+    private boolean paqueteTres;
+    private Paquete paquete;
+    private Paquete paquete2;
+    private Paquete paquete3;
+    private ArrayList<Paquete> paquetes;
+    private int contador;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -84,7 +95,7 @@ public class ProyectosFragment extends Fragment {
         noche = (CheckBox) view.findViewById(R.id.checkBoxNoche);
         tarde = (CheckBox) view.findViewById(R.id.checkBoxTarde);
         storageRef = FirebaseStorage.getInstance().getReference("proyectos/");
-
+        paquetes= new ArrayList<>();
         getEditor();
         /*paquetes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,6 +146,18 @@ public class ProyectosFragment extends Fragment {
             }
         }
         if (checkPhoto() && comprobarLenghtNombre(nombreP) && comprobarDescripcion(descripcionP)) {
+            if(paqueteUno){
+                paquete = new Paquete("Básico", precioPaqueteBasico.getText().toString(), descripcionPaqueteBasico.getText().toString());
+                paquetes.add(paquete);
+            }
+            if(paqueteDos){
+                paquete2 = new Paquete("Avanzado", precioPaqueteAvanzado.getText().toString(), descripcionPaqueteAvanzado.getText().toString());
+                paquetes.add(paquete2);
+            }
+            if(paqueteTres){
+                paquete3 = new Paquete("Premium", precioPaquetePremium.getText().toString(), descripcionPaquetePremium.getText().toString());
+                paquetes.add(paquete3);
+            }
             addProyecto();
             MainFragmentContainer.bottomNavigation.show(1, true);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -151,8 +174,9 @@ public class ProyectosFragment extends Fragment {
             @Override
             public void onSuccess(Uri uri) {
                 urlFoto = uri.toString();
-                Proyecto proyecto = new Proyecto(nombreP, descripcionP, disponibilidad, GlobalVariable.nombreUsuario, urlFoto);
+                Proyecto proyecto = new Proyecto(nombreP, descripcionP, disponibilidad, GlobalVariable.nombreUsuario, urlFoto, paquetes);
                 if(GlobalVariable.editor != null){
+                    Log.i("entra", GlobalVariable.editor.toString());
                     GlobalVariable.editor.addProyecto(proyecto);
                 }
                 actualizarEditor();
@@ -206,6 +230,57 @@ public class ProyectosFragment extends Fragment {
             return false;
         }
         return true;
+    }
+
+    private boolean comprobarPaquetes(){
+        contador = 0;
+        String precioBasico = precioPaqueteBasico.getText().toString();
+        String descripcionBasico = descripcionPaqueteBasico.getText().toString();
+        String precioAvanzado = precioPaqueteAvanzado.getText().toString();
+        String descripcionAvanzado = descripcionPaqueteAvanzado.getText().toString();
+        String precioPremium = precioPaquetePremium.getText().toString();
+        String descripcionPremium = descripcionPaquetePremium.getText().toString();
+        paqueteUno=comprobarPaqueteBasico(precioBasico, descripcionBasico);
+        paqueteDos=comprobarPaqueteAvanzado(precioAvanzado, descripcionAvanzado);
+        paqueteTres=comprobarPaquetePremium(precioPremium, descripcionPremium);
+        if(contador == 0){
+            Toast.makeText(view.getContext(), "Debes tener al menos un paquete", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean comprobarPaqueteBasico(String precio, String descripcion){
+        if(precio.equals("") && descripcion.equals("")){
+            return false;
+        }
+        else if(!precio.equals("") && !precio.equals(" ") && !descripcion.equals("") && !descripcion.equals(" ")){
+            contador++;
+            return true;
+        }
+        return false;
+    }
+
+    private boolean comprobarPaqueteAvanzado(String precio, String descripcion){
+        if(precio.equals("") && descripcion.equals("")){
+            return false;
+        }
+        else if(!precio.equals("") && !precio.equals(" ") && !descripcion.equals("") && !descripcion.equals(" ")){
+            contador++;
+            return true;
+        }
+        return false;
+    }
+
+    private boolean comprobarPaquetePremium(String precio, String descripcion){
+        if(precio.equals("") && descripcion.equals("")){
+            return false;
+        }
+        else if(!precio.equals("") && !precio.equals(" ") && !descripcion.equals("") && !descripcion.equals(" ")){
+            contador++;
+            return true;
+        }
+        return false;
     }
 
     private boolean checkPhoto() {
