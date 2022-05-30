@@ -1,10 +1,7 @@
 package com.example.editoria.model;
 
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.airbnb.lottie.LottieAnimationView;
-import com.example.editoria.GlobalVariable;
 import com.example.editoria.R;
 import com.squareup.picasso.Picasso;
 
@@ -70,8 +65,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                 icono = itemView.findViewById(R.id.cvIconoEditor);
                 titulo = itemView.findViewById(R.id.tituloProyecto);
                 precio = itemView.findViewById(R.id.cvPrecioProyecto);
-                fotoP = itemView.findViewById(R.id.imagenProyecto);
-                valoraciones = itemView.findViewById(R.id.cvValoracionesValue);
+                fotoP = itemView.findViewById(R.id.insertImagenEvent);
+                valoraciones = itemView.findViewById(R.id.valoracion);
         }
 
         void bindData(final ListElement item){
@@ -91,7 +86,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
             if (item.getIcon() != null && !item.getIcon().equalsIgnoreCase("")){
                 Picasso.get().load(item.getIcon()).into(icono);
-            }
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

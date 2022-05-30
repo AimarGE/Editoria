@@ -63,14 +63,16 @@
                 android:layout_marginTop="10dp"
                 android:backgroundTint="#0037FF"
                 android:text="Seleccionar archivo"/>
+
             <Button
                 android:id="@+id/confirmar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:backgroundTint="#4BAF27"
                 android:layout_marginTop="10dp"
-                android:text="Confirmar"/>
+                android:backgroundTint="#4BAF27"
+                android:onClick="confirmar"
+                android:padding="10dp"
+                android:text="Confirmar" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

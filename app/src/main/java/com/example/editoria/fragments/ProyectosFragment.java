@@ -153,7 +153,7 @@ public class ProyectosFragment extends Fragment {
         }
         if (checkPhoto() && comprobarLenghtNombre(nombreP) && comprobarDescripcion(descripcionP) && comprobarPaquetes()) {
             if(paqueteUno){
-                paquete = new Paquete("Básico", precioPaqueteBasico.getText().toString(), descripcionPaqueteBasico.getText().toString());
+                paquete = new Paquete("Basico", precioPaqueteBasico.getText().toString(), descripcionPaqueteBasico.getText().toString());
                 paquetes.add(paquete);
             }
             if(paqueteDos){
