@@ -21,6 +21,7 @@ import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
 import com.example.editoria.fragments.EventoParticipantes;
 import com.example.editoria.fragments.EventoRanking;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -67,19 +68,24 @@ public class CartaEventoProyecto extends RecyclerView.Adapter<CartaEventoProyect
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView icono;//PONER EL ICONO DE LA BASE DE DATOS DEL EDITOR
-        TextView name;
+        ImageView icono, foto;//PONER EL ICONO DE LA BASE DE DATOS DEL EDITOR
+        TextView name, nlikes;
         LottieAnimationView favorito;
         ViewHolder(View itemView){
             super(itemView);
                 name = itemView.findViewById(R.id.cvNombreEditor);
                 icono = itemView.findViewById(R.id.cvIconoEditor);
                 favorito = itemView.findViewById(R.id.favorito);
+                foto = itemView.findViewById(R.id.imagenProyecto);
+                nlikes = itemView.findViewById(R.id.nLikes);
         }
 
         void bindData(final ListElement item){
-            icono.setImageResource(R.drawable.ejemplo);
+            //icono.setImageResource(R.drawable.ejemplo);
             name.setText(item.getName());
+            nlikes.setText(item.getValoracion());
+            Picasso.get().load(item.getIcon()).into(icono);
+            Picasso.get().load(item.getFoto()).into(foto);
 
             icono.setOnClickListener(new View.OnClickListener() {
                 @Override

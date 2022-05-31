@@ -63,7 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
-                    android:text="00,00 €"/>
+                    android:text="10,99 €"/>
             </LinearLayout>
 
             <LinearLayout
@@ -114,7 +114,7 @@
                     android:textStyle="bold"
                     android:textSize="16dp"
                     android:layout_marginRight="10dp"
-                    android:text="00,00 €"/>
+                    android:text="10,99 €"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -139,6 +139,7 @@
             android:layout_margin="15dp"
             android:scaleType="fitXY" />
         <Button
+            android:id="@+id/seleccionarArchivo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Seleccionar archivo"

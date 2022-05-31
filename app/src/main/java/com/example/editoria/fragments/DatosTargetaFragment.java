@@ -87,7 +87,7 @@ public class DatosTargetaFragment extends Fragment {
 
         MainFragmentContainer.bottomNavigation.show(4, true);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.mainFrame, new MenuProyectoFragmentEditor());
+        ft.replace(R.id.mainFrame, new MenuProyectoFragmentCliente());
         ft.commit();
 
     }

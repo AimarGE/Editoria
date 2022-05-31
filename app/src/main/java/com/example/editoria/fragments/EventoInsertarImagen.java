@@ -146,7 +146,7 @@ public class EventoInsertarImagen extends Fragment {
         ArrayList elements = new ArrayList<>();
 
         //CAMBIAR
-        elements.add(new ListElement("icono", GlobalVariable.nombreUsuario,"", "","https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg", "0",""));
+        elements.add(new ListElement("https://img.unocero.com/2020/07/Super-Mario-Bros-verdadera-nacionalidad-1024x576.jpg", GlobalVariable.nombreUsuario,"", "","https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg", "0",""));
 
         cartaInsertarImagenEvento = new CartaInsertarImagenEvento(elements, view.getContext(), new CartaInsertarImagenEvento.OnItemClickListener() {
             @Override

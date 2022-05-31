@@ -198,11 +198,9 @@ public class EventoPaginaPrincipalFragment extends Fragment {
 
         elements = new ArrayList<>();
 
-        elements.add(new ListElement("icono", "Mario","", "",  "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif","30.02",""));
-        elements.add(new ListElement("icono", "José","", "",  "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif","30.02",""));
-        elements.add(new ListElement("icono", "Maria","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif","30.02",""));
-        elements.add(new ListElement("icono", "Rodrigo","", "","https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif", "30.02",""));
-        elements.add(new ListElement("icono", "Ejemplo2","", "", "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif","30.02",""));
+        elements.add(new ListElement("https://i.pinimg.com/280x280_RS/8f/c6/b6/8fc6b6364c319b9881b184baf7f8889d.jpg", "Mario","", "",  "https://www.ngenespanol.com/wp-content/uploads/2018/09/Fotos-Divertidas-del-mundo-animal-8.png","30.02","5"));
+        elements.add(new ListElement("https://img.unocero.com/2022/04/Foto-de-perfil-como-saber-si-es-falsa-1024x576.jpg", "José","", "",  "https://cdn.businessinsider.es/sites/navi.axelspringer.es/public/styles/bi_570/public/media/image/2019/03/oh-no-you-didnt.jpg?itok=miPom1Ob","30.02","3"));
+        elements.add(new ListElement("https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg", "Maria","", "", "https://www.xlsemanal.com/wp-content/uploads/sites/3/2020/09/las-fotos-de-animales-mas-divertidas-del-mundo.jpg","30.02","10"));
 
 
         CartaEventoProyecto listAdapter = new CartaEventoProyecto(elements, view.getContext(), new CartaEventoProyecto.OnItemClickListener() {

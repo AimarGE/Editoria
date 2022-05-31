@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,8 +16,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.editoria.GlobalVariable;
+import com.example.editoria.MainFragmentContainer;
 import com.example.editoria.R;
 import com.example.editoria.model.Editor;
 import com.example.editoria.model.Proyecto;
@@ -77,7 +80,13 @@ public class ValorarFragment extends Fragment {
             public void onClick(View v) {
 
                 //Log.i("EJEMPLO", "-> "+rbEditor.getRating()+rbProyecto.getRating()+" "+comentario.getText());
-                enviarValoracion();
+
+
+                //enviarValoracion();
+                MainFragmentContainer.bottomNavigation.show(4, true);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.mainFrame, new MenuProyectoFragmentCliente());
+                ft.commit();
 
             }
         });

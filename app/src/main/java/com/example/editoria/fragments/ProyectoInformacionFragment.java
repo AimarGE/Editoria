@@ -101,8 +101,8 @@ public class ProyectoInformacionFragment extends Fragment {
                 estandard.setTextColor(Color.parseColor("#808080"));
                 basico.setTextColor(Color.parseColor("#000000"));
 
-                botonContratar.setText("Contratar (20€)");
-                descripcionPaquete.setText("Doña Uzeada de Ribera Maldonado de Bracamonte y Anaya era baja, rechoncha, abigotada. Ya no existia razon para llamar talle al suyo. Sus colores vivos, sanos, podian mas que el albayalde y el soliman del afeite, con que se blanqueaba por simular melancolias. Gastaba dos parches oscuros, adheridos a las sienes y que fingian medicamentos. Tenia los ojitos ratoniles, maliciosos. Sabia dilatarlos duramente o desmayarlos con recato o levantarlos con disimulo. Caminaba contoneando las imposibles caderas y era dificil, al verla, no asociar su estampa achaparrada con la de ciertos palmipedos domesticos. Sortijas celestes y azules le ahorcaban las falanges");
+                botonContratar.setText("Contratar (10,99€)");
+                descripcionPaquete.setText("Edito en 3 dias");
             }
         });
 
@@ -113,8 +113,8 @@ public class ProyectoInformacionFragment extends Fragment {
                 premium.setTextColor(Color.parseColor("#808080"));
                 estandard.setTextColor(Color.parseColor("#000000"));
 
-                botonContratar.setText("Contratar (50€)");
-                descripcionPaquete.setText("Los flamencos son aves gregarias altamente especializadas, que habitan sistemas salinos de donde obtienen su alimento (compuesto generalmente de algas microscópicas e invertebrados) y materiales para desarrollar sus hábitos reproductivos.*");
+                botonContratar.setText("Contratar (15,99€)");
+                descripcionPaquete.setText("Edito en 2 dias");
             }
         });
 
@@ -125,12 +125,8 @@ public class ProyectoInformacionFragment extends Fragment {
                 estandard.setTextColor(Color.parseColor("#808080"));
                 premium.setTextColor(Color.parseColor("#000000"));
 
-                botonContratar.setText("Contratar (75€)");
-                descripcionPaquete.setText("Para ingresar al cajero pase la tarjeta por la ranura que se encuentra junto a la puerta vidriada del Banco en la posición señalada en la imagen.\n" +
-                        "Aguarde a que se encienda la luz y empuje la puerta.\n" +
-                        "Inserte la tarjeta en la ranura señalada, en la posicion correcta (observar ilustracion)\n" +
-                        "Ingrese su codigo de seguridad o pin, luego de que el mismo sea solicitado en la pantalla. Luego oprima el boton confirmar.\n" +
-                        "Seleccione la operacion a realizar.");
+                botonContratar.setText("Contratar (19,99€)");
+                descripcionPaquete.setText("Edito en 1 dia");
             }
         });
 
@@ -150,7 +146,7 @@ public class ProyectoInformacionFragment extends Fragment {
 
         elements = new ArrayList<>();
 
-        elements.add(new ListElement("icono", nombre, "", titulo, "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif","30.02", ""));
+        elements.add(new ListElement("https://img.unocero.com/2020/07/Super-Mario-Bros-verdadera-nacionalidad-1024x576.jpg", nombre, "", titulo, "https://www.poresto.net/u/fotografias/m/2021/5/21/f608x342-82231_111954_14.gif","10,99", "0"));
 
         CartaProyectoInformacion listAdapter = new CartaProyectoInformacion(elements, view.getContext(), new CartaProyectoInformacion.OnItemClickListener() {
             @Override

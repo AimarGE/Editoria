@@ -149,12 +149,10 @@ public class EventoRanking extends Fragment {
     private void mostrarRankingParticipantes() {
 
         elements = new ArrayList<>();
+        elements.add(new ListElementRanking("https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg", "Maria","https://www.xlsemanal.com/wp-content/uploads/sites/3/2020/09/las-fotos-de-animales-mas-divertidas-del-mundo.jpg", "1", "10"));
+        elements.add(new ListElementRanking("https://i.pinimg.com/280x280_RS/8f/c6/b6/8fc6b6364c319b9881b184baf7f8889d.jpg", "Mario","https://www.ngenespanol.com/wp-content/uploads/2018/09/Fotos-Divertidas-del-mundo-animal-8.png", "2",  "5"));
+        elements.add(new ListElementRanking("https://img.unocero.com/2022/04/Foto-de-perfil-como-saber-si-es-falsa-1024x576.jpg", "José","https://cdn.businessinsider.es/sites/navi.axelspringer.es/public/styles/bi_570/public/media/image/2019/03/oh-no-you-didnt.jpg?itok=miPom1Ob", "3",  "3"));
 
-        elements.add(new ListElementRanking("icono", "Mario", "https://img.freepik.com/vector-gratis/trofeo-oro-placa-ganador-concurso_68708-545.jpg?w=2000", "5","5"));
-        elements.add(new ListElementRanking("icono", "Ejemplo2", "https://img.freepik.com/vector-gratis/trofeo-oro-placa-ganador-concurso_68708-545.jpg?w=2000", "2","325"));
-        elements.add(new ListElementRanking("icono", "José", "https://img.freepik.com/vector-gratis/trofeo-oro-placa-ganador-concurso_68708-545.jpg?w=2000", "3","26"));
-        elements.add(new ListElementRanking("icono", "Maria", "https://img.freepik.com/vector-gratis/trofeo-oro-placa-ganador-concurso_68708-545.jpg?w=2000", "1","123123"));
-        elements.add(new ListElementRanking("icono", "Rodrigo", "https://img.freepik.com/vector-gratis/trofeo-oro-placa-ganador-concurso_68708-545.jpg?w=2000", "50","52"));
 
         CartaRanking listAdapter = new CartaRanking(elements, view.getContext(), new CartaRanking.OnItemClickListener() {
             @Override

@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.editoria.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -56,17 +57,20 @@ public class CartaParticipantes extends RecyclerView.Adapter<CartaParticipantes.
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView icono;//PONER EL ICONO DE LA BASE DE DATOS DEL EDITOR
-        TextView name;
+        TextView name, nlikes;
 
         ViewHolder(View itemView){
             super(itemView);
                 name = itemView.findViewById(R.id.cvNombreEditor);
                 icono = itemView.findViewById(R.id.cvIconoEditor);
+                nlikes = itemView.findViewById(R.id.nLikes);
         }
 
         void bindData(final ListElement item){
             icono.setImageResource(R.drawable.ejemplo);
             name.setText(item.getName());
+            nlikes.setText(item.getValoracion());
+            Picasso.get().load(item.getIcon()).into(icono);
 
             name.setOnClickListener(new View.OnClickListener() {
                 @Override

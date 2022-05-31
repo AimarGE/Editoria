@@ -71,7 +71,7 @@ public class CartaInsertarImagenEvento extends RecyclerView.Adapter<CartaInserta
             icono.setImageResource(R.drawable.ejemplo);
             name.setText(item.getName());
             Picasso.get().load(item.getFoto()).into(foto);
-
+            Picasso.get().load(item.getIcon()).into(icono);
             name.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

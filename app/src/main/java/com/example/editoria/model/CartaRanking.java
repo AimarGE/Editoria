@@ -74,7 +74,7 @@ public class CartaRanking extends RecyclerView.Adapter<CartaRanking.ViewHolder> 
             likes.setText(item.getLikes());
             ranking.setText(item.getRanking()+" -");
             Picasso.get().load(item.getFoto()).into(foto);
-
+            Picasso.get().load(item.getIcon()).into(icono);
             name.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

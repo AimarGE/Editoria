@@ -15,8 +15,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.editoria.GlobalVariable;
+import com.example.editoria.Login;
 import com.example.editoria.R;
 import com.example.editoria.model.CartaRecursosClientes;
 import com.example.editoria.model.ListElement;
@@ -30,7 +32,7 @@ public class EnviarProyectoEditorFragment extends Fragment {
     View view;
     RecursosCliente recursosCliente;
     String nombre;
-    Button seleccionarArchivo;
+    Button seleccionarArchivo, enviar;
     CartaRecursosClientes cartaRecursosClientes;
     double precio;
 
@@ -49,7 +51,7 @@ public class EnviarProyectoEditorFragment extends Fragment {
         nombre = recursosCliente.getNombreCliente();
         precio = recursosCliente.getPrecio();
         seleccionarArchivo = view.findViewById(R.id.seleccionarArchivo);
-
+        enviar = view.findViewById(R.id.enviarProyecto);
 
         init();
 
@@ -72,6 +74,15 @@ public class EnviarProyectoEditorFragment extends Fragment {
             }
         });
 
+        enviar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+                getFragmentManager().popBackStackImmediate();
+            }
+        });
+
+
     }
 
     private void cargarImagen() {
@@ -88,7 +99,7 @@ public class EnviarProyectoEditorFragment extends Fragment {
         ArrayList elements = new ArrayList<>();
 
         //CAMBIAR
-        elements.add(new ListElement("icono", "Luigi Cliente","Quiero estar en la playa en una tabla de surf del Mario 64", "Edito fotos retro","https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg", "10.99",""));
+        elements.add(new ListElement("https://i.pinimg.com/originals/75/97/12/759712abd30ecec7865705483ddc3b52.png", "Luigi Cliente","Quiero estar en la playa en una tabla de surf del Mario 64", "Edito fotos retro","https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg", "10.99",""));
 
         cartaRecursosClientes = new CartaRecursosClientes(elements, view.getContext(), new CartaRecursosClientes.OnItemClickListener() {
             @Override

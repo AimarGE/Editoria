@@ -124,7 +124,7 @@ public class MenuProyectoFragmentEditor extends Fragment {
 
         elements = new ArrayList<>();
         //OBTENER INFORMACIÓN DE LA BASE DE DATOS Y INSERTARLA AQUÍ PARA QUE SE MUESTRE
-        elements.add(new ListElement("https://i0.wp.com/www.senpai.com.mx/wp-content/uploads/2020/08/8dc3fa32016308543e1f34f4c1996a1747.jpg?fit=1280%2C720&ssl=1", "Peach Cliente", "","", "https://preview.redd.it/xmotbwksh7911.jpg?auto=webp&s=de75f9fff1e3521550925291c68e4ea499a48e0d" ,"19.99", ""));
+        elements.add(new ListElement("https://i.pinimg.com/originals/75/97/12/759712abd30ecec7865705483ddc3b52.png", "Luigi Cliente", "","",  "https://c.tenor.com/P0H97FaEQhoAAAAM/mario-edit-edit.gif" ,"10.99", ""));
 
         ListAdapter listAdapter = new ListAdapter(elements, view.getContext(), new ListAdapter.OnItemClickListener() {
             @Override
@@ -144,8 +144,9 @@ public class MenuProyectoFragmentEditor extends Fragment {
 
         elements = new ArrayList<>();
         //OBTENER INFORMACIÓN DE LA BASE DE DATOS Y INSERTARLA AQUÍ PARA QUE SE MUESTRE
-        elements.add(new ListElement("https://img.unocero.com/2020/07/Super-Mario-Bros-verdadera-nacionalidad-1024x576.jpg", "MarioWopi", "","", "https://cloudfront-us-east-1.images.arcpublishing.com/infobae/MN2XNZY4XJH27KAROURFGYWLYY.jpg" ,"49.99", ""));
+
         elements.add(new ListElement("https://img.unocero.com/2020/07/Super-Mario-Bros-verdadera-nacionalidad-1024x576.jpg", "MarioWopi", "","", "https://preview.redd.it/xmotbwksh7911.jpg?auto=webp&s=de75f9fff1e3521550925291c68e4ea499a48e0d" , "19.99", ""));
+        elements.add(new ListElement("https://img.unocero.com/2020/07/Super-Mario-Bros-verdadera-nacionalidad-1024x576.jpg", "MarioWopi", "","", "https://cloudfront-us-east-1.images.arcpublishing.com/infobae/MN2XNZY4XJH27KAROURFGYWLYY.jpg" ,"49.99", ""));
         elements.add(new ListElement("https://img.unocero.com/2020/07/Super-Mario-Bros-verdadera-nacionalidad-1024x576.jpg", "MarioWopi", "","",  "https://c.tenor.com/P0H97FaEQhoAAAAM/mario-edit-edit.gif" ,"10.99", ""));
 
         ListAdapter listAdapter = new ListAdapter(elements, view.getContext(), new ListAdapter.OnItemClickListener() {

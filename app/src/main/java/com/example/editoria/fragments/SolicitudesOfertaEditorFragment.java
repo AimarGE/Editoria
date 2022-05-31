@@ -101,7 +101,7 @@ public class SolicitudesOfertaEditorFragment extends Fragment {
 
         elements = new ArrayList<>();
         //OBTENER INFORMACIÓN DE LA BASE DE DATOS Y INSERTARLA AQUÍ PARA QUE SE MUESTRE
-        elements.add(new ListElement("https://i.pinimg.com/originals/75/97/12/759712abd30ecec7865705483ddc3b52.png", "Luigi Cliente", "","Edito fotos retro", "https://www.smashbros.com/images/og/luigi.jpg","10.99"));
+        elements.add(new ListElement("https://i.pinimg.com/originals/75/97/12/759712abd30ecec7865705483ddc3b52.png", "Luigi Cliente", "","Edito fotos raras", "https://www.smashbros.com/images/og/luigi.jpg","10.99"));
 
         CartaOfertasPendientes listAdapter = new CartaOfertasPendientes(elements, view.getContext(), new CartaOfertasPendientes.OnItemClickListener() {
             @Override

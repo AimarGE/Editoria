@@ -148,6 +148,8 @@ public class HomeFragment extends Fragment {
             Log.i("proyectos", proyectos.get(i).toString());
 
             elements.add(new ListElement(mapaIcono.get(proyectos.get(i).getNombreUsuario()), proyectos.get(i).getNombreUsuario(), proyectos.get(i).getDescripcion(), proyectos.get(i).getNombre(), proyectos.get(i).getFoto(), proyectos.get(i).getPaqueteMasBarato(), proyectos.get(i).getValoracion()));
+            elements.add(new ListElement("https://img.unocero.com/2020/07/Super-Mario-Bros-verdadera-nacionalidad-1024x576.jpg", "MarioWopi", "","Ediciones de la saga Mario", "https://cloudfront-us-east-1.images.arcpublishing.com/infobae/MN2XNZY4XJH27KAROURFGYWLYY.jpg" ,"49.99", ""));
+            elements.add(new ListElement("https://img.unocero.com/2020/07/Super-Mario-Bros-verdadera-nacionalidad-1024x576.jpg", "MarioWopi", "","Edito fotos guays", "https://preview.redd.it/xmotbwksh7911.jpg?auto=webp&s=de75f9fff1e3521550925291c68e4ea499a48e0d" ,"19.99", ""));
 
         }
 
