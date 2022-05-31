@@ -26,7 +26,7 @@ public class Usuario {
         this.fechaNacimiento = fechaNacimiento;
         this.clase = clase;
         this.pais = pais;
-        this.icono = "";
+        this.icono = "https://user-images.githubusercontent.com/2351721/31314483-7611c488-ac0e-11e7-97d1-3cfc1c79610e.png";
         this.dinero = String.format("%.2f",ThreadLocalRandom.current().nextDouble(1, 500)).replace(",",".");
         this.fotoEvento="";
     }

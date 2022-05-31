@@ -102,7 +102,6 @@ public class HomeFragment extends Fragment {
     }
 
     private void getAllProyectos(){
-
         dRef.child("/Proyectos").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -119,11 +118,9 @@ public class HomeFragment extends Fragment {
     }
 
     private void obtenerProyectosEditores(String key) {
-
         dRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                //proyectos.clear();
                 for (DataSnapshot postSnapshot: snapshot.child("/Proyectos/"+key).getChildren()) {
 
                     Proyecto proyecto = postSnapshot.getValue(Proyecto.class);
